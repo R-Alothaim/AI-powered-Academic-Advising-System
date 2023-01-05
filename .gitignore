@@ -4,3 +4,8 @@ vendor/
 .venv/
 __pycache__/
 *.pyc
+dist/
+
+# Environment
+.env
+*.env.local
