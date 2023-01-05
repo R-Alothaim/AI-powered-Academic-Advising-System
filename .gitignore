@@ -9,3 +9,13 @@ dist/
 # Environment
 .env
 *.env.local
+
+# Runtime
+cache/
+chroma_db/
+*.log
+rag_knowledge.db
+
+# OS
+.DS_Store
+Thumbs.db
