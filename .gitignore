@@ -19,3 +19,14 @@ rag_knowledge.db
 # OS
 .DS_Store
 Thumbs.db
+
+# IDE
+.claude/
+.vscode/
+.idea/
+
+# Documents
+*.pdf
+*.docx
+*.pptx
+*.doc
