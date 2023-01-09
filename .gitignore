@@ -30,3 +30,7 @@ Thumbs.db
 *.docx
 *.pptx
 *.doc
+
+# Temp files
+~$*
+*.tmp
