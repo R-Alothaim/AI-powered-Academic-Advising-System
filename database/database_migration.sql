@@ -19,3 +19,12 @@ ADD COLUMN `last_accessed` TIMESTAMP NULL DEFAULT NULL AFTER `updated_at`;
 
 ALTER TABLE `chats`
 ADD COLUMN `message_count` INT(11) NOT NULL DEFAULT 0 AFTER `title`;
+
+ALTER TABLE `messages`
+MODIFY `sender` VARCHAR(20) NOT NULL DEFAULT 'user';
+
+ALTER TABLE `messages`
+ADD CONSTRAINT `chk_sender` CHECK (`sender` IN ('user', 'bot', 'assistant', 'system'));
+
+ALTER TABLE `chats`
+ADD KEY `idx_user_updated` (`user_id`, `updated_at`);
