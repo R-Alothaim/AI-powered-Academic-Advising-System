@@ -8,3 +8,14 @@ ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`us
 UPDATE `messages` m
 JOIN `chats` c ON m.chat_id = c.id
 SET m.user_id = c.user_id;
+
+ALTER TABLE `messages` MODIFY `user_id` INT(11) NOT NULL;
+
+ALTER TABLE `chats`
+ADD COLUMN `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `created_at`;
+
+ALTER TABLE `chats`
+ADD COLUMN `last_accessed` TIMESTAMP NULL DEFAULT NULL AFTER `updated_at`;
+
+ALTER TABLE `chats`
+ADD COLUMN `message_count` INT(11) NOT NULL DEFAULT 0 AFTER `title`;
