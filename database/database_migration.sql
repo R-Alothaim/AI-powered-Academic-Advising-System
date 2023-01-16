@@ -28,3 +28,12 @@ ADD CONSTRAINT `chk_sender` CHECK (`sender` IN ('user', 'bot', 'assistant', 'sys
 
 ALTER TABLE `chats`
 ADD KEY `idx_user_updated` (`user_id`, `updated_at`);
+
+ALTER TABLE `messages`
+ADD KEY `idx_chat_timestamp` (`chat_id`, `timestamp`);
+
+ALTER TABLE `messages`
+ADD KEY `idx_user_timestamp` (`user_id`, `timestamp`);
+
+ALTER TABLE `messages`
+ADD KEY `idx_sender` (`sender`);
