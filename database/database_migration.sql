@@ -44,3 +44,8 @@ ADD COLUMN `is_archived` TINYINT(1) NOT NULL DEFAULT 0 AFTER `last_accessed`,
 ADD COLUMN `is_pinned` TINYINT(1) NOT NULL DEFAULT 0 AFTER `is_archived`;
 
 ALTER TABLE `chats`
+ADD KEY `idx_active_chats` (`user_id`, `is_archived`, `updated_at`);
+
+ALTER TABLE `users`
+ADD COLUMN `last_login` DATETIME NULL DEFAULT NULL AFTER `is_verified`,
+ADD COLUMN `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `created_at`;
