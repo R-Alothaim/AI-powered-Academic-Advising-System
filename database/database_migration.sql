@@ -37,3 +37,10 @@ ADD KEY `idx_user_timestamp` (`user_id`, `timestamp`);
 
 ALTER TABLE `messages`
 ADD KEY `idx_sender` (`sender`);
+
+ALTER TABLE `chats`
+ADD COLUMN `context` TEXT NULL DEFAULT NULL AFTER `title`,
+ADD COLUMN `is_archived` TINYINT(1) NOT NULL DEFAULT 0 AFTER `last_accessed`,
+ADD COLUMN `is_pinned` TINYINT(1) NOT NULL DEFAULT 0 AFTER `is_archived`;
+
+ALTER TABLE `chats`
