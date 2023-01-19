@@ -60,3 +60,11 @@ UPDATE `chats` c
 SET c.message_count = (
     SELECT COUNT(*) FROM `messages` m WHERE m.chat_id = c.id
 );
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS `messages_after_insert`$$
+CREATE TRIGGER `messages_after_insert`
+AFTER INSERT ON `messages`
+FOR EACH ROW
+BEGIN
