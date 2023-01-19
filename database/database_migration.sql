@@ -49,3 +49,14 @@ ADD KEY `idx_active_chats` (`user_id`, `is_archived`, `updated_at`);
 ALTER TABLE `users`
 ADD COLUMN `last_login` DATETIME NULL DEFAULT NULL AFTER `is_verified`,
 ADD COLUMN `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `created_at`;
+
+ALTER TABLE `users`
+ADD COLUMN `preferences` TEXT NULL DEFAULT NULL AFTER `last_login`;
+
+ALTER TABLE `users`
+ADD KEY `idx_verified` (`is_verified`);
+
+UPDATE `chats` c
+SET c.message_count = (
+    SELECT COUNT(*) FROM `messages` m WHERE m.chat_id = c.id
+);
