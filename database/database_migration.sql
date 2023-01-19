@@ -68,3 +68,11 @@ CREATE TRIGGER `messages_after_insert`
 AFTER INSERT ON `messages`
 FOR EACH ROW
 BEGIN
+    UPDATE `chats` 
+    SET message_count = message_count + 1,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = NEW.chat_id;
+END$$
+
+DROP TRIGGER IF EXISTS `messages_after_delete`$$
+CREATE TRIGGER `messages_after_delete`
