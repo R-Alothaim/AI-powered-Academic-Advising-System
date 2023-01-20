@@ -76,3 +76,12 @@ END$$
 
 DROP TRIGGER IF EXISTS `messages_after_delete`$$
 CREATE TRIGGER `messages_after_delete`
+AFTER DELETE ON `messages`
+FOR EACH ROW
+BEGIN
+    UPDATE `chats` 
+    SET message_count = message_count - 1
+    WHERE id = OLD.chat_id;
+END$$
+
+DELIMITER ;
