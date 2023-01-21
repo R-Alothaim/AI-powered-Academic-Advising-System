@@ -85,3 +85,12 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+CREATE OR REPLACE VIEW `chat_summary` AS
+SELECT 
+    c.id AS chat_id,
+    c.user_id,
+    c.title,
+    c.message_count,
+    c.created_at,
+    c.updated_at,
