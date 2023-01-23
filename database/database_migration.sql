@@ -100,3 +100,8 @@ SELECT
     u.name AS user_name,
     u.email AS user_email,
     (SELECT m.content FROM messages m WHERE m.chat_id = c.id ORDER BY m.timestamp DESC LIMIT 1) AS last_message,
+    (SELECT m.timestamp FROM messages m WHERE m.chat_id = c.id ORDER BY m.timestamp DESC LIMIT 1) AS last_message_time,
+    (SELECT m.sender FROM messages m WHERE m.chat_id = c.id ORDER BY m.timestamp DESC LIMIT 1) AS last_message_sender
+FROM chats c
+JOIN users u ON c.user_id = u.user_id
+ORDER BY c.updated_at DESC;
