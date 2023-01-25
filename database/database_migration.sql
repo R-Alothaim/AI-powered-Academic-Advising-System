@@ -105,3 +105,10 @@ SELECT
 FROM chats c
 JOIN users u ON c.user_id = u.user_id
 ORDER BY c.updated_at DESC;
+
+CREATE TABLE IF NOT EXISTS `conversation_context` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` INT(11) NOT NULL,
+  `context_key` VARCHAR(100) NOT NULL,
+  `context_value` TEXT NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
