@@ -117,3 +117,12 @@ CREATE TABLE IF NOT EXISTS `conversation_context` (
   KEY `idx_chat_key` (`chat_id`, `context_key`),
   CONSTRAINT `context_ibfk_1` FOREIGN KEY (`chat_id`) REFERENCES `chats` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+UPDATE `messages` SET `sender` = 'assistant' WHERE `sender` = 'bot';
+
+SELECT 'Database migration completed successfully!' AS status;
+
+SELECT
+    'users' AS table_name, 
+    COUNT(*) AS record_count 
+FROM users
