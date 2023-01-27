@@ -126,3 +126,11 @@ SELECT
     'users' AS table_name, 
     COUNT(*) AS record_count 
 FROM users
+UNION ALL
+SELECT 
+    'chats' AS table_name, 
+    COUNT(*) AS record_count 
+FROM chats
+UNION ALL
+SELECT 
+    'messages' AS table_name, 
