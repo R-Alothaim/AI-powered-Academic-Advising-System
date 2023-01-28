@@ -134,3 +134,10 @@ FROM chats
 UNION ALL
 SELECT 
     'messages' AS table_name, 
+    COUNT(*) AS record_count 
+FROM messages
+UNION ALL
+SELECT 
+    'conversation_context' AS table_name, 
+    COUNT(*) AS record_count 
+FROM conversation_context;
