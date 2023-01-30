@@ -17,3 +17,11 @@ CREATE TABLE `chats` (
   `title` varchar(100) DEFAULT 'New Chat',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `chat_id` int(11) NOT NULL,
+  `sender` enum('user','bot') NOT NULL,
+  `content` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
