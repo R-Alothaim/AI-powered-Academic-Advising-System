@@ -7,3 +7,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+
+CREATE DATABASE IF NOT EXISTS `university_reviews` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `university_reviews`;
+
+CREATE TABLE `chats` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(100) DEFAULT 'New Chat',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
