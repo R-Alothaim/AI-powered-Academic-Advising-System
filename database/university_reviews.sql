@@ -43,3 +43,8 @@ ALTER TABLE `chats`
 
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `chat_id` (`chat_id`);
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`);
