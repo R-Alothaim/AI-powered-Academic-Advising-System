@@ -32,3 +32,11 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `created_at`,
  1 AS `updated_at`,
  1 AS `last_accessed`,
+ 1 AS `is_archived`,
+ 1 AS `is_pinned`,
+ 1 AS `user_name`,
+ 1 AS `user_email`,
+ 1 AS `last_message`,
+ 1 AS `last_message_time`,
+ 1 AS `last_message_sender`*/;
+SET character_set_client = @saved_cs_client;
