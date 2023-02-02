@@ -24,3 +24,11 @@ DROP TABLE IF EXISTS `chat_summary`;
 /*!50001 DROP VIEW IF EXISTS `chat_summary`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `chat_summary` AS SELECT 
+ 1 AS `chat_id`,
+ 1 AS `user_id`,
+ 1 AS `title`,
+ 1 AS `message_count`,
+ 1 AS `created_at`,
+ 1 AS `updated_at`,
+ 1 AS `last_accessed`,
