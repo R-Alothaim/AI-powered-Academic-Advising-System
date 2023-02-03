@@ -40,3 +40,12 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `last_message_time`,
  1 AS `last_message_sender`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `chats`
+--
+
+DROP TABLE IF EXISTS `chats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chats` (
