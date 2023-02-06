@@ -75,3 +75,11 @@ DROP TABLE IF EXISTS `conversation_context`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `conversation_context` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `context_key` varchar(100) NOT NULL,
+  `context_value` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ix_conversation_context_id` (`id`),
