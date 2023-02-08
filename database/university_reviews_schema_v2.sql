@@ -83,3 +83,11 @@ CREATE TABLE `conversation_context` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ix_conversation_context_id` (`id`),
+  KEY `ix_conversation_context_chat_id` (`chat_id`),
+  CONSTRAINT `conversation_context_ibfk_1` FOREIGN KEY (`chat_id`) REFERENCES `chats` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `messages`
+--
