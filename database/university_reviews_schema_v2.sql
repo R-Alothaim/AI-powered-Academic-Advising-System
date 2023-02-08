@@ -91,3 +91,12 @@ CREATE TABLE `conversation_context` (
 --
 -- Table structure for table `messages`
 --
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `sender` varchar(20) NOT NULL DEFAULT 'user',
