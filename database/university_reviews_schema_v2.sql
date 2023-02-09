@@ -108,3 +108,11 @@ CREATE TABLE `messages` (
   KEY `idx_chat_timestamp` (`chat_id`,`timestamp`),
   KEY `idx_user_timestamp` (`user_id`,`timestamp`),
   KEY `idx_sender` (`sender`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`chat_id`) REFERENCES `mysqldump: Couldn't execute 'SHOW FUNCTION STATUS WHERE Db = 'university_reviews'': Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error (1558)
+chats` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  CONSTRAINT `chk_sender` CHECK (`sender` in ('user','bot','assistant','system'))
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
