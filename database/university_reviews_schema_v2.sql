@@ -124,3 +124,11 @@ chats` (`id`) ON DELETE CASCADE,
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `messages_after_insert`
+AFTER INSERT ON `messages`
+FOR EACH ROW
+BEGIN
+    UPDATE `chats` 
+    SET message_count = message_count + 1,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = NEW.chat_id;
+END */;;
