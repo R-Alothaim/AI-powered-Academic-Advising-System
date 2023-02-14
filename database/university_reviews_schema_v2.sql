@@ -176,3 +176,11 @@ CREATE TABLE `users` (
   `last_login` datetime DEFAULT NULL,
   `preferences` text DEFAULT NULL,
   `otp_hash` varchar(255) DEFAULT NULL,
+  `otp_expires_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `idx_verified` (`is_verified`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
