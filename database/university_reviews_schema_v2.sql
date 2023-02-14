@@ -168,3 +168,11 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
+  `last_login` datetime DEFAULT NULL,
+  `preferences` text DEFAULT NULL,
+  `otp_hash` varchar(255) DEFAULT NULL,
