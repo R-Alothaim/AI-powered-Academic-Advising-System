@@ -184,3 +184,7 @@ CREATE TABLE `users` (
   KEY `idx_verified` (`is_verified`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping routines for database 'university_reviews'
+--
