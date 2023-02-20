@@ -6,3 +6,9 @@ sqlalchemy==2.0.23
 pymysql==1.1.0
 sentence-transformers==2.2.2
 numpy
+torch
+transformers
+bcrypt>=4.0.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+python-dateutil==2.8.2
