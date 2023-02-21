@@ -10,3 +10,14 @@
   overflow: hidden;
   position: relative;
 }
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, #112B6E 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 75%, #1A1060 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, #0D1E50 0%, transparent 70%),
+    #080F27;
+  z-index: 0;
+}
