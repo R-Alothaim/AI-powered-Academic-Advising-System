@@ -21,3 +21,12 @@
     #080F27;
   z-index: 0;
 }
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.18;
+  animation: drift 12s ease-in-out infinite alternate;
+  z-index: 1;
+}
