@@ -73,3 +73,11 @@
   letter-spacing: 0.3px;
 }
 .brand-sub {
+  font-size: 10px;
+  color: rgba(180,200,255,0.55);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero-left {
+  position: fixed;
