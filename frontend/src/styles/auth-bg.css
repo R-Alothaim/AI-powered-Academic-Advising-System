@@ -89,3 +89,11 @@
 }
 .hero-eyebrow {
   font-size: 10px;
+  letter-spacing: 3px;
+  color: #EAD27A;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
