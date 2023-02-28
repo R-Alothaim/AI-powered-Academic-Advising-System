@@ -97,3 +97,13 @@
 }
 .hero-title {
   font-family: 'Playfair Display', Georgia, serif;
+  font-size: 38px;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 30px rgba(10,22,60,0.8);
+}
+.hero-title em {
+  font-style: normal;
+  color: #EAD27A;
+}
