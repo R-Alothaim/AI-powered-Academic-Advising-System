@@ -107,3 +107,14 @@
   font-style: normal;
   color: #EAD27A;
 }
+.hero-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(160,190,255,0.75);
+  margin-bottom: 28px;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
