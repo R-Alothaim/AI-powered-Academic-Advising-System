@@ -127,3 +127,11 @@
   color: rgba(140,180,255,0.8);
   background: rgba(30,60,140,0.25);
 }
+
+.card-wrap {
+  position: relative;
+  z-index: 20;
+  margin-left: 340px;
+}
+.auth-card {
+  width: 420px;
