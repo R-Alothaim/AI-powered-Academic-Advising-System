@@ -118,3 +118,12 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+.pill {
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border: 0.8px solid rgba(80,130,255,0.4);
+  border-radius: 20px;
+  color: rgba(140,180,255,0.8);
+  background: rgba(30,60,140,0.25);
+}
