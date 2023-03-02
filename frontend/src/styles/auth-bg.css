@@ -149,3 +149,9 @@
   justify-content: center;
   gap: 7px;
   margin-bottom: 24px;
+}
+.badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #EAD27A;
+  box-shadow: 0 0 8px #EAD27A;
+}
