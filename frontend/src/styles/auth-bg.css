@@ -155,3 +155,11 @@
   background: #EAD27A;
   box-shadow: 0 0 8px #EAD27A;
 }
+.badge-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: #EAD27A;
+  text-transform: uppercase;
+}
+.auth-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
