@@ -169,3 +169,9 @@
   text-align: center;
   margin-bottom: 6px;
 }
+.auth-card .sub {
+  font-size: 12px;
+  color: rgba(160,185,255,0.6);
+  text-align: center;
+  margin-bottom: 28px;
+}
