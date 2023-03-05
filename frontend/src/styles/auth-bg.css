@@ -175,3 +175,9 @@
   text-align: center;
   margin-bottom: 28px;
 }
+
+.field {
+  margin-bottom: 14px;
+}
+.field label {
+  display: block;
