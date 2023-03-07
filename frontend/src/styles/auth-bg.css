@@ -199,3 +199,11 @@
   outline: none;
   transition: border-color 0.2s;
 }
+.field input::placeholder { color: rgba(160,180,255,0.3); }
+.field input:focus { border-color: rgba(100,150,255,0.5); }
+
+.btn-auth {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  background: linear-gradient(135deg, #2458D4 0%, #1A3EA8 100%);
