@@ -207,3 +207,11 @@
   margin-top: 22px;
   padding: 14px;
   background: linear-gradient(135deg, #2458D4 0%, #1A3EA8 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
