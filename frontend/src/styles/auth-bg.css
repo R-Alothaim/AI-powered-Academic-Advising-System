@@ -244,3 +244,10 @@
   color: rgba(120,160,255,0.7);
   text-decoration: none;
 }
+.card-links a:hover {
+  color: rgba(160,200,255,0.9);
+}
+
+.auth-card .auth-error { color: #ff6b6b; font-size: 13px; margin-bottom: 14px; text-align: center; }
+.auth-card .auth-success { color: #69db7c; font-size: 13px; margin-bottom: 14px; text-align: center; }
+.auth-card .auth-info { color: rgba(160,190,255,0.7); font-size: 13px; margin-bottom: 18px; text-align: center; }
