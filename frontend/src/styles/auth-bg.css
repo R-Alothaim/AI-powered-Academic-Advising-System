@@ -270,3 +270,11 @@
   display: flex;
   gap: 36px;
 }
+.stat { text-align: left; }
+.stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #EAD27A;
+}
+.stat-label {
+  font-size: 10px;
