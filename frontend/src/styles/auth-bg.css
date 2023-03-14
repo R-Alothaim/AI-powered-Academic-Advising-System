@@ -286,3 +286,11 @@
 
 .caption {
   position: fixed;
+  bottom: 28px;
+  right: 36px;
+  font-size: 10px;
+  color: rgba(120,150,210,0.35);
+  letter-spacing: 1px;
+  z-index: 10;
+  text-transform: uppercase;
+}
