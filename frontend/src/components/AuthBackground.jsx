@@ -30,3 +30,11 @@ export default function AuthBackground() {
           <line x1="1200" y1="440" x2="1100" y2="620" />
           <line x1="1100" y1="620" x2="1280" y2="750" />
           <line x1="1100" y1="620" x2="1000" y2="780" />
+          <line x1="700" y1="50" x2="780" y2="130" />
+          <line x1="780" y1="130" x2="850" y2="60" />
+          <line x1="700" y1="820" x2="760" y2="760" />
+          <line x1="760" y1="760" x2="840" y2="840" />
+        </g>
+        <g fill="#1B3D9C" stroke="#4A7AFF" strokeWidth="1">
+          <circle cx="80" cy="120" r="5" />
+          <circle cx="200" cy="220" r="9" />
