@@ -38,3 +38,11 @@ export default function AuthBackground() {
         <g fill="#1B3D9C" stroke="#4A7AFF" strokeWidth="1">
           <circle cx="80" cy="120" r="5" />
           <circle cx="200" cy="220" r="9" />
+          <circle cx="150" cy="380" r="7" />
+          <circle cx="320" cy="160" r="5" />
+          <circle cx="420" cy="90" r="4" />
+          <circle cx="90" cy="500" r="6" />
+          <circle cx="250" cy="480" r="5" />
+          <circle cx="60" cy="680" r="4" />
+          <circle cx="180" cy="700" r="5" />
+          <circle cx="1100" cy="80" r="5" />
