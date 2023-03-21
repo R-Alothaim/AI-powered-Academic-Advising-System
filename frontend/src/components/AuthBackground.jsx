@@ -78,3 +78,11 @@ export default function AuthBackground() {
             />
           </svg>
         </div>
+        <div className="brand-text">
+          <div className="brand-name">Academic Advisor</div>
+          <div className="brand-sub">AI-Powered Academic System</div>
+        </div>
+      </div>
+
+      <div className="hero-left">
+        <div className="hero-eyebrow">Intelligent &middot; Personalized &middot; Academic</div>
