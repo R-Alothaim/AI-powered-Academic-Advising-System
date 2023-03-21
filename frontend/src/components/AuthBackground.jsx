@@ -62,3 +62,11 @@ export default function AuthBackground() {
           <circle cx="760" cy="760" r="6" />
           <circle cx="840" cy="840" r="4" />
         </g>
+        <circle cx="200" cy="220" r="16" fill="#1B3D9C" stroke="#5AAEFF" strokeWidth="1" opacity="0.4" />
+        <circle cx="1250" cy="180" r="16" fill="#1B3D9C" stroke="#5AAEFF" strokeWidth="1" opacity="0.4" />
+        <circle cx="1200" cy="440" r="14" fill="#1B3D9C" stroke="#5AAEFF" strokeWidth="1" opacity="0.4" />
+      </svg>
+
+      <div className="brand">
+        <div className="brand-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
