@@ -86,3 +86,11 @@ export default function AuthBackground() {
 
       <div className="hero-left">
         <div className="hero-eyebrow">Intelligent &middot; Personalized &middot; Academic</div>
+        <div className="hero-title">
+          Your <em>Academic</em>
+          <br />
+          Path, Guided
+          <br />
+          by AI
+        </div>
+        <div className="hero-desc">
