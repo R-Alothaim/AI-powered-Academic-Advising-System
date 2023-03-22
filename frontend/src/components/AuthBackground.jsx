@@ -94,3 +94,13 @@ export default function AuthBackground() {
           by AI
         </div>
         <div className="hero-desc">
+          Get instant, personalized guidance on courses, degree plans, deadlines, and career
+          paths &mdash; available 24/7 through our intelligent advisor.
+        </div>
+        <div className="hero-pills">
+          <span className="pill">GPA Planning</span>
+          <span className="pill">Course Search</span>
+          <span className="pill">Career Paths</span>
+          <span className="pill">Scheduling</span>
+        </div>
+      </div>
