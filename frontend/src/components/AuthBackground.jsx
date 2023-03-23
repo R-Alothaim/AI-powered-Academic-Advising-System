@@ -104,3 +104,12 @@ export default function AuthBackground() {
           <span className="pill">Scheduling</span>
         </div>
       </div>
+
+      <div className="stats">
+        <div className="stat">
+          <div className="stat-num">24/7</div>
+          <div className="stat-label">Availability</div>
+        </div>
+        <div className="stat">
+          <div className="stat-num">10K+</div>
+          <div className="stat-label">Students Guided</div>
