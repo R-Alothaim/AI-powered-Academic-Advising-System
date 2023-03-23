@@ -123,3 +123,4 @@ export default function AuthBackground() {
       <div className="caption">University Academic AI System</div>
     </>
   );
+}
