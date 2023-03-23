@@ -113,3 +113,13 @@ export default function AuthBackground() {
         <div className="stat">
           <div className="stat-num">10K+</div>
           <div className="stat-label">Students Guided</div>
+        </div>
+        <div className="stat">
+          <div className="stat-num">500+</div>
+          <div className="stat-label">Courses Mapped</div>
+        </div>
+      </div>
+
+      <div className="caption">University Academic AI System</div>
+    </>
+  );
