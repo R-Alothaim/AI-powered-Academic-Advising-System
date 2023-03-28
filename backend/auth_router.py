@@ -33,3 +33,10 @@ ALLOWED_DOMAINS = ["university.edu.sa"]
 def _db_dependency():
     gen = _get_db()
     try:
+        db = next(gen)
+        yield db
+    finally:
+        try:
+            next(gen)
+        except StopIteration:
+            pass
