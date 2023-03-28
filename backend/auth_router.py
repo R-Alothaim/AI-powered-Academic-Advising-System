@@ -25,3 +25,11 @@ _Base = None
 _User = None
 
 JWT_SECRET = os.getenv("JWT_SECRET", secrets.token_hex(32))
+if not os.getenv("JWT_SECRET"):
+    logger.warning("JWT_SECRET not set — using random secret (tokens will not survive restarts)")
+JWT_EXPIRY_HOURS = 24
+ALLOWED_DOMAINS = ["university.edu.sa"]
+
+def _db_dependency():
+    gen = _get_db()
+    try:
