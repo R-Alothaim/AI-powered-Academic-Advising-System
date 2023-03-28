@@ -40,3 +40,12 @@ def _db_dependency():
             next(gen)
         except StopIteration:
             pass
+
+def _hash_password(password: str) -> str:
+    salt = secrets.token_hex(16)
+    h = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), 100_000)
+    return f"{salt}${h.hex()}"
+
+def _verify_password(password: str, stored: str) -> bool:
+    if not stored:
+        return False
