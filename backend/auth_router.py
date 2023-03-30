@@ -49,3 +49,14 @@ def _hash_password(password: str) -> str:
 def _verify_password(password: str, stored: str) -> bool:
     if not stored:
         return False
+    if stored.startswith("$2y$") or stored.startswith("$2b$") or stored.startswith("$2a$"):
+        try:
+            normalized = stored.replace("$2y$", "$2b$", 1)
+            return bcrypt.checkpw(password.encode(), normalized.encode())
+        except Exception:
+            return False
+    if "$" not in stored:
+        return False
+    salt, h = stored.split("$", 1)
+    check = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), 100_000)
+    return hmac.compare_digest(check.hex(), h)
