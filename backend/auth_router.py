@@ -60,3 +60,13 @@ def _verify_password(password: str, stored: str) -> bool:
     salt, h = stored.split("$", 1)
     check = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), 100_000)
     return hmac.compare_digest(check.hex(), h)
+
+def _make_jwt(user_id: int, name: str, email: str, created_at) -> str:
+    header = base64.urlsafe_b64encode(json.dumps({"alg": "HS256", "typ": "JWT"}).encode()).decode().rstrip("=")
+    payload_dict = {
+        "user_id": user_id,
+        "name": name,
+        "email": email,
+        "created_at": str(created_at) if created_at else None,
+        "exp": (datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRY_HOURS)).timestamp(),
+    }
