@@ -70,3 +70,11 @@ def _make_jwt(user_id: int, name: str, email: str, created_at) -> str:
         "created_at": str(created_at) if created_at else None,
         "exp": (datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRY_HOURS)).timestamp(),
     }
+    payload = base64.urlsafe_b64encode(json.dumps(payload_dict).encode()).decode().rstrip("=")
+    sig = hmac.new(JWT_SECRET.encode(), f"{header}.{payload}".encode(), hashlib.sha256).hexdigest()
+    return f"{header}.{payload}.{sig}"
+
+def _decode_jwt(token: str) -> dict:
+    parts = token.split(".")
+    if len(parts) != 3:
+        raise ValueError("bad token")
