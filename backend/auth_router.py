@@ -87,3 +87,12 @@ def _decode_jwt(token: str) -> dict:
     if data["exp"] < datetime.now(timezone.utc).timestamp():
         raise ValueError("expired")
     return data
+
+def _get_current_user(request: Request) -> dict:
+    auth_header = request.headers.get("Authorization", "")
+    if not auth_header.startswith("Bearer "):
+        raise HTTPException(401, "Not authenticated")
+    try:
+        return _decode_jwt(auth_header[7:])
+    except Exception:
+        raise HTTPException(401, "Invalid or expired token")
