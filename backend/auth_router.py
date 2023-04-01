@@ -78,3 +78,12 @@ def _decode_jwt(token: str) -> dict:
     parts = token.split(".")
     if len(parts) != 3:
         raise ValueError("bad token")
+    header, payload, sig = parts
+    expected = hmac.new(JWT_SECRET.encode(), f"{header}.{payload}".encode(), hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(expected, sig):
+        raise ValueError("bad signature")
+    pad = lambda s: s + "=" * (-len(s) % 4)
+    data = json.loads(base64.urlsafe_b64decode(pad(payload)))
+    if data["exp"] < datetime.now(timezone.utc).timestamp():
+        raise ValueError("expired")
+    return data
