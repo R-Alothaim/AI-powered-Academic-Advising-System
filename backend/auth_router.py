@@ -114,3 +114,12 @@ def _is_strong_password(p: str) -> bool:
 
 def _generate_otp() -> str:
     return f"{secrets.randbelow(900000) + 100000}"
+
+class LoginIn(BaseModel):
+    email: str
+    password: str
+
+class RegisterIn(BaseModel):
+    name: str
+    email: str
+    password: str
