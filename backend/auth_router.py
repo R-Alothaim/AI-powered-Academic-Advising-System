@@ -96,3 +96,12 @@ def _get_current_user(request: Request) -> dict:
         return _decode_jwt(auth_header[7:])
     except Exception:
         raise HTTPException(401, "Invalid or expired token")
+
+def _is_valid_email(email: str) -> bool:
+    if not email or "@" not in email:
+        return False
+    domain = email.split("@", 1)[1].lower()
+    return domain in ALLOWED_DOMAINS
+
+def _is_strong_password(p: str) -> bool:
+    return (
