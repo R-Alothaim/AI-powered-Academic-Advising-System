@@ -105,3 +105,12 @@ def _is_valid_email(email: str) -> bool:
 
 def _is_strong_password(p: str) -> bool:
     return (
+        len(p) >= 8
+        and bool(re.search(r"[A-Z]", p))
+        and bool(re.search(r"[a-z]", p))
+        and bool(re.search(r"\d", p))
+        and bool(re.search(r"[^A-Za-z0-9]", p))
+    )
+
+def _generate_otp() -> str:
+    return f"{secrets.randbelow(900000) + 100000}"
