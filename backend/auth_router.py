@@ -143,3 +143,12 @@ def setup(get_db, Base, engine):
     global _get_db, _Base, _User
 
     _get_db = get_db
+
+    class User(Base):
+        __tablename__ = "users"
+        __table_args__ = {"extend_existing": True}
+        user_id = Column(Integer, primary_key=True, autoincrement=True)
+        name = Column(String(255))
+        email = Column(String(255), unique=True)
+        password = Column(String(255))
+        is_verified = Column(Integer, default=0)
