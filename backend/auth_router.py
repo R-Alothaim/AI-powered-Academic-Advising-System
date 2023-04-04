@@ -123,3 +123,14 @@ class RegisterIn(BaseModel):
     name: str
     email: str
     password: str
+
+class OtpIn(BaseModel):
+    email: str
+    code: str
+
+class EmailIn(BaseModel):
+    email: str
+
+class ResetIn(BaseModel):
+    email: str
+    otp: str
