@@ -134,3 +134,12 @@ class EmailIn(BaseModel):
 class ResetIn(BaseModel):
     email: str
     otp: str
+
+class PasswordChangeIn(BaseModel):
+    new_password: str
+    confirm_password: str
+
+def setup(get_db, Base, engine):
+    global _get_db, _Base, _User
+
+    _get_db = get_db
