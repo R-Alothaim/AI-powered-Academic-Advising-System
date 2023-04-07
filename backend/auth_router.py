@@ -152,3 +152,10 @@ def setup(get_db, Base, engine):
         email = Column(String(255), unique=True)
         password = Column(String(255))
         is_verified = Column(Integer, default=0)
+        otp_hash = Column(String(255), nullable=True)
+        otp_expires_at = Column(DateTime, nullable=True)
+        created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+        updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    _User = User
+    Base.metadata.create_all(bind=engine)
