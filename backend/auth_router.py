@@ -159,3 +159,12 @@ def setup(get_db, Base, engine):
 
     _User = User
     Base.metadata.create_all(bind=engine)
+
+@router.post("/register")
+async def register(data: RegisterIn, db: Session = Depends(_db_dependency)):
+    if not _is_valid_email(data.email):
+        raise HTTPException(400, "Only @university.edu.sa emails are allowed")
+    if not _is_strong_password(data.password):
+        raise HTTPException(400, "Password must be 8+ chars with upper, lower, digit, and special character")
+
+    existing = db.query(_User).filter(_User.email == data.email).first()
