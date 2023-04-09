@@ -168,3 +168,11 @@ async def register(data: RegisterIn, db: Session = Depends(_db_dependency)):
         raise HTTPException(400, "Password must be 8+ chars with upper, lower, digit, and special character")
 
     existing = db.query(_User).filter(_User.email == data.email).first()
+    if existing and existing.is_verified:
+        raise HTTPException(400, "Email already registered")
+    if existing and not existing.is_verified:
+        db.delete(existing)
+        db.commit()
+
+    otp = _generate_otp()
+    user = _User(
