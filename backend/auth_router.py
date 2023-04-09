@@ -176,3 +176,13 @@ async def register(data: RegisterIn, db: Session = Depends(_db_dependency)):
 
     otp = _generate_otp()
     user = _User(
+        name=data.name.strip(),
+        email=data.email.lower().strip(),
+        password=_hash_password(data.password),
+        is_verified=0,
+        otp_hash=_hash_password(otp),
+        otp_expires_at=datetime.now(timezone.utc) + timedelta(minutes=10),
+    )
+    db.add(user)
+    db.commit()
+    db.refresh(user)
