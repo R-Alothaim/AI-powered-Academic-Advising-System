@@ -186,3 +186,14 @@ async def register(data: RegisterIn, db: Session = Depends(_db_dependency)):
     db.add(user)
     db.commit()
     db.refresh(user)
+
+    # TODO: Send OTP via email (SMTP). For dev, check server logs at DEBUG level.
+    logger.debug(f"[DEV-ONLY] OTP for {data.email}: {otp}")
+
+    return {"message": "OTP sent to your email", "email": data.email}
+
+@router.post("/login")
+async def login(data: LoginIn, db: Session = Depends(_db_dependency)):
+    user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
+    if not user:
+        raise HTTPException(401, "Invalid email or password")
