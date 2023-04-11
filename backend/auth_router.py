@@ -197,3 +197,12 @@ async def login(data: LoginIn, db: Session = Depends(_db_dependency)):
     user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
     if not user:
         raise HTTPException(401, "Invalid email or password")
+
+    if not _verify_password(data.password, user.password):
+        raise HTTPException(401, "Invalid email or password")
+
+    if user.password and (user.password.startswith("$2y$") or user.password.startswith("$2b$") or user.password.startswith("$2a$")):
+        user.password = _hash_password(data.password)
+        db.commit()
+
+    if not user.is_verified:
