@@ -214,3 +214,12 @@ async def login(data: LoginIn, db: Session = Depends(_db_dependency)):
         return {"requires_verification": True, "email": data.email, "message": "Please verify your email first"}
 
     token = _make_jwt(user.user_id, user.name, user.email, user.created_at)
+    return {
+        "token": token,
+        "user": {
+            "user_id": user.user_id,
+            "name": user.name,
+            "email": user.email,
+            "created_at": str(user.created_at),
+        },
+    }
