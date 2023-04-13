@@ -206,3 +206,11 @@ async def login(data: LoginIn, db: Session = Depends(_db_dependency)):
         db.commit()
 
     if not user.is_verified:
+        otp = _generate_otp()
+        user.otp_hash = _hash_password(otp)
+        user.otp_expires_at = datetime.now(timezone.utc) + timedelta(minutes=10)
+        db.commit()
+        logger.debug(f"[DEV-ONLY] Verification OTP for {data.email}: {otp}")
+        return {"requires_verification": True, "email": data.email, "message": "Please verify your email first"}
+
+    token = _make_jwt(user.user_id, user.name, user.email, user.created_at)
