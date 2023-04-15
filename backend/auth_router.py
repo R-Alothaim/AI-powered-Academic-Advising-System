@@ -223,3 +223,11 @@ async def login(data: LoginIn, db: Session = Depends(_db_dependency)):
             "created_at": str(user.created_at),
         },
     }
+
+@router.post("/verify-otp")
+async def verify_otp(data: OtpIn, db: Session = Depends(_db_dependency)):
+    user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
+    if not user:
+        raise HTTPException(400, "Invalid request")
+    if not user.otp_hash or not user.otp_expires_at:
+        raise HTTPException(400, "No OTP pending")
