@@ -251,3 +251,14 @@ async def verify_otp(data: OtpIn, db: Session = Depends(_db_dependency)):
             "created_at": str(user.created_at),
         },
     }
+
+@router.post("/resend-otp")
+async def resend_otp(data: EmailIn, db: Session = Depends(_db_dependency)):
+    user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
+    if not user:
+        return {"message": "If an account exists, a new OTP has been sent"}
+
+    otp = _generate_otp()
+    user.otp_hash = _hash_password(otp)
+    user.otp_expires_at = datetime.now(timezone.utc) + timedelta(minutes=10)
+    db.commit()
