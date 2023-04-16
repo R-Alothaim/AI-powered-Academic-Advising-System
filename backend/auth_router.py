@@ -240,3 +240,14 @@ async def verify_otp(data: OtpIn, db: Session = Depends(_db_dependency)):
     user.otp_hash = None
     user.otp_expires_at = None
     db.commit()
+
+    token = _make_jwt(user.user_id, user.name, user.email, user.created_at)
+    return {
+        "token": token,
+        "user": {
+            "user_id": user.user_id,
+            "name": user.name,
+            "email": user.email,
+            "created_at": str(user.created_at),
+        },
+    }
