@@ -231,3 +231,12 @@ async def verify_otp(data: OtpIn, db: Session = Depends(_db_dependency)):
         raise HTTPException(400, "Invalid request")
     if not user.otp_hash or not user.otp_expires_at:
         raise HTTPException(400, "No OTP pending")
+    if datetime.now(timezone.utc) > user.otp_expires_at.replace(tzinfo=timezone.utc):
+        raise HTTPException(400, "OTP has expired. Please request a new one.")
+    if not _verify_password(data.code, user.otp_hash):
+        raise HTTPException(400, "Invalid OTP code")
+
+    user.is_verified = 1
+    user.otp_hash = None
+    user.otp_expires_at = None
+    db.commit()
