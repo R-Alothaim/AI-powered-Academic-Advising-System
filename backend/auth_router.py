@@ -294,3 +294,13 @@ async def reset_password(data: ResetIn, db: Session = Depends(_db_dependency)):
         raise HTTPException(400, "OTP has expired")
     if not _verify_password(data.otp, user.otp_hash):
         raise HTTPException(400, "Invalid OTP code")
+
+    temp_password = secrets.token_urlsafe(8)
+    user.password = _hash_password(temp_password)
+    user.otp_hash = None
+    user.otp_expires_at = None
+    db.commit()
+
+    # TODO: Send temp password via email (SMTP)
+    logger.debug(f"[DEV-ONLY] Temp password for {data.email}: {temp_password}")
+    return {"message": "A temporary password has been sent to your email"}
