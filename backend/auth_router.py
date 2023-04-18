@@ -274,3 +274,11 @@ async def forgot_password(data: EmailIn, db: Session = Depends(_db_dependency)):
     user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
     if not user:
         return {"message": "If an account exists, an OTP has been sent", "email": data.email}
+
+    otp = _generate_otp()
+    user.otp_hash = _hash_password(otp)
+    user.otp_expires_at = datetime.now(timezone.utc) + timedelta(minutes=10)
+    db.commit()
+
+    logger.debug(f"[DEV-ONLY] Forgot-password OTP for {data.email}: {otp}")
+    return {"message": "If an account exists, an OTP has been sent", "email": data.email}
