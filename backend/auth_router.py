@@ -282,3 +282,15 @@ async def forgot_password(data: EmailIn, db: Session = Depends(_db_dependency)):
 
     logger.debug(f"[DEV-ONLY] Forgot-password OTP for {data.email}: {otp}")
     return {"message": "If an account exists, an OTP has been sent", "email": data.email}
+
+@router.post("/reset-password")
+async def reset_password(data: ResetIn, db: Session = Depends(_db_dependency)):
+    user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
+    if not user:
+        raise HTTPException(400, "Invalid request")
+    if not user.otp_hash or not user.otp_expires_at:
+        raise HTTPException(400, "No OTP pending")
+    if datetime.now(timezone.utc) > user.otp_expires_at.replace(tzinfo=timezone.utc):
+        raise HTTPException(400, "OTP has expired")
+    if not _verify_password(data.otp, user.otp_hash):
+        raise HTTPException(400, "Invalid OTP code")
