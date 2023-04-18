@@ -262,3 +262,15 @@ async def resend_otp(data: EmailIn, db: Session = Depends(_db_dependency)):
     user.otp_hash = _hash_password(otp)
     user.otp_expires_at = datetime.now(timezone.utc) + timedelta(minutes=10)
     db.commit()
+
+    logger.debug(f"[DEV-ONLY] Resend OTP for {data.email}: {otp}")
+    return {"message": "If an account exists, a new OTP has been sent"}
+
+@router.post("/forgot-password")
+async def forgot_password(data: EmailIn, db: Session = Depends(_db_dependency)):
+    if not _is_valid_email(data.email):
+        raise HTTPException(400, "Only @university.edu.sa emails are allowed")
+
+    user = db.query(_User).filter(_User.email == data.email.lower().strip()).first()
+    if not user:
+        return {"message": "If an account exists, an OTP has been sent", "email": data.email}
