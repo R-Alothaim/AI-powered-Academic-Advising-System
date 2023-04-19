@@ -313,3 +313,11 @@ async def get_user(user_id: int, request: Request, db: Session = Depends(_db_dep
     user = db.query(_User).filter(_User.user_id == user_id).first()
     if not user:
         raise HTTPException(404, "User not found")
+    return {
+        "user_id": user.user_id,
+        "name": user.name,
+        "email": user.email,
+        "created_at": str(user.created_at),
+    }
+
+@user_router.post("/users/{user_id}/change-password")
