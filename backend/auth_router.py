@@ -304,3 +304,12 @@ async def reset_password(data: ResetIn, db: Session = Depends(_db_dependency)):
     # TODO: Send temp password via email (SMTP)
     logger.debug(f"[DEV-ONLY] Temp password for {data.email}: {temp_password}")
     return {"message": "A temporary password has been sent to your email"}
+
+@user_router.get("/users/{user_id}")
+async def get_user(user_id: int, request: Request, db: Session = Depends(_db_dependency)):
+    current = _get_current_user(request)
+    if current["user_id"] != user_id:
+        raise HTTPException(403, "Forbidden")
+    user = db.query(_User).filter(_User.user_id == user_id).first()
+    if not user:
+        raise HTTPException(404, "User not found")
