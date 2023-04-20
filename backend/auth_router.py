@@ -329,3 +329,11 @@ async def change_password(user_id: int, data: PasswordChangeIn, request: Request
     if not user:
         raise HTTPException(404, "User not found")
     if data.new_password != data.confirm_password:
+        raise HTTPException(400, "Passwords do not match")
+    if not _is_strong_password(data.new_password):
+        raise HTTPException(400, "Password must be 8+ chars with upper, lower, digit, and special character")
+    user.password = _hash_password(data.new_password)
+    db.commit()
+    return {"message": "Password changed successfully"}
+
+@user_router.delete("/users/{user_id}")
