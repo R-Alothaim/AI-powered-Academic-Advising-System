@@ -9,3 +9,13 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const next = location.state?.from?.pathname || '/dashboard/chats';
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+    setLoading(true);
