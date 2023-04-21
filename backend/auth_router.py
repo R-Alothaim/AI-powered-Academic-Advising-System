@@ -337,3 +337,13 @@ async def change_password(user_id: int, data: PasswordChangeIn, request: Request
     return {"message": "Password changed successfully"}
 
 @user_router.delete("/users/{user_id}")
+async def delete_user(user_id: int, request: Request, db: Session = Depends(_db_dependency)):
+    current = _get_current_user(request)
+    if current["user_id"] != user_id:
+        raise HTTPException(403, "Forbidden")
+    user = db.query(_User).filter(_User.user_id == user_id).first()
+    if not user:
+        raise HTTPException(404, "User not found")
+    db.delete(user)
+    db.commit()
+    return {"message": "Account deleted successfully"}
