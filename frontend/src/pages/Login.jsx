@@ -19,3 +19,11 @@ export default function Login() {
     e.preventDefault();
     setErrors([]);
     setLoading(true);
+
+    try {
+      const data = await login(email, password);
+
+      if (data.requires_verification) {
+        navigate('/otp-verify', { state: { email } });
+        return;
+      }
