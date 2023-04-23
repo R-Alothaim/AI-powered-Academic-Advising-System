@@ -27,3 +27,15 @@ export default function Login() {
         navigate('/otp-verify', { state: { email } });
         return;
       }
+
+      navigate(next, { replace: true });
+    } catch (err) {
+      setErrors([err.message]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <AuthBackground />
