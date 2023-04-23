@@ -48,3 +48,11 @@ export default function Login() {
           </div>
           <h2>Sign In</h2>
           <p className="sub">* Only @university.edu.sa emails are allowed</p>
+
+          {errors.length > 0 && (
+            <div className="auth-error">
+              {errors.map((err, i) => (
+                <p key={i}>{err}</p>
+              ))}
+            </div>
+          )}
