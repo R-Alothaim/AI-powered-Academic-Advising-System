@@ -39,3 +39,12 @@ export default function Login() {
   return (
     <div className="auth-page">
       <AuthBackground />
+
+      <div className="card-wrap">
+        <div className="auth-card">
+          <div className="card-badge">
+            <div className="badge-dot" />
+            <span className="badge-label">Secure University Portal</span>
+          </div>
+          <h2>Sign In</h2>
+          <p className="sub">* Only @university.edu.sa emails are allowed</p>
