@@ -56,3 +56,12 @@ export default function Login() {
               ))}
             </div>
           )}
+
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="field">
+              <label>Email Address</label>
+              <input
+                type="email"
+                placeholder="Your Email (@university.edu.sa)"
+                required
+                value={email}
