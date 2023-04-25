@@ -73,3 +73,11 @@ export default function Login() {
             <div className="field">
               <label>Password</label>
               <input
+                type="password"
+                placeholder="••••••••"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+            </div>
