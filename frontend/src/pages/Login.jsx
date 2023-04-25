@@ -65,3 +65,11 @@ export default function Login() {
                 placeholder="Your Email (@university.edu.sa)"
                 required
                 value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="field">
+              <label>Password</label>
+              <input
