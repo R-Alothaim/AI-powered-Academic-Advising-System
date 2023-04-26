@@ -81,3 +81,12 @@ export default function Login() {
                 autoComplete="current-password"
               />
             </div>
+
+            <button type="submit" className="btn-auth" disabled={loading}>
+              {loading ? 'Signing in...' : 'Login'}
+            </button>
+
+            <div className="card-links">
+              <Link to="/register" state={{ next }}>
+                Create an account
+              </Link>
