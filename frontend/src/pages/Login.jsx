@@ -90,3 +90,11 @@ export default function Login() {
               <Link to="/register" state={{ next }}>
                 Create an account
               </Link>
+              <Link to="/forgot-password">Forgot password?</Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
