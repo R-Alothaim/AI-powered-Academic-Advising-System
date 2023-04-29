@@ -27,3 +27,13 @@ export default function Register() {
     if (password !== rePassword) errs.push('Passwords do not match');
     return errs;
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (validationErrors.length) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors([]);
+    setLoading(true);
