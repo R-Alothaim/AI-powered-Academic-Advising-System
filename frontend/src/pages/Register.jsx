@@ -47,3 +47,12 @@ export default function Register() {
       setLoading(false);
     }
   };
+
+  return (
+    <div className="auth-page">
+      <AuthBackground />
+
+      <div className="card-wrap">
+        <div className="auth-card">
+          <div className="card-badge">
+            <div className="badge-dot" />
