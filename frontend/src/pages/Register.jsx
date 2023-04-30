@@ -37,3 +37,13 @@ export default function Register() {
     }
     setErrors([]);
     setLoading(true);
+
+    try {
+      await register(name.trim(), email, password);
+      navigate('/otp-verify', { state: { email } });
+    } catch (err) {
+      setErrors([err.message]);
+    } finally {
+      setLoading(false);
+    }
+  };
