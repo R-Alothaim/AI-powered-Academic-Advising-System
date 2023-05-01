@@ -56,3 +56,11 @@ export default function Register() {
         <div className="auth-card">
           <div className="card-badge">
             <div className="badge-dot" />
+            <span className="badge-label">Create Account</span>
+          </div>
+          <h2>Sign Up</h2>
+          <p className="sub">* Only @university.edu.sa emails are allowed</p>
+
+          {errors.length > 0 && (
+            <div className="auth-error">
+              {errors.map((err, i) => (
