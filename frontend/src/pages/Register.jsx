@@ -64,3 +64,11 @@ export default function Register() {
           {errors.length > 0 && (
             <div className="auth-error">
               {errors.map((err, i) => (
+                <p key={i}>{err}</p>
+              ))}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="field">
+              <label>Full Name</label>
