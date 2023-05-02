@@ -72,3 +72,12 @@ export default function Register() {
           <form onSubmit={handleSubmit} noValidate>
             <div className="field">
               <label>Full Name</label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="name"
+              />
+            </div>
