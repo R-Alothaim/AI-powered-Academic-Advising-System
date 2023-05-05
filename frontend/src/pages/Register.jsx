@@ -93,3 +93,15 @@ export default function Register() {
                 autoComplete="email"
               />
             </div>
+
+            <div className="field">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="new-password"
+              />
+            </div>
