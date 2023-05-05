@@ -105,3 +105,15 @@ export default function Register() {
                 autoComplete="new-password"
               />
             </div>
+
+            <div className="field">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                required
+                value={rePassword}
+                onChange={(e) => setRePassword(e.target.value)}
+                autoComplete="new-password"
+              />
+            </div>
