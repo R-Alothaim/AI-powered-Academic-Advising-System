@@ -81,3 +81,15 @@ export default function Register() {
                 autoComplete="name"
               />
             </div>
+
+            <div className="field">
+              <label>Email Address</label>
+              <input
+                type="email"
+                placeholder="Your Email (@university.edu.sa)"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+              />
+            </div>
