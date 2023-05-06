@@ -117,3 +117,16 @@ export default function Register() {
                 autoComplete="new-password"
               />
             </div>
+
+            <button type="submit" className="btn-auth" disabled={loading}>
+              {loading ? 'Creating account...' : 'Register'}
+            </button>
+
+            <div className="card-links">
+              <Link to="/login">I am already a member</Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
