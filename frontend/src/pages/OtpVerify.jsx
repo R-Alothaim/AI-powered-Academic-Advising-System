@@ -15,3 +15,12 @@ export default function OtpVerify() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const handleVerify = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const data = await auth.verifyOtp(email, code);
+      if (data.token) {
