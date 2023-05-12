@@ -24,3 +24,13 @@ export default function OtpVerify() {
     try {
       const data = await auth.verifyOtp(email, code);
       if (data.token) {
+        setSession(data.token, data.user);
+        navigate('/dashboard/chats', { replace: true });
+      } else {
+        navigate('/login', { replace: true });
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
