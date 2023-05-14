@@ -53,3 +53,11 @@ export default function OtpVerify() {
 
       <div className="card-wrap">
         <div className="auth-card">
+          <div className="card-badge">
+            <div className="badge-dot" />
+            <span className="badge-label">Email Verification</span>
+          </div>
+          <h2>Verify Your Email</h2>
+          <p className="auth-info">
+            We sent a 6-digit code to: <strong>{email}</strong>
+          </p>
