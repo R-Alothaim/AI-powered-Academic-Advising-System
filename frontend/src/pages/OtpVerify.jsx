@@ -45,3 +45,11 @@ export default function OtpVerify() {
     } catch (err) {
       setError(err.message);
     }
+  };
+
+  return (
+    <div className="auth-page">
+      <AuthBackground />
+
+      <div className="card-wrap">
+        <div className="auth-card">
