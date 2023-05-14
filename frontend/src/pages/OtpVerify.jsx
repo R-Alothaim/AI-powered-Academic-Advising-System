@@ -34,3 +34,14 @@ export default function OtpVerify() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleResend = async () => {
+    setError('');
+    setSuccess('');
+    try {
+      await auth.resendOtp(email);
+      setSuccess('A new code has been sent to your email.');
+    } catch (err) {
+      setError(err.message);
+    }
