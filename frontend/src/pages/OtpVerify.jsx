@@ -61,3 +61,12 @@ export default function OtpVerify() {
           <p className="auth-info">
             We sent a 6-digit code to: <strong>{email}</strong>
           </p>
+
+          {error && <div className="auth-error">{error}</div>}
+          {success && <div className="auth-success">{success}</div>}
+
+          <form onSubmit={handleVerify}>
+            <div className="field">
+              <label>6-Digit Code</label>
+              <input
+                type="text"
