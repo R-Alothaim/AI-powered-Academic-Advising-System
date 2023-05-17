@@ -80,3 +80,12 @@ export default function OtpVerify() {
                 onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
               />
             </div>
+
+            <button type="submit" className="btn-auth" disabled={loading || code.length !== 6}>
+              {loading ? 'Verifying...' : 'Verify'}
+            </button>
+
+            <div className="btn-row">
+              <button type="button" className="btn-secondary" onClick={handleResend}>
+                Resend code
+              </button>
