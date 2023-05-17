@@ -89,3 +89,12 @@ export default function OtpVerify() {
               <button type="button" className="btn-secondary" onClick={handleResend}>
                 Resend code
               </button>
+              <Link className="btn-secondary" to="/register">
+                Change email
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
