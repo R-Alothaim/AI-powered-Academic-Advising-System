@@ -70,3 +70,13 @@ export default function OtpVerify() {
               <label>6-Digit Code</label>
               <input
                 type="text"
+                className="otp-input"
+                inputMode="numeric"
+                pattern="\d{6}"
+                maxLength={6}
+                placeholder="######"
+                required
+                value={code}
+                onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+              />
+            </div>
