@@ -16,3 +16,13 @@ export default function ForgotPassword() {
     setError('');
     setSuccess('');
     setLoading(true);
+
+    try {
+      await auth.forgotPassword(email);
+      navigate('/forgot-password-verify', { state: { email } });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
