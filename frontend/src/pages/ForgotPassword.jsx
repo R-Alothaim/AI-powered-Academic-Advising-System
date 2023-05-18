@@ -35,3 +35,10 @@ export default function ForgotPassword() {
         <div className="auth-card">
           <div className="card-badge">
             <div className="badge-dot" />
+            <span className="badge-label">Password Recovery</span>
+          </div>
+          <h2>Reset Password</h2>
+          <p className="sub">Enter your email to receive an OTP code</p>
+
+          {success && <div className="auth-success">{success}</div>}
+          {error && <div className="auth-error">{error}</div>}
