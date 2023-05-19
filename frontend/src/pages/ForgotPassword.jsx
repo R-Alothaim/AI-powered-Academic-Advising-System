@@ -54,3 +54,16 @@ export default function ForgotPassword() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
+
+            <button type="submit" className="btn-auth" disabled={loading}>
+              {loading ? 'Sending...' : 'Send OTP'}
+            </button>
+
+            <div className="card-links">
+              <Link to="/login">Back to Login</Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
