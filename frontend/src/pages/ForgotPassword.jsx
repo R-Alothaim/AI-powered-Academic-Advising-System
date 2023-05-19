@@ -42,3 +42,15 @@ export default function ForgotPassword() {
 
           {success && <div className="auth-success">{success}</div>}
           {error && <div className="auth-error">{error}</div>}
+
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <label>Email Address</label>
+              <input
+                type="email"
+                placeholder="Your Email (@university.edu.sa)"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
