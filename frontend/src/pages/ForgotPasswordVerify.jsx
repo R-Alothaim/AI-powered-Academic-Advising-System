@@ -17,3 +17,15 @@ export default function ForgotPasswordVerify() {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    try {
+      await auth.resetPassword(email, otp);
+      navigate('/login', {
+        replace: true,
+        state: { message: 'A temporary password has been sent to your email.' },
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
