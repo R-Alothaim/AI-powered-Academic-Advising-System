@@ -29,3 +29,11 @@ export default function ForgotPasswordVerify() {
     } finally {
       setLoading(false);
     }
+  };
+
+  return (
+    <div className="auth-page">
+      <AuthBackground />
+
+      <div className="card-wrap">
+        <div className="auth-card">
