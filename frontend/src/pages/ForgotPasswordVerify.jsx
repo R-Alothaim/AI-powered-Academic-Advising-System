@@ -37,3 +37,11 @@ export default function ForgotPasswordVerify() {
 
       <div className="card-wrap">
         <div className="auth-card">
+          <div className="card-badge">
+            <div className="badge-dot" />
+            <span className="badge-label">Verification</span>
+          </div>
+          <h2>Enter OTP</h2>
+          <p className="auth-info">
+            We sent a verification code to <strong>{email}</strong>
+          </p>
