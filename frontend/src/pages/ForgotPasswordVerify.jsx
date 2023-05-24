@@ -54,3 +54,11 @@ export default function ForgotPasswordVerify() {
               <input
                 type="text"
                 className="otp-input"
+                placeholder="######"
+                maxLength={6}
+                required
+                pattern="\d{6}"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+              />
+            </div>
