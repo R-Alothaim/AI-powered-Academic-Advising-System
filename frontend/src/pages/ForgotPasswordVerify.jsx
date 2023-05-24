@@ -45,3 +45,12 @@ export default function ForgotPasswordVerify() {
           <p className="auth-info">
             We sent a verification code to <strong>{email}</strong>
           </p>
+
+          {error && <div className="auth-error">{error}</div>}
+
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <label>6-Digit Code</label>
+              <input
+                type="text"
+                className="otp-input"
