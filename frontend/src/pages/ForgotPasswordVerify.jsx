@@ -62,3 +62,13 @@ export default function ForgotPasswordVerify() {
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
               />
             </div>
+
+            <button type="submit" className="btn-auth" disabled={loading || otp.length !== 6}>
+              {loading ? 'Verifying...' : 'Verify & Reset Password'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
