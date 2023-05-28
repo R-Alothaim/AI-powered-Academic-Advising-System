@@ -22,3 +22,13 @@ export function AuthProvider({ children }) {
     }
     authApi.me()
       .then((data) => {
+        setUser(data);
+        localStorage.setItem('user', JSON.stringify(data));
+      })
+      .catch(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+      })
+      .finally(() => setLoading(false));
+  }, []);
