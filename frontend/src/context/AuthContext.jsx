@@ -13,3 +13,12 @@ export function AuthProvider({ children }) {
     }
   });
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+    authApi.me()
+      .then((data) => {
