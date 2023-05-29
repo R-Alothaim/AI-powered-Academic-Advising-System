@@ -42,3 +42,13 @@ export function AuthProvider({ children }) {
     }
     return data;
   }, []);
+
+  const register = useCallback(async (name, email, password) => {
+    return authApi.register(name, email, password);
+  }, []);
+
+  const logout = useCallback(() => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
+  }, []);
