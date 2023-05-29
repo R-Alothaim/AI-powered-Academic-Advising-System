@@ -32,3 +32,13 @@ export function AuthProvider({ children }) {
       })
       .finally(() => setLoading(false));
   }, []);
+
+  const login = useCallback(async (email, password) => {
+    const data = await authApi.login(email, password);
+    if (data.token) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      setUser(data.user);
+    }
+    return data;
+  }, []);
