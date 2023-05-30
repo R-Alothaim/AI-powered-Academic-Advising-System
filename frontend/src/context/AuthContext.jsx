@@ -52,3 +52,12 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('user');
     setUser(null);
   }, []);
+
+  const setSession = useCallback((token, userData) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
+  }, []);
+
+  const updateUser = useCallback((newData) => {
+    setUser((prev) => {
