@@ -71,3 +71,10 @@ export function AuthProvider({ children }) {
     () => ({ user, loading, login, register, logout, setSession, updateUser }),
     [user, loading, login, register, logout, setSession, updateUser],
   );
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
