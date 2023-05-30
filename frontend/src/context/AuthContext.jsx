@@ -61,3 +61,13 @@ export function AuthProvider({ children }) {
 
   const updateUser = useCallback((newData) => {
     setUser((prev) => {
+      const updated = { ...prev, ...newData };
+      localStorage.setItem('user', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  const value = useMemo(
+    () => ({ user, loading, login, register, logout, setSession, updateUser }),
+    [user, loading, login, register, logout, setSession, updateUser],
+  );
