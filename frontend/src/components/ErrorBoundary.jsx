@@ -25,3 +25,11 @@ export default class ErrorBoundary extends Component {
           <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', color: '#EAD27A', marginBottom: 12 }}>
             Something went wrong
           </h1>
+          <p style={{ color: 'rgba(160,190,255,0.6)', marginBottom: 24, textAlign: 'center', maxWidth: 400 }}>
+            An unexpected error occurred. Please refresh the page to try again.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              padding: '12px 24px', borderRadius: 10, border: 'none', cursor: 'pointer',
+              background: 'linear-gradient(135deg, #2458D4, #1A3EA8)', color: '#fff',
