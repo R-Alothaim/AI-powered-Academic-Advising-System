@@ -17,3 +17,11 @@ export default class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
+        <div style={{
+          minHeight: '100vh', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', background: '#0A1628',
+          color: '#E2E8F0', fontFamily: 'Inter, sans-serif', padding: 32,
+        }}>
+          <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', color: '#EAD27A', marginBottom: 12 }}>
+            Something went wrong
+          </h1>
