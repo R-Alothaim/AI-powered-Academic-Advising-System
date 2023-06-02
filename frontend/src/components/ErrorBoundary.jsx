@@ -33,3 +33,13 @@ export default class ErrorBoundary extends Component {
             style={{
               padding: '12px 24px', borderRadius: 10, border: 'none', cursor: 'pointer',
               background: 'linear-gradient(135deg, #2458D4, #1A3EA8)', color: '#fff',
+              fontWeight: 600, fontSize: 14, fontFamily: 'Inter, sans-serif',
+            }}
+          >
+            Reload Page
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
