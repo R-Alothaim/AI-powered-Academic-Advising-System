@@ -18,3 +18,13 @@ async function request(path, options = {}) {
     const body = await res.json().catch(() => ({}));
     throw new Error(body.detail || body.message || `Request failed (${res.status})`);
   }
+
+  return res.json();
+}
+
+export const auth = {
+  login: (email, password) =>
+    request('/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) }),
+
+  register: (name, email, password) =>
+    request('/auth/register', { method: 'POST', body: JSON.stringify({ name, email, password }) }),
