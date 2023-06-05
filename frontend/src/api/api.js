@@ -47,3 +47,12 @@ export const auth = {
 export const chats = {
   list: (userId) =>
     request(`/users/${userId}/chats`),
+
+  get: (chatId) =>
+    request(`/chats/${chatId}`),
+
+  create: (userId, title) =>
+    request('/chats/', { method: 'POST', body: JSON.stringify({ user_id: userId, title }) }),
+
+  sendMessage: (chatId, content) =>
+    request(`/chats/${chatId}/message`, { method: 'POST', body: JSON.stringify({ content }) }),
