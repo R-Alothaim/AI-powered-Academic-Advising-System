@@ -37,3 +37,13 @@ export const auth = {
 
   forgotPassword: (email) =>
     request('/auth/forgot-password', { method: 'POST', body: JSON.stringify({ email }) }),
+
+  resetPassword: (email, otp) =>
+    request('/auth/reset-password', { method: 'POST', body: JSON.stringify({ email, otp }) }),
+
+  me: () => request('/auth/me'),
+};
+
+export const chats = {
+  list: (userId) =>
+    request(`/users/${userId}/chats`),
