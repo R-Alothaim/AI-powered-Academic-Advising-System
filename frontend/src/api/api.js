@@ -64,3 +64,13 @@ export const chats = {
 export const users = {
   getProfile: (userId) =>
     request(`/users/${userId}`),
+
+  changePassword: (userId, newPassword, confirmPassword) =>
+    request(`/users/${userId}/change-password`, {
+      method: 'POST',
+      body: JSON.stringify({ new_password: newPassword, confirm_password: confirmPassword }),
+    }),
+
+  deleteAccount: (userId) =>
+    request(`/users/${userId}`, { method: 'DELETE' }),
+};
