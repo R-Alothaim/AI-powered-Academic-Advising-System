@@ -56,3 +56,11 @@ export const chats = {
 
   sendMessage: (chatId, content) =>
     request(`/chats/${chatId}/message`, { method: 'POST', body: JSON.stringify({ content }) }),
+
+  delete: (chatId, userId) =>
+    request('/chats/delete', { method: 'POST', body: JSON.stringify({ chat_id: chatId, user_id: userId }) }),
+};
+
+export const users = {
+  getProfile: (userId) =>
+    request(`/users/${userId}`),
