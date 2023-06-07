@@ -74,3 +74,8 @@ export const users = {
   deleteAccount: (userId) =>
     request(`/users/${userId}`, { method: 'DELETE' }),
 };
+
+export const calendar = {
+  get: (year, lang) =>
+    request(`/calendar?year=${year}&lang=${lang}`),
+};
