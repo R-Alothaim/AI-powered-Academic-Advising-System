@@ -14,3 +14,12 @@ const Calendar = lazy(() => import('./pages/Calendar'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
+  return (
+    <div style={{
+      minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+      background: '#0A1628', color: 'rgba(160,190,255,0.6)', fontFamily: 'Inter, sans-serif',
+    }}>
+      Loading...
+    </div>
+  );
+}
