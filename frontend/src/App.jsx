@@ -6,3 +6,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const OtpVerify = lazy(() => import('./pages/OtpVerify'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const ForgotPasswordVerify = lazy(() => import('./pages/ForgotPasswordVerify'));
+const Chats = lazy(() => import('./pages/Chats'));
+const UserProfile = lazy(() => import('./pages/UserProfile'));
+const Calendar = lazy(() => import('./pages/Calendar'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+function PageLoader() {
