@@ -33,3 +33,12 @@ export default function App() {
         <Route path="/otp-verify" element={<OtpVerify />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/forgot-password-verify" element={<ForgotPasswordVerify />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
