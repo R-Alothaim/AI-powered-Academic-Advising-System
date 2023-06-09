@@ -23,3 +23,13 @@ function PageLoader() {
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/otp-verify" element={<OtpVerify />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/forgot-password-verify" element={<ForgotPasswordVerify />} />
