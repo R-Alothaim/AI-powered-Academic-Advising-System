@@ -42,3 +42,14 @@ export default function App() {
             </ProtectedRoute>
           }
         >
+          <Route index element={<Navigate to="chats" replace />} />
+          <Route path="chats" element={<Chats />} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="calendar" element={<Calendar />} />
+        </Route>
+
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  );
