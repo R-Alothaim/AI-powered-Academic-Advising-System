@@ -6,3 +6,12 @@ import { I18nProvider } from './context/I18nContext';
 import { UIProvider } from './components/UIModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import App from './App';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <I18nProvider>
+          <AuthProvider>
+            <UIProvider>
+              <App />
