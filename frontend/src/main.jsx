@@ -15,3 +15,10 @@ createRoot(document.getElementById('root')).render(
           <AuthProvider>
             <UIProvider>
               <App />
+            </UIProvider>
+          </AuthProvider>
+        </I18nProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
+  </StrictMode>,
+);
