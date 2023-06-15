@@ -23,3 +23,14 @@ a{color:inherit;text-decoration:none}
 .sidebar{
   position:fixed; inset-inline-start:0; inset-block:0; width:260px;
   background:var(--bg-secondary); border-inline-end:1px solid var(--border);
+  display:flex; flex-direction:column; gap:12px; padding:16px;
+  box-shadow:0 0 40px rgba(0,0,0,.3);
+  transition:transform .3s ease;
+  z-index:1000;
+}
+.sidebar.hidden{
+  transform:translateX(-100%);
+}
+.rtl .sidebar.hidden{
+  transform:translateX(100%);
+}
