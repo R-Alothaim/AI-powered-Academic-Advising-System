@@ -44,3 +44,13 @@ a{color:inherit;text-decoration:none}
 }
 .topbar-title{font-weight:700;letter-spacing:.3px}
 .content{padding:16px}
+
+.dash-brand{display:flex; align-items:center; gap:10px; font-weight:800; margin-bottom:4px}
+.logo{
+  display:grid; place-items:center; width:38px; height:38px; border-radius:10px;
+  border:1.5px solid rgba(180,150,60,0.7); background:rgba(255,255,255,0.04); font-size:18px;
+}
+.dash-brand-text{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:15px; color:var(--gold); letter-spacing:.3px;
+}
