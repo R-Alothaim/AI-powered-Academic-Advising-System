@@ -120,3 +120,8 @@ a{color:inherit;text-decoration:none}
 .rtl .table th, .rtl .table td{ text-align:right }
 
 @media (max-width: 1000px){
+  .sidebar{position:fixed; width:260px; transform:translateX(-100%)}
+  .rtl .sidebar{transform:translateX(100%)}
+  .sidebar.visible{transform:translateX(0)}
+  .page{margin-inline-start:0}
+}
