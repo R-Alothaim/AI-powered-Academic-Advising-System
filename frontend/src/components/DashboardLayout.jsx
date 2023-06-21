@@ -9,3 +9,11 @@ export default function DashboardLayout() {
   const { lang, setLang, t } = useI18n();
   const navigate = useNavigate();
   const [sidebarVisible, setSidebarVisible] = useState(true);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
+  const linkClass = ({ isActive }) =>
+    `menu-item${isActive ? ' active' : ''}`;
