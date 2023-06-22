@@ -17,3 +17,12 @@ export default function DashboardLayout() {
 
   const linkClass = ({ isActive }) =>
     `menu-item${isActive ? ' active' : ''}`;
+
+  return (
+    <>
+      <aside className={`sidebar${sidebarVisible ? '' : ' hidden'}`}>
+        <div className="dash-brand">
+          <span className="logo">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+              <path
+                d="M11 2L13.5 8H20L14.5 12L16.5 18L11 14L5.5 18L7.5 12L2 8H8.5L11 2Z"
