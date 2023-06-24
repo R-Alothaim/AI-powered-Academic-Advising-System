@@ -34,3 +34,11 @@ export default function DashboardLayout() {
         </div>
 
         <div className="lang-group" aria-label="Language">
+          <div className="segmented" role="tablist">
+            <button
+              className={`seg-btn${lang === 'ar' ? ' active' : ''}`}
+              onClick={() => setLang('ar')}
+              role="tab"
+              aria-selected={lang === 'ar'}
+            >
+              العربية
