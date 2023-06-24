@@ -26,3 +26,11 @@ export default function DashboardLayout() {
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
               <path
                 d="M11 2L13.5 8H20L14.5 12L16.5 18L11 14L5.5 18L7.5 12L2 8H8.5L11 2Z"
+                stroke="#EAD27A" strokeWidth="1.2" strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <span className="dash-brand-text">{t('app.title', 'Academic Advisor')}</span>
+        </div>
+
+        <div className="lang-group" aria-label="Language">
