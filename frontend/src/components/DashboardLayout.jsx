@@ -53,3 +53,12 @@ export default function DashboardLayout() {
             </button>
           </div>
         </div>
+
+        <nav className="menu">
+          <NavLink to="/dashboard/chats" className={linkClass}>
+            {t('menu.advisor')}
+          </NavLink>
+          <NavLink to="/dashboard/profile" className={linkClass}>
+            {t('menu.users')}
+          </NavLink>
+          <NavLink to="/dashboard/calendar" className={linkClass}>
