@@ -62,3 +62,11 @@ export default function DashboardLayout() {
             {t('menu.users')}
           </NavLink>
           <NavLink to="/dashboard/calendar" className={linkClass}>
+            {t('menu.calendar')}
+          </NavLink>
+          <div className="menu-sep" />
+          <button className="menu-item danger" onClick={handleLogout}>
+            {t('menu.logout')}
+          </button>
+        </nav>
+      </aside>
