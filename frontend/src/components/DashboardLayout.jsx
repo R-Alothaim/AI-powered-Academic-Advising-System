@@ -70,3 +70,12 @@ export default function DashboardLayout() {
           </button>
         </nav>
       </aside>
+
+      <div className={`page${sidebarVisible ? '' : ' sidebar-hidden'}`}>
+        <header className="topbar">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <button
+              className="btn ghost"
+              style={{ padding: '8px 12px', fontSize: 18, lineHeight: 1 }}
+              onClick={() => setSidebarVisible((v) => !v)}
+            >
