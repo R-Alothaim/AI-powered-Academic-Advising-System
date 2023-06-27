@@ -79,3 +79,11 @@ export default function DashboardLayout() {
               style={{ padding: '8px 12px', fontSize: 18, lineHeight: 1 }}
               onClick={() => setSidebarVisible((v) => !v)}
             >
+              ☰
+            </button>
+            <div className="topbar-title">{t('app.title')}</div>
+          </div>
+          <div>
+            <button className="btn ghost" onClick={handleLogout}>
+              {t('menu.logout')}
+            </button>
