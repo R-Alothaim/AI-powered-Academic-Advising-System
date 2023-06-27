@@ -87,3 +87,12 @@ export default function DashboardLayout() {
             <button className="btn ghost" onClick={handleLogout}>
               {t('menu.logout')}
             </button>
+          </div>
+        </header>
+        <main className="content">
+          <Outlet />
+        </main>
+      </div>
+    </>
+  );
+}
