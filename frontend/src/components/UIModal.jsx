@@ -17,3 +17,14 @@ export function UIProvider({ children }) {
 
   const alert = useCallback((message) => {
     return new Promise((resolve) => {
+      resolveRef.current = resolve;
+      setModal({ message, type: 'alert' });
+    });
+  }, []);
+
+  const confirm = useCallback((message) => {
+    return new Promise((resolve) => {
+      resolveRef.current = resolve;
+      setModal({ message, type: 'confirm' });
+    });
+  }, []);
