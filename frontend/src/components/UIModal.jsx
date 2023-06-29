@@ -28,3 +28,15 @@ export function UIProvider({ children }) {
       setModal({ message, type: 'confirm' });
     });
   }, []);
+
+  const prompt = useCallback((message, defaultValue = '') => {
+    return new Promise((resolve) => {
+      resolveRef.current = resolve;
+      setModal({ message, type: 'prompt', defaultValue });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (modal?.type === 'prompt' && inputRef.current) {
+      inputRef.current.focus();
+    }
