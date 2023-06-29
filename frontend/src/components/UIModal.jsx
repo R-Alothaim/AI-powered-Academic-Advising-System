@@ -8,3 +8,12 @@ export function UIProvider({ children }) {
   const [modal, setModal] = useState(null);
   const resolveRef = useRef(null);
   const inputRef = useRef(null);
+
+  const close = useCallback((value) => {
+    if (resolveRef.current) resolveRef.current(value);
+    resolveRef.current = null;
+    setModal(null);
+  }, []);
+
+  const alert = useCallback((message) => {
+    return new Promise((resolve) => {
