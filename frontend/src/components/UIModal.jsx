@@ -40,3 +40,10 @@ export function UIProvider({ children }) {
     if (modal?.type === 'prompt' && inputRef.current) {
       inputRef.current.focus();
     }
+  }, [modal]);
+
+  const isAr = lang === 'ar';
+
+  return (
+    <UIContext.Provider value={{ alert, confirm, prompt }}>
+      {children}
