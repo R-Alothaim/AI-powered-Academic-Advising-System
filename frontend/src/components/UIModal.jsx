@@ -47,3 +47,12 @@ export function UIProvider({ children }) {
   return (
     <UIContext.Provider value={{ alert, confirm, prompt }}>
       {children}
+
+      {modal && (
+        <div
+          style={{
+            position: 'fixed', inset: 0, background: 'rgba(8,15,39,0.7)',
+            backdropFilter: 'blur(8px)', zIndex: 9999,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            animation: 'fadeIn 0.2s ease',
+          }}
