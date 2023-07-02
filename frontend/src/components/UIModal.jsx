@@ -56,3 +56,11 @@ export function UIProvider({ children }) {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             animation: 'fadeIn 0.2s ease',
           }}
+          onClick={() => modal.type === 'alert' ? close(true) : close(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: 'rgba(13,30,58,0.95)', border: '1px solid rgba(255,255,255,0.12)',
+              padding: 24, borderRadius: 20,
+              width: '90%', maxWidth: 400, boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
