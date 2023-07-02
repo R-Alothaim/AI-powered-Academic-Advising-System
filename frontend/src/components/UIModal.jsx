@@ -64,3 +64,10 @@ export function UIProvider({ children }) {
               background: 'rgba(13,30,58,0.95)', border: '1px solid rgba(255,255,255,0.12)',
               padding: 24, borderRadius: 20,
               width: '90%', maxWidth: 400, boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
+              display: 'flex', flexDirection: 'column', gap: 16,
+              backdropFilter: 'blur(28px)',
+            }}
+          >
+            <div style={{ fontSize: 16, color: 'rgba(220,230,255,0.9)', lineHeight: 1.5 }}>
+              {modal.message}
+            </div>
