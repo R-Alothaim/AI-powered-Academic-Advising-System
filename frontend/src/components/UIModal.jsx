@@ -88,3 +88,11 @@ export function UIProvider({ children }) {
 
             <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
               {modal.type !== 'alert' && (
+                <button
+                  onClick={() => close(false)}
+                  style={{
+                    padding: '10px 18px', borderRadius: 10, cursor: 'pointer',
+                    background: 'rgba(255,255,255,0.06)', color: 'rgba(160,190,255,0.8)',
+                    border: '1px solid rgba(255,255,255,0.15)', fontFamily: 'Inter, sans-serif', fontSize: 14,
+                  }}
+                >
