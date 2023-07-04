@@ -80,3 +80,11 @@ export function UIProvider({ children }) {
                 onKeyDown={(e) => { if (e.key === 'Enter') close(inputRef.current.value); }}
                 style={{
                   width: '100%', padding: 12, border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: 10, outline: 'none', background: 'rgba(255,255,255,0.06)',
+                  color: 'rgba(220,230,255,0.9)', fontSize: 14, fontFamily: 'Inter, sans-serif',
+                }}
+              />
+            )}
+
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
+              {modal.type !== 'alert' && (
