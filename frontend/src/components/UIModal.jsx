@@ -71,3 +71,12 @@ export function UIProvider({ children }) {
             <div style={{ fontSize: 16, color: 'rgba(220,230,255,0.9)', lineHeight: 1.5 }}>
               {modal.message}
             </div>
+
+            {modal.type === 'prompt' && (
+              <input
+                ref={inputRef}
+                type="text"
+                defaultValue={modal.defaultValue}
+                onKeyDown={(e) => { if (e.key === 'Enter') close(inputRef.current.value); }}
+                style={{
+                  width: '100%', padding: 12, border: '1px solid rgba(255,255,255,0.12)',
