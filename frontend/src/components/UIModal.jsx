@@ -96,3 +96,11 @@ export function UIProvider({ children }) {
                     border: '1px solid rgba(255,255,255,0.15)', fontFamily: 'Inter, sans-serif', fontSize: 14,
                   }}
                 >
+                  {isAr ? '\u0625\u0644\u063a\u0627\u0621' : 'Cancel'}
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  if (modal.type === 'prompt') close(inputRef.current?.value ?? '');
+                  else close(true);
+                }}
