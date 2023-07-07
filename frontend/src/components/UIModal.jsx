@@ -104,3 +104,11 @@ export function UIProvider({ children }) {
                   if (modal.type === 'prompt') close(inputRef.current?.value ?? '');
                   else close(true);
                 }}
+                style={{
+                  padding: '10px 18px', borderRadius: 10, cursor: 'pointer',
+                  background: 'linear-gradient(135deg,#2458D4,#1A3EA8)', color: '#fff',
+                  border: 'none', boxShadow: '0 4px 24px rgba(36,88,212,.35)',
+                  fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: 14,
+                }}
+              >
+                {isAr ? '\u0645\u0648\u0627\u0641\u0642' : 'OK'}
