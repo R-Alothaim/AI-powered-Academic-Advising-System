@@ -112,3 +112,11 @@ export function UIProvider({ children }) {
                 }}
               >
                 {isAr ? '\u0645\u0648\u0627\u0641\u0642' : 'OK'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </UIContext.Provider>
+  );
+}
