@@ -22,3 +22,13 @@ export default function NotFound() {
       </p>
       <Link
         to={dest}
+        style={{
+          padding: '12px 24px', borderRadius: 10, textDecoration: 'none',
+          background: 'linear-gradient(135deg, #2458D4, #1A3EA8)', color: '#fff',
+          fontWeight: 600, fontSize: 14,
+        }}
+      >
+        Go to {user ? 'Dashboard' : 'Login'}
+      </Link>
+    </div>
+  );
