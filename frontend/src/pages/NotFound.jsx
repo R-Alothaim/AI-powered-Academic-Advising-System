@@ -14,3 +14,11 @@ export default function NotFound() {
       <h1 style={{
         fontFamily: 'Playfair Display, Georgia, serif', fontSize: 72,
         color: '#EAD27A', marginBottom: 8,
+      }}>
+        404
+      </h1>
+      <p style={{ color: 'rgba(160,190,255,0.6)', marginBottom: 24, fontSize: 16 }}>
+        Page not found
+      </p>
+      <Link
+        to={dest}
