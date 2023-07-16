@@ -26,3 +26,12 @@ export function I18nProvider({ children }) {
   const t = useCallback((key, fallback) => {
     return locales[lang]?.[key] || fallback || key;
   }, [lang]);
+
+  const value = useMemo(() => ({ lang, dir, setLang, t }), [lang, dir, setLang, t]);
+
+  return (
+    <I18nContext.Provider value={value}>
+      {children}
+    </I18nContext.Provider>
+  );
+}
