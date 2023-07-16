@@ -8,3 +8,11 @@ const I18nContext = createContext(null);
 
 export function I18nProvider({ children }) {
   const [lang, setLangState] = useState(() => localStorage.getItem('neon-lang') || 'ar');
+
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dir;
+    document.body.classList.toggle('rtl', lang === 'ar');
+  }, [lang, dir]);
