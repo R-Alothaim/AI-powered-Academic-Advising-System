@@ -16,3 +16,13 @@ export function I18nProvider({ children }) {
     document.documentElement.dir = dir;
     document.body.classList.toggle('rtl', lang === 'ar');
   }, [lang, dir]);
+
+  const setLang = useCallback((newLang) => {
+    const l = newLang === 'en' ? 'en' : 'ar';
+    localStorage.setItem('neon-lang', l);
+    setLangState(l);
+  }, []);
+
+  const t = useCallback((key, fallback) => {
+    return locales[lang]?.[key] || fallback || key;
+  }, [lang]);
