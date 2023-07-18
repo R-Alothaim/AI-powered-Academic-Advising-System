@@ -1,0 +1,8 @@
+{
+  "app.title": "User Panel",
+  "menu.users": "User",
+  "menu.chats": "Chats",
+  "menu.calendar": "Academic Calendar",
+  "menu.logout": "Log out",
+  "menu.advisor": "Academic Advisor",
+  "actions.toggleLang": "Toggle Language",
