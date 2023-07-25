@@ -78,3 +78,10 @@
   "advisor.exportFailed": "Failed to export conversation",
   "advisor.student": "Student",
   "advisor.advisor": "Academic Advisor",
+  "advisor.noMessages": "No messages in this conversation.",
+  "advisor.greetingShort": "Hello! How can I help you today?",
+  "advisor.noChats": "No conversations",
+  "advisor.selectOrCreate": "Select a conversation or create a new one",
+  "confirm.deleteaccount": "Are you sure you want to permanently delete your account? This cannot be undone.",
+  "errors.user_not_found": "User not found"
+}
