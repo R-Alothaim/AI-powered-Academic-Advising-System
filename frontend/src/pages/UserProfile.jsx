@@ -16,3 +16,14 @@ function getInitials(name, email) {
   }
   return (email || '').slice(0, 2).toUpperCase();
 }
+
+export default function UserProfile() {
+  const { user, logout } = useAuth();
+  const { t, lang } = useI18n();
+  const ui = useUI();
+  const navigate = useNavigate();
+
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordMsg, setPasswordMsg] = useState({ text: '', type: '' });
+  const [copied, setCopied] = useState(false);
