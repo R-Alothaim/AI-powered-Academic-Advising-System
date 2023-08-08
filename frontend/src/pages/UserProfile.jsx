@@ -27,3 +27,15 @@ export default function UserProfile() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMsg, setPasswordMsg] = useState({ text: '', type: '' });
   const [copied, setCopied] = useState(false);
+
+  if (!user) return null;
+
+  const avatarBg = PALETTE[user.user_id % PALETTE.length];
+  const initials = getInitials(user.name, user.email);
+  const createdAt = user.created_at
+    ? new Date(user.created_at).toLocaleString(lang === 'ar' ? 'ar-SA' : 'en-US')
+    : '—';
+
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+    setPasswordMsg({ text: '', type: '' });
