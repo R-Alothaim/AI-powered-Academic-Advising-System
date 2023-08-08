@@ -39,3 +39,12 @@ export default function UserProfile() {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     setPasswordMsg({ text: '', type: '' });
+
+    if (newPassword.length < 8) {
+      setPasswordMsg({ text: 'Password must be at least 8 characters', type: 'error' });
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setPasswordMsg({ text: 'Passwords do not match', type: 'error' });
+      return;
+    }
