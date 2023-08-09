@@ -48,3 +48,15 @@ export default function UserProfile() {
       setPasswordMsg({ text: 'Passwords do not match', type: 'error' });
       return;
     }
+
+    try {
+      await users.changePassword(user.user_id, newPassword, confirmPassword);
+      setPasswordMsg({
+        text: lang === 'ar' ? '\u062a\u0645 \u062a\u063a\u064a\u064a\u0631 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u0628\u0646\u062c\u0627\u062d' : 'Password changed successfully',
+        type: 'success',
+      });
+      setNewPassword('');
+      setConfirmPassword('');
+    } catch (err) {
+      setPasswordMsg({ text: err.message, type: 'error' });
+    }
