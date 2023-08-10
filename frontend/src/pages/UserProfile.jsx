@@ -60,3 +60,11 @@ export default function UserProfile() {
     } catch (err) {
       setPasswordMsg({ text: err.message, type: 'error' });
     }
+  };
+
+  const handleDeleteAccount = async () => {
+    const confirmed = await ui.confirm(t('confirm.deleteaccount'));
+    if (!confirmed) return;
+
+    try {
+      await users.deleteAccount(user.user_id);
