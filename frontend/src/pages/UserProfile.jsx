@@ -76,3 +76,11 @@ export default function UserProfile() {
   };
 
   const handleCopyEmail = () => {
+    navigator.clipboard.writeText(user.email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    });
+  };
+
+  return (
+    <div className="card profile-card">
