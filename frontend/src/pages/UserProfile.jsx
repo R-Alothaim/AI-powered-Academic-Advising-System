@@ -84,3 +84,13 @@ export default function UserProfile() {
 
   return (
     <div className="card profile-card">
+      <div className="profile-header">
+        <div className="profile-header-left">
+          <div className="avatar" style={{ background: avatarBg }}>
+            {initials}
+          </div>
+          <div className="title-block">
+            <div className="sub">#{user.user_id}</div>
+          </div>
+        </div>
+      </div>
