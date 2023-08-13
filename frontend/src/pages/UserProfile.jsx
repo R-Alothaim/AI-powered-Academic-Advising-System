@@ -68,3 +68,11 @@ export default function UserProfile() {
 
     try {
       await users.deleteAccount(user.user_id);
+      logout();
+      navigate('/login', { replace: true });
+    } catch (err) {
+      await ui.alert(err.message);
+    }
+  };
+
+  const handleCopyEmail = () => {
