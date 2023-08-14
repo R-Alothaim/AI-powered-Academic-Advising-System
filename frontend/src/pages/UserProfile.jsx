@@ -94,3 +94,12 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
+
+      <div className="profile-body">
+        <div className="profile-grid">
+          <div className="info-box">
+            <div className="info-label">{t('users.name')}</div>
+            <div className="info-value">{user.name || '—'}</div>
+          </div>
+
+          <div className="info-box">
