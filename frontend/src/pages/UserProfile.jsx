@@ -120,3 +120,11 @@ export default function UserProfile() {
 
         <div className="password-section">
           <h3>{t('users.changePassword')}</h3>
+          <form onSubmit={handleChangePassword}>
+            <div className="password-grid">
+              <div>
+                <label>{t('users.newPassword')}</label>
+                <input
+                  type="password"
+                  required
+                  minLength={8}
