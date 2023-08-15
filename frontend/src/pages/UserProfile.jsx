@@ -103,3 +103,11 @@ export default function UserProfile() {
           </div>
 
           <div className="info-box">
+            <div className="info-label">{t('users.email')}</div>
+            <div className="info-value" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span>{user.email}</span>
+              <button type="button" className="chip" onClick={handleCopyEmail}>
+                {copied ? t('actions.copied') : t('actions.copy')}
+              </button>
+            </div>
+          </div>
