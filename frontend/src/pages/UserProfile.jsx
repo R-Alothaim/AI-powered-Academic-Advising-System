@@ -111,3 +111,12 @@ export default function UserProfile() {
               </button>
             </div>
           </div>
+
+          <div className="info-box">
+            <div className="info-label">{t('users.created_at')}</div>
+            <div className="info-value">{createdAt}</div>
+          </div>
+        </div>
+
+        <div className="password-section">
+          <h3>{t('users.changePassword')}</h3>
