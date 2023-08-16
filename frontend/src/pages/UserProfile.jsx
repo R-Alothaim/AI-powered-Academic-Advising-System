@@ -128,3 +128,11 @@ export default function UserProfile() {
                   type="password"
                   required
                   minLength={8}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+              </div>
+              <div>
+                <label>{t('users.confirmPassword')}</label>
+                <input
+                  type="password"
