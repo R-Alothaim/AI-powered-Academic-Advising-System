@@ -144,3 +144,10 @@ export default function UserProfile() {
               </div>
             </div>
             <button type="submit" className="password-save-btn">
+              {t('users.savePassword')}
+            </button>
+            {passwordMsg.text && (
+              <div className={`password-message ${passwordMsg.type}`}>{passwordMsg.text}</div>
+            )}
+          </form>
+        </div>
