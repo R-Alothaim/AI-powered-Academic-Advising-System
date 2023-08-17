@@ -136,3 +136,11 @@ export default function UserProfile() {
                 <label>{t('users.confirmPassword')}</label>
                 <input
                   type="password"
+                  required
+                  minLength={8}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </div>
+            </div>
+            <button type="submit" className="password-save-btn">
