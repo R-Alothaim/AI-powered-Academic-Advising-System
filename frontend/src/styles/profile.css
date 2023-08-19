@@ -1,0 +1,8 @@
+.profile-card {
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+}
+
+.profile-header {
+  border-radius: 16px 16px 0 0;
