@@ -151,3 +151,13 @@ export default function UserProfile() {
             )}
           </form>
         </div>
+
+        <div className="danger-zone">
+          <button className="btn-danger" onClick={handleDeleteAccount}>
+            {t('users.deleteAccount')}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
