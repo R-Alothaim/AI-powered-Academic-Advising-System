@@ -6,3 +6,10 @@
 
 .profile-header {
   border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #2458D4, #1A3EA8);
+  padding: 18px 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
