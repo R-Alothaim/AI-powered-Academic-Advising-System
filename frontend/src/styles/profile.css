@@ -22,3 +22,13 @@
 
 .profile-header .avatar {
   width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  border: 2px solid rgba(234,210,122,0.5);
+}
