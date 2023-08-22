@@ -13,3 +13,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.profile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-header .avatar {
+  width: 52px;
