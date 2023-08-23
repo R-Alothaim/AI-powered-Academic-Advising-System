@@ -32,3 +32,15 @@
   color: #fff;
   border: 2px solid rgba(234,210,122,0.5);
 }
+
+.profile-header .title-block h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.profile-header .title-block .sub {
+  font-size: 12px;
+  opacity: 0.8;
+  color: rgba(180,200,255,0.7);
+}
