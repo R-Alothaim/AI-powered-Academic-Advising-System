@@ -44,3 +44,11 @@
   opacity: 0.8;
   color: rgba(180,200,255,0.7);
 }
+
+.profile-body {
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 0 16px 16px;
+  padding: 16px 18px 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 0;
+}
