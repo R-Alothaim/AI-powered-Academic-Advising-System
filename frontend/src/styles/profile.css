@@ -64,3 +64,11 @@
   .profile-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.info-box {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
