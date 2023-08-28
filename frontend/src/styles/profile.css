@@ -93,3 +93,12 @@
   background: rgba(36,88,212,0.08);
   border: 1px solid rgba(74,122,255,0.2);
 }
+
+.password-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #EAD27A;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.password-grid {
