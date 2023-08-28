@@ -102,3 +102,11 @@
 }
 
 .password-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.password-grid label {
+  display: block;
