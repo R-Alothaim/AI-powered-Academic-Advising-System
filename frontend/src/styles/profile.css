@@ -118,3 +118,13 @@
 }
 
 .password-grid input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(220,230,255,0.9);
+  outline: none;
+  font-family: inherit;
+}
