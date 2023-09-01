@@ -146,3 +146,11 @@
   font-family: inherit;
   transition: box-shadow 0.2s;
 }
+
+.password-save-btn:hover {
+  box-shadow: 0 6px 30px rgba(36,88,212,0.5);
+}
+
+.danger-zone {
+  margin-top: 10px;
+  padding: 12px 14px;
