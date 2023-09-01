@@ -128,3 +128,11 @@
   outline: none;
   font-family: inherit;
 }
+
+.password-grid input:focus {
+  border-color: rgba(100,150,255,0.5);
+}
+
+.password-save-btn {
+  background: linear-gradient(135deg, #2458D4, #1A3EA8);
+  color: #fff;
