@@ -136,3 +136,13 @@
 .password-save-btn {
   background: linear-gradient(135deg, #2458D4, #1A3EA8);
   color: #fff;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(36,88,212,.35);
+  font-family: inherit;
+  transition: box-shadow 0.2s;
+}
