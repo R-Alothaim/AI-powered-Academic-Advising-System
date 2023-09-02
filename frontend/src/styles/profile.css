@@ -180,3 +180,11 @@
   transition: .2s;
   font-family: inherit;
 }
+
+.btn-danger:hover {
+  box-shadow: 0 4px 16px rgba(239,68,68,0.4);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
