@@ -162,3 +162,12 @@
   justify-content: space-between;
   gap: 12px;
 }
+
+.danger-zone .hint {
+  font-size: 13px;
+  color: #fca5a5;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
