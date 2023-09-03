@@ -188,3 +188,14 @@
 .chip {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+  font-size: 11px;
+  cursor: pointer;
+  color: rgba(160,190,255,0.8);
+  transition: .2s;
+  font-family: inherit;
+}
