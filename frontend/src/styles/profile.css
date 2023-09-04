@@ -199,3 +199,13 @@
   transition: .2s;
   font-family: inherit;
 }
+
+.chip:hover {
+  border-color: rgba(100,150,255,0.4);
+  color: #fff;
+}
+
+.password-message {
+  margin-top: 10px;
+  font-size: 13px;
+}
