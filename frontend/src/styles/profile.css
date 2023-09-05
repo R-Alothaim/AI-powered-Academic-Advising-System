@@ -209,3 +209,5 @@
   margin-top: 10px;
   font-size: 13px;
 }
+.password-message.success { color: #69db7c; }
+.password-message.error { color: #ff6b6b; }
