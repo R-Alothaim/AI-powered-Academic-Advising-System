@@ -10,3 +10,11 @@ function getStatusClass(status) {
   if (s.includes('\u0642\u0631\u064a\u0628') || s.includes('coming')) return 'info';
   return 'neutral';
 }
+
+function CalendarTable({ events, showHijri, showGreg, lang, t }) {
+  if (!events || events.length === 0) {
+    return (
+      <table className="cal-table">
+        <thead>
+          <tr>
+            <th>{t('cal.col.event')}</th>
