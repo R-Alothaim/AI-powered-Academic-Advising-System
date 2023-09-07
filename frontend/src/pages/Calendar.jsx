@@ -18,3 +18,15 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
         <thead>
           <tr>
             <th>{t('cal.col.event')}</th>
+            <th>{t('cal.col.status')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colSpan={2} style={{ textAlign: 'center', padding: 20, color: 'rgba(160,190,255,0.5)' }}>
+              {t('cal.noData')}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
