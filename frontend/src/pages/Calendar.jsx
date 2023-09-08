@@ -30,3 +30,11 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
         </tbody>
       </table>
     );
+  }
+
+  return (
+    <table className="cal-table">
+      <thead>
+        <tr>
+          <th style={{ width: '30%' }}>{t('cal.col.event')}</th>
+          {showHijri && <th>{t('cal.col.hijri_start')}</th>}
