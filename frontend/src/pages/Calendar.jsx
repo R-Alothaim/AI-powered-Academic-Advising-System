@@ -38,3 +38,11 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
         <tr>
           <th style={{ width: '30%' }}>{t('cal.col.event')}</th>
           {showHijri && <th>{t('cal.col.hijri_start')}</th>}
+          {showHijri && <th>{t('cal.col.hijri_end')}</th>}
+          {showGreg && <th>{t('cal.col.greg_start')}</th>}
+          {showGreg && <th>{t('cal.col.greg_end')}</th>}
+          <th style={{ width: '12%' }}>{t('cal.col.status')}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {events.map((ev, i) => (
