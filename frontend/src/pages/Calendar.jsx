@@ -46,3 +46,11 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
       </thead>
       <tbody>
         {events.map((ev, i) => (
+          <tr key={i}>
+            <td>{ev.event}</td>
+            {showHijri && <td>{ev.hijri_start}</td>}
+            {showHijri && <td>{ev.hijri_end || '-'}</td>}
+            {showGreg && <td>{ev.gregorian_start}</td>}
+            {showGreg && <td>{ev.gregorian_end || '-'}</td>}
+            <td>
+              <span className={`status-badge ${getStatusClass(ev.status)}`}>{ev.status}</span>
