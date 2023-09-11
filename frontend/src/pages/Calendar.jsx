@@ -54,3 +54,13 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
             {showGreg && <td>{ev.gregorian_end || '-'}</td>}
             <td>
               <span className={`status-badge ${getStatusClass(ev.status)}`}>{ev.status}</span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+function TabSection({ label, tabs, showHijri, showGreg, lang, t }) {
+  const [activeTab, setActiveTab] = useState(0);
