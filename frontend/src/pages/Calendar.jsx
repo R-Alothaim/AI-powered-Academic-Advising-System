@@ -64,3 +64,12 @@ function CalendarTable({ events, showHijri, showGreg, lang, t }) {
 
 function TabSection({ label, tabs, showHijri, showGreg, lang, t }) {
   const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <section className="tabs" aria-label={label}>
+      <div className="tablist" role="tablist">
+        {tabs.map((tab, i) => (
+          <button
+            key={i}
+            className={`tab${activeTab === i ? ' active' : ''}`}
+            role="tab"
