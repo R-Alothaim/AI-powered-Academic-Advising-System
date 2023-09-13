@@ -81,3 +81,10 @@ function TabSection({ label, tabs, showHijri, showGreg, lang, t }) {
         ))}
       </div>
       {tabs.map((tab, i) => (
+        <div key={i} className={`tabpanel${activeTab === i ? ' active' : ''}`} role="tabpanel">
+          <CalendarTable events={tab.events} showHijri={showHijri} showGreg={showGreg} lang={lang} t={t} />
+        </div>
+      ))}
+    </section>
+  );
+}
