@@ -73,3 +73,11 @@ function TabSection({ label, tabs, showHijri, showGreg, lang, t }) {
             key={i}
             className={`tab${activeTab === i ? ' active' : ''}`}
             role="tab"
+            aria-selected={activeTab === i}
+            onClick={() => setActiveTab(i)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      {tabs.map((tab, i) => (
