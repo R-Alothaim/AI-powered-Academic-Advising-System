@@ -88,3 +88,13 @@ function TabSection({ label, tabs, showHijri, showGreg, lang, t }) {
     </section>
   );
 }
+
+export default function Calendar() {
+  const { lang, t } = useI18n();
+  const [year, setYear] = useState('1447');
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [showHijri, setShowHijri] = useState(true);
+  const [showGreg, setShowGreg] = useState(true);
+  const [lastUpdate, setLastUpdate] = useState('');
+  const printBtnRef = useRef(null);
