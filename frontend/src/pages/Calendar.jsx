@@ -98,3 +98,14 @@ export default function Calendar() {
   const [showGreg, setShowGreg] = useState(true);
   const [lastUpdate, setLastUpdate] = useState('');
   const printBtnRef = useRef(null);
+
+  useEffect(() => {
+    setLoading(true);
+    calendarApi.get(year, lang)
+      .then((d) => {
+        setData(d);
+        setLastUpdate(new Date().toLocaleString(lang === 'ar' ? 'ar-SA' : 'en-US'));
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, [year, lang]);
