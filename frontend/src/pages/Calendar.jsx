@@ -117,3 +117,12 @@ export default function Calendar() {
     btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
     btn.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
   };
+
+  return (
+    <>
+      <div className="card" style={{ marginBottom: 14 }}>
+        <div className="cal-actions">
+          <div>
+            <h2>{t('calendar.title')}</h2>
+            <small style={{ color: 'rgba(160,190,255,0.5)', fontSize: 12 }}>
+              📅 {t('cal.dataFrom')}{' '}
