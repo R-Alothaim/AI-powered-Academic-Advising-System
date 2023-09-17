@@ -126,3 +126,11 @@ export default function Calendar() {
             <h2>{t('calendar.title')}</h2>
             <small style={{ color: 'rgba(160,190,255,0.5)', fontSize: 12 }}>
               📅 {t('cal.dataFrom')}{' '}
+              <span style={{ color: '#4A7AFF' }}>university.edu.sa</span>
+              {lastUpdate && <> | {t('cal.lastUpdate')} {lastUpdate}</>}
+            </small>
+          </div>
+          <div className="filter-row" style={{ marginInlineStart: 'auto' }}>
+            <select value={year} onChange={(e) => setYear(e.target.value)} aria-label="year">
+              <option value="1447">{lang === 'ar' ? '١٤٤٧ هـ' : '1447 H'}</option>
+              <option value="1448">{lang === 'ar' ? '١٤٤٨ هـ' : '1448 H'}</option>
