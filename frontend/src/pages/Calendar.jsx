@@ -109,3 +109,11 @@ export default function Calendar() {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [year, lang]);
+
+  const handleGlow = (e) => {
+    const btn = printBtnRef.current;
+    if (!btn) return;
+    const r = btn.getBoundingClientRect();
+    btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+    btn.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+  };
