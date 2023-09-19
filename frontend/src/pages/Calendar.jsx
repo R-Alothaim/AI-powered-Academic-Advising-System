@@ -134,3 +134,11 @@ export default function Calendar() {
             <select value={year} onChange={(e) => setYear(e.target.value)} aria-label="year">
               <option value="1447">{lang === 'ar' ? '١٤٤٧ هـ' : '1447 H'}</option>
               <option value="1448">{lang === 'ar' ? '١٤٤٨ هـ' : '1448 H'}</option>
+              <option value="1446">{lang === 'ar' ? '١٤٤٦ هـ' : '1446 H'}</option>
+            </select>
+            <label>
+              <input type="checkbox" checked={showHijri} onChange={(e) => setShowHijri(e.target.checked)} />
+              <span>{t('cal.hijri')}</span>
+            </label>
+            <label>
+              <input type="checkbox" checked={showGreg} onChange={(e) => setShowGreg(e.target.checked)} />
