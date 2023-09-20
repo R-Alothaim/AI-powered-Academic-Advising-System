@@ -150,3 +150,11 @@ export default function Calendar() {
               onClick={() => window.print()}
               onPointerMove={handleGlow}
             >
+              <span className="glow" />
+              {t('cal.print')}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {loading ? (
