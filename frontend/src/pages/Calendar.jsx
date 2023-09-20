@@ -158,3 +158,11 @@ export default function Calendar() {
       </div>
 
       {loading ? (
+        <div style={{ textAlign: 'center', padding: 40, color: 'rgba(160,190,255,0.5)' }}>
+          Loading...
+        </div>
+      ) : data ? (
+        <>
+          <TabSection
+            label="Bachelor"
+            tabs={[
