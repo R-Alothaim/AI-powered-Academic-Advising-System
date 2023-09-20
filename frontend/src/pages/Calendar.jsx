@@ -142,3 +142,11 @@ export default function Calendar() {
             </label>
             <label>
               <input type="checkbox" checked={showGreg} onChange={(e) => setShowGreg(e.target.checked)} />
+              <span>{t('cal.greg')}</span>
+            </label>
+            <button
+              ref={printBtnRef}
+              className="cal-btn"
+              onClick={() => window.print()}
+              onPointerMove={handleGlow}
+            >
