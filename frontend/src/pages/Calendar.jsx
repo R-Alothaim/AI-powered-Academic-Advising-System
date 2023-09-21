@@ -174,3 +174,11 @@ export default function Calendar() {
             lang={lang}
             t={t}
           />
+          <div style={{ marginTop: 20 }}>
+            <TabSection
+              label="Graduate"
+              tabs={[
+                { label: t('cal.pg.t1'), events: data.graduate_s1 || [] },
+                { label: t('cal.pg.t2'), events: data.graduate_s2 || [] },
+              ]}
+              showHijri={showHijri}
