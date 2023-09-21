@@ -166,3 +166,11 @@ export default function Calendar() {
           <TabSection
             label="Bachelor"
             tabs={[
+              { label: t('cal.tabs.bachelor_t1'), events: data.bachelor_s1 || [] },
+              { label: t('cal.tabs.bachelor_t2'), events: data.bachelor_s2 || [] },
+            ]}
+            showHijri={showHijri}
+            showGreg={showGreg}
+            lang={lang}
+            t={t}
+          />
