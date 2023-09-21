@@ -182,3 +182,12 @@ export default function Calendar() {
                 { label: t('cal.pg.t2'), events: data.graduate_s2 || [] },
               ]}
               showHijri={showHijri}
+              showGreg={showGreg}
+              lang={lang}
+              t={t}
+            />
+          </div>
+        </>
+      ) : null}
+    </>
+  );
