@@ -1,0 +1,8 @@
+.cal-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between }
+.cal-actions h2{
+  margin:0;
+  font-family:'Playfair Display', Georgia, serif;
+  color:var(--gold);
+  font-weight:800; letter-spacing:.3px;
+}
+.filter-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
