@@ -16,3 +16,14 @@
   outline:none;
   font-family:inherit;
 }
+.filter-row select:focus{border-color:rgba(100,150,255,0.5)}
+.filter-row select option{background:#0D1E3A;color:rgba(220,230,255,0.9)}
+.filter-row label{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius: 999px;
+  padding:6px 10px;
+  color:rgba(160,190,255,0.8);
+  cursor:pointer;
+}
