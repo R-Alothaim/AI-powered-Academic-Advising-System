@@ -27,3 +27,12 @@
   color:rgba(160,190,255,0.8);
   cursor:pointer;
 }
+.filter-row input[type="checkbox"]{
+  appearance:none; width:32px; height:18px; border-radius:999px; position:relative;
+  background:rgba(255,255,255,0.08); outline:none; border:1px solid var(--glass-border); transition:.2s ease;
+  cursor:pointer;
+}
+.filter-row input[type="checkbox"]::after{
+  content:""; position:absolute; inset:2px; width:12px; height:12px; border-radius:50%; background:rgba(160,190,255,0.6); transform:translateX(0);
+  transition:.2s ease;
+}
