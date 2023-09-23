@@ -6,3 +6,13 @@
   font-weight:800; letter-spacing:.3px;
 }
 .filter-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.filter-row select{
+  width:auto;
+  background:var(--glass);
+  color:rgba(220,230,255,0.9);
+  border:1px solid var(--glass-border);
+  border-radius: 12px;
+  padding:10px 12px;
+  outline:none;
+  font-family:inherit;
+}
