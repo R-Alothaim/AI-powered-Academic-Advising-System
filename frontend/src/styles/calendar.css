@@ -36,3 +36,14 @@
   content:""; position:absolute; inset:2px; width:12px; height:12px; border-radius:50%; background:rgba(160,190,255,0.6); transform:translateX(0);
   transition:.2s ease;
 }
+.filter-row input[type="checkbox"]:checked{ background:rgba(36,88,212,0.3); border-color:rgba(74,122,255,0.4) }
+.filter-row input[type="checkbox"]:checked::after{ transform:translateX(12px); background:#4A7AFF }
+.filter-row span{ color:rgba(160,190,255,0.8); font-weight:700 }
+
+.cal-btn{
+  border:none; cursor:pointer; font-weight:700; color:#fff;
+  background: linear-gradient(135deg, #2458D4, #1A3EA8);
+  padding: 10px 14px; border-radius: 12px; position:relative; overflow:hidden;
+  box-shadow:0 4px 24px rgba(36,88,212,.35); letter-spacing:.3px;
+  font-family:'Inter',sans-serif;
+}
