@@ -57,3 +57,12 @@
   margin-top:18px;
   backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
 }
+.tablist{
+  position:relative; display:flex; flex-wrap:wrap; gap:8px; border-bottom:1px solid var(--border); padding:10px;
+}
+.tab{
+  appearance:none; background:var(--glass);
+  border:1px solid var(--glass-border); color:rgba(160,190,255,0.7);
+  padding:11px 16px; border-radius:10px; cursor:pointer; font-weight:700; letter-spacing:.3px;
+  transition:.2s ease; position:relative; font-size:13px; font-family:inherit;
+}
