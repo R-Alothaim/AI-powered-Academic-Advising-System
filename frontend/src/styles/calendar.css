@@ -66,3 +66,15 @@
   padding:11px 16px; border-radius:10px; cursor:pointer; font-weight:700; letter-spacing:.3px;
   transition:.2s ease; position:relative; font-size:13px; font-family:inherit;
 }
+.tab:hover{
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;
+  transform:translateY(-1px);
+}
+.tab[aria-selected="true"],.tab.active{
+  background:linear-gradient(135deg, #2458D4 0%, #1A3EA8 100%);
+  border-color:rgba(74,122,255,0.5);
+  color:#fff;
+  box-shadow: 0 4px 16px rgba(36,88,212,0.4);
+}
