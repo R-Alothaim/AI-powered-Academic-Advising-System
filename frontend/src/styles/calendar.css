@@ -78,3 +78,11 @@
   color:#fff;
   box-shadow: 0 4px 16px rgba(36,88,212,0.4);
 }
+.tablist::after{
+  content:""; position:absolute; inset-inline:10px; bottom:0; height:2px;
+  background: linear-gradient(90deg, #2458D4, #4A7AFF);
+  opacity:.3; border-radius:2px;
+}
+.tabpanel{display:none;padding:16px}
+.tabpanel.active{display:block; animation:calFadeIn .25s ease}
+@keyframes calFadeIn{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:none}}
