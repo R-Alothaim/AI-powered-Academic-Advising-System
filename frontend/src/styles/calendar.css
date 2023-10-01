@@ -86,3 +86,15 @@
 .tabpanel{display:none;padding:16px}
 .tabpanel.active{display:block; animation:calFadeIn .25s ease}
 @keyframes calFadeIn{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:none}}
+
+.cal-table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  overflow:hidden; border-radius:12px; border:1px solid var(--border);
+  background:rgba(255,255,255,0.02);
+}
+.cal-table thead th{
+  background:rgba(255,255,255,0.04);
+  position:sticky; top:0; z-index:1; color:var(--gold); font-weight:800;
+  font-size:12px; white-space:nowrap; text-transform:uppercase; letter-spacing:0.5px;
+  border-bottom:1px solid var(--border);
+}
