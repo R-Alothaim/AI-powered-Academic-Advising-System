@@ -98,3 +98,10 @@
   font-size:12px; white-space:nowrap; text-transform:uppercase; letter-spacing:0.5px;
   border-bottom:1px solid var(--border);
 }
+.cal-table th, .cal-table td{ padding:14px 12px; border-top:1px solid rgba(255,255,255,0.04); text-align:start; font-size:14px; color:rgba(220,230,255,0.85); }
+.cal-table tbody tr:nth-child(odd){ background:transparent }
+.cal-table tbody tr:nth-child(even){ background:rgba(255,255,255,0.02) }
+.cal-table tbody tr:hover{ background:rgba(36,88,212,0.08); transition:background 0.15s ease; }
+.cal-table tbody td:first-child{ font-weight:600; color:rgba(220,230,255,0.95); }
+
+.rtl .cal-table th, .rtl .cal-table td { text-align: right; }
