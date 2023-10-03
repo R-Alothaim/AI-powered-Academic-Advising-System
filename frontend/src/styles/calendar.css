@@ -115,3 +115,14 @@
 .status-badge.danger{  background:rgba(239,68,68,0.12); color:#fca5a5; border-color:rgba(239,68,68,0.3); }
 .status-badge.info{    background:rgba(59,130,246,0.12); color:#93c5fd; border-color:rgba(59,130,246,0.3); }
 .status-badge.neutral{ background:rgba(255,255,255,0.04); color:rgba(160,190,255,0.5); border-color:var(--glass-border); }
+
+@media (max-width:1200px){
+  .cal-table{ display:block; overflow-x:auto; }
+  .cal-table thead th{ font-size:12px; padding:10px 8px; }
+  .cal-table td{ font-size:13px; padding:10px 8px; }
+}
+@media (max-width:900px){
+  .cal-actions{ flex-direction:column; align-items:flex-start; gap:12px; }
+  .filter-row{ width:100%; justify-content:flex-start; }
+  .cal-table th, .cal-table td{ white-space:nowrap; }
+}
