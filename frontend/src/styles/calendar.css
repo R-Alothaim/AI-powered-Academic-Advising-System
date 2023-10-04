@@ -126,3 +126,11 @@
   .filter-row{ width:100%; justify-content:flex-start; }
   .cal-table th, .cal-table td{ white-space:nowrap; }
 }
+
+@media print{
+  body{ background:#fff !important; color:#000 !important; }
+  .sidebar,.topbar{ display:none!important; }
+  .page{ margin:0!important; }
+  .card, .tabs{ box-shadow:none; border-color:#ddd; }
+  .cal-btn, .filter-row label{ display:none; }
+}
