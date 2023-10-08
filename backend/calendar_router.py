@@ -35,3 +35,12 @@ def _write_cache(year: str, lang: str, data: dict):
         logger.warning(f"Cache write failed: {e}")
 
 def _parse_arabic_date(date_str: str):
+    if not date_str or date_str.strip() == '-':
+        return None
+    date_str = date_str.strip()
+    arabic_months = {
+        'يناير': 'January', 'فبراير': 'February', 'مارس': 'March',
+        'أبريل': 'April', 'مايو': 'May', 'يونيو': 'June',
+        'يوليو': 'July', 'أغسطس': 'August', 'سبتمبر': 'September',
+        'أكتوبر': 'October', 'نوفمبر': 'November', 'ديسمبر': 'December',
+    }
