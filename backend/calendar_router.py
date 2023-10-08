@@ -26,3 +26,12 @@ def _read_cache(year: str, lang: str):
         except Exception:
             pass
     return None
+
+def _write_cache(year: str, lang: str, data: dict):
+    try:
+        p = _cache_path(year, lang)
+        p.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as e:
+        logger.warning(f"Cache write failed: {e}")
+
+def _parse_arabic_date(date_str: str):
