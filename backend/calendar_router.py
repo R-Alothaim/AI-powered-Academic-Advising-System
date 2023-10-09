@@ -44,3 +44,11 @@ def _parse_arabic_date(date_str: str):
         'يوليو': 'July', 'أغسطس': 'August', 'سبتمبر': 'September',
         'أكتوبر': 'October', 'نوفمبر': 'November', 'ديسمبر': 'December',
     }
+    for ar, en in arabic_months.items():
+        date_str = date_str.replace(ar, en)
+    for fmt in ('%d %B %Y', '%j %B %Y', '%d %b %Y', '%Y-%m-%d', '%d/%m/%Y'):
+        try:
+            return datetime.strptime(date_str, fmt)
+        except ValueError:
+            continue
+    return None
