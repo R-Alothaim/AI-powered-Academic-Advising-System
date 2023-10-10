@@ -69,3 +69,11 @@ def _calc_status(start_str: str, end_str: str, lang: str) -> str:
     elif now <= end:
         return 'متاح' if lang == 'ar' else 'Available'
     return 'مغلق' if lang == 'ar' else 'Closed'
+
+async def _fetch_calendar(year: str, lang: str) -> dict:
+    cached = _read_cache(year, lang)
+    if cached:
+        return cached
+
+    empty = {'bachelor_s1': [], 'bachelor_s2': [], 'graduate_s1': [], 'graduate_s2': []}
+    url = f"https://university.edu.sa/{lang}/academic-calendar/{year}/"
