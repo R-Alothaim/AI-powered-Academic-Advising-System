@@ -77,3 +77,12 @@ async def _fetch_calendar(year: str, lang: str) -> dict:
 
     empty = {'bachelor_s1': [], 'bachelor_s2': [], 'graduate_s1': [], 'graduate_s2': []}
     url = f"https://university.edu.sa/{lang}/academic-calendar/{year}/"
+
+    try:
+        async with httpx.AsyncClient(timeout=15, follow_redirects=True) as client:
+            resp = await client.get(url, headers={
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+            })
+            if resp.status_code != 200:
+                raise Exception(f"HTTP {resp.status_code}")
+            html = resp.text
