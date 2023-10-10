@@ -52,3 +52,12 @@ def _parse_arabic_date(date_str: str):
         except ValueError:
             continue
     return None
+
+def _calc_status(start_str: str, end_str: str, lang: str) -> str:
+    now = datetime.now()
+    start = _parse_arabic_date(start_str)
+    end = _parse_arabic_date(end_str)
+
+    if not start and not end:
+        return 'غير محدد' if lang == 'ar' else 'Not specified'
+    if start and not end:
