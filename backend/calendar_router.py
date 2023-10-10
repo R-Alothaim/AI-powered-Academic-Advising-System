@@ -61,3 +61,11 @@ def _calc_status(start_str: str, end_str: str, lang: str) -> str:
     if not start and not end:
         return 'غير محدد' if lang == 'ar' else 'Not specified'
     if start and not end:
+        return ('قريباً' if lang == 'ar' else 'Coming Soon') if now < start else ('متاح' if lang == 'ar' else 'Available')
+    if end and not start:
+        return ('متاح' if lang == 'ar' else 'Available') if now <= end else ('مغلق' if lang == 'ar' else 'Closed')
+    if now < start:
+        return 'قريباً' if lang == 'ar' else 'Coming Soon'
+    elif now <= end:
+        return 'متاح' if lang == 'ar' else 'Available'
+    return 'مغلق' if lang == 'ar' else 'Closed'
