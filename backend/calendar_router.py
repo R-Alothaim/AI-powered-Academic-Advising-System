@@ -86,3 +86,11 @@ async def _fetch_calendar(year: str, lang: str) -> dict:
             if resp.status_code != 200:
                 raise Exception(f"HTTP {resp.status_code}")
             html = resp.text
+    except Exception as e:
+        logger.warning(f"Calendar fetch failed: {e}")
+        old = _read_cache(year, lang)
+        return old if old else empty
+
+    try:
+        data = _parse_calendar_html(html, lang)
+        _write_cache(year, lang, data)
