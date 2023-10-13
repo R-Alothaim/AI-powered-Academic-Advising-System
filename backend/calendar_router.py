@@ -94,3 +94,15 @@ async def _fetch_calendar(year: str, lang: str) -> dict:
     try:
         data = _parse_calendar_html(html, lang)
         _write_cache(year, lang, data)
+        return data
+    except Exception as e:
+        logger.error(f"Calendar parse failed: {e}")
+        return empty
+
+def _parse_calendar_html(html: str, lang: str) -> dict:
+    data = {'bachelor_s1': [], 'bachelor_s2': [], 'graduate_s1': [], 'graduate_s2': []}
+
+    sections = {
+        'bachelor': re.search(r'id=["\']bachelor-content["\'].*?(?=id=["\']graduate-content|$)', html, re.DOTALL),
+        'graduate': re.search(r'id=["\']graduate-content["\'].*?$', html, re.DOTALL),
+    }
