@@ -114,3 +114,12 @@ def _parse_calendar_html(html: str, lang: str) -> dict:
 
         for sem_idx in range(2):
             collapse_id = f"{section_key}-semester-{sem_idx}-collapse"
+            collapse_match = re.search(
+                rf'id=["\']{ re.escape(collapse_id) }["\'].*?accordion-body.*?>(.*?)</div>\s*</div>\s*</div>',
+                section_html, re.DOTALL
+            )
+            if not collapse_match:
+                continue
+
+            body = collapse_match.group(1)
+            cards = re.findall(r'class=["\'][^"\']*entry-card[^"\']*["\'].*?(?=class=["\'][^"\']*entry-card|$)', body, re.DOTALL)
