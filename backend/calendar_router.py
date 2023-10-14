@@ -106,3 +106,11 @@ def _parse_calendar_html(html: str, lang: str) -> dict:
         'bachelor': re.search(r'id=["\']bachelor-content["\'].*?(?=id=["\']graduate-content|$)', html, re.DOTALL),
         'graduate': re.search(r'id=["\']graduate-content["\'].*?$', html, re.DOTALL),
     }
+
+    for section_key, match in sections.items():
+        if not match:
+            continue
+        section_html = match.group(0)
+
+        for sem_idx in range(2):
+            collapse_id = f"{section_key}-semester-{sem_idx}-collapse"
