@@ -134,3 +134,14 @@ def _parse_calendar_html(html: str, lang: str) -> dict:
                 title = title_m.group(1).strip()
                 if not title:
                     continue
+
+                hijri_dates = re.findall(r'date-hijri["\']?>([^<]+)', card)
+                greg_dates = re.findall(r'date-gregorian["\']?>([^<]+)', card)
+
+                ev = {
+                    'event': title,
+                    'hijri_start': hijri_dates[0].strip() if len(hijri_dates) > 0 else '',
+                    'hijri_end': hijri_dates[1].strip() if len(hijri_dates) > 1 else '',
+                    'gregorian_start': greg_dates[0].strip() if len(greg_dates) > 0 else '',
+                    'gregorian_end': greg_dates[1].strip() if len(greg_dates) > 1 else '',
+                }
