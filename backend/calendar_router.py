@@ -123,3 +123,14 @@ def _parse_calendar_html(html: str, lang: str) -> dict:
 
             body = collapse_match.group(1)
             cards = re.findall(r'class=["\'][^"\']*entry-card[^"\']*["\'].*?(?=class=["\'][^"\']*entry-card|$)', body, re.DOTALL)
+
+            events = []
+            for card in cards:
+                if 'no-data-card' in card or 'status-summary' in card:
+                    continue
+                title_m = re.search(r'nds-card-title["\']?>([^<]+)', card)
+                if not title_m:
+                    continue
+                title = title_m.group(1).strip()
+                if not title:
+                    continue
