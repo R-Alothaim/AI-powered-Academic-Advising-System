@@ -145,3 +145,14 @@ def _parse_calendar_html(html: str, lang: str) -> dict:
                     'gregorian_start': greg_dates[0].strip() if len(greg_dates) > 0 else '',
                     'gregorian_end': greg_dates[1].strip() if len(greg_dates) > 1 else '',
                 }
+                ev['status'] = _calc_status(ev['gregorian_start'], ev['gregorian_end'], lang)
+                events.append(ev)
+
+            key = f"{section_key.replace('bachelor','bachelor').replace('graduate','graduate')}_s{sem_idx+1}"
+            data[key] = events
+
+    return data
+
+@router.get("/calendar")
+async def get_calendar(year: str = Query("1447", pattern=r"^\d{4}$"), lang: str = Query("ar", pattern=r"^(ar|en)$")):
+    return await _fetch_calendar(year, lang)
