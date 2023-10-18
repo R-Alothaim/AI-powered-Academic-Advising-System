@@ -28,3 +28,14 @@ export default function Chats() {
   }, []);
 
   useEffect(() => {
+    if (!user) return;
+    const controller = new AbortController();
+    chatsApi.list(user.user_id)
+      .then((data) => {
+        if (!controller.signal.aborted) {
+          setChatList(data.map((c) => ({ id: c.id, title: c.title, message_count: c.message_count || 0 })));
+        }
+      })
+      .catch((err) => { if (!controller.signal.aborted) console.error(err); });
+    return () => controller.abort();
+  }, [user]);
