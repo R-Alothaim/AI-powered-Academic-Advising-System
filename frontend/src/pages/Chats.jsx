@@ -19,3 +19,12 @@ export default function Chats() {
   const [typing, setTyping] = useState(false);
   const [search, setSearch] = useState('');
   const [sidebarHidden, setSidebarHidden] = useState(false);
+
+  const containerRef = useRef(null);
+
+  const scrollToBottom = useCallback(() => {
+    const el = containerRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, []);
+
+  useEffect(() => {
