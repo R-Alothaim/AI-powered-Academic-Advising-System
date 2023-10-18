@@ -7,3 +7,15 @@ import ChatSidebar from '../components/ChatSidebar';
 import ChatMessage from '../components/ChatMessage';
 import ChatInput from '../components/ChatInput';
 import '../styles/chat.css';
+
+export default function Chats() {
+  const { user } = useAuth();
+  const { lang, t } = useI18n();
+  const ui = useUI();
+
+  const [chatList, setChatList] = useState([]);
+  const [activeId, setActiveId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [typing, setTyping] = useState(false);
+  const [search, setSearch] = useState('');
+  const [sidebarHidden, setSidebarHidden] = useState(false);
