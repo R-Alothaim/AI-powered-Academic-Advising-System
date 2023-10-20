@@ -39,3 +39,13 @@ export default function Chats() {
       .catch((err) => { if (!controller.signal.aborted) console.error(err); });
     return () => controller.abort();
   }, [user]);
+
+  useEffect(() => {
+    if (!activeId) { setMessages([]); return; }
+    const controller = new AbortController();
+    chatsApi.get(activeId)
+      .then((data) => {
+        if (!controller.signal.aborted) {
+          setMessages(data.messages || []);
+          requestAnimationFrame(scrollToBottom);
+        }
