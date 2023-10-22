@@ -57,3 +57,15 @@ export default function Chats() {
   const activeChat = useMemo(() => chatList.find((c) => c.id === activeId), [chatList, activeId]);
 
   const handleCreate = async () => {
+    const n = chatList.length + 1;
+    const def = lang === 'ar' ? `\u0645\u062d\u0627\u062f\u062b\u0629 ${n}` : `Chat ${n}`;
+    const title = await ui.prompt(t('advisor.chatName'), def);
+    if (!title?.trim()) return;
+    try {
+      const data = await chatsApi.create(user.user_id, title.trim());
+      setChatList((prev) => [{ id: data.id, title: title.trim(), message_count: 0 }, ...prev]);
+      setActiveId(data.id);
+      setMessages([]);
+    } catch (err) {
+      console.error(err);
+    }
