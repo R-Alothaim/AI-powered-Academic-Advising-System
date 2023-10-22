@@ -49,3 +49,11 @@ export default function Chats() {
           setMessages(data.messages || []);
           requestAnimationFrame(scrollToBottom);
         }
+      })
+      .catch((err) => { if (!controller.signal.aborted) console.error(err); });
+    return () => controller.abort();
+  }, [activeId, scrollToBottom]);
+
+  const activeChat = useMemo(() => chatList.find((c) => c.id === activeId), [chatList, activeId]);
+
+  const handleCreate = async () => {
