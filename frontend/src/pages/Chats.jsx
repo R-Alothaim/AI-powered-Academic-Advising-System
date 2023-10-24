@@ -80,3 +80,11 @@ export default function Chats() {
     } catch {
       await ui.alert(lang === 'ar' ? '\u0641\u0634\u0644 \u062d\u0630\u0641 \u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629' : 'Failed to delete conversation');
     }
+  };
+
+  const handleSend = async (content) => {
+    let chatId = activeId;
+
+    if (!chatId) {
+      const n = chatList.length + 1;
+      const def = lang === 'ar' ? `\u0645\u062d\u0627\u062f\u062b\u0629 ${n}` : `Chat ${n}`;
