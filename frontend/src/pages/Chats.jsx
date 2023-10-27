@@ -95,3 +95,12 @@ export default function Chats() {
         setActiveId(data.id);
       } catch { return; }
     }
+
+    const userMsg = { sender: 'user', content, timestamp: new Date().toISOString() };
+    setMessages((prev) => [...prev, userMsg]);
+    setTyping(true);
+    requestAnimationFrame(scrollToBottom);
+
+    try {
+      const data = await chatsApi.sendMessage(chatId, content);
+      const botMsg = { sender: 'bot', content: data.content || t('advisor.noMessages'), timestamp: new Date().toISOString() };
