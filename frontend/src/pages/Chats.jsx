@@ -88,3 +88,10 @@ export default function Chats() {
     if (!chatId) {
       const n = chatList.length + 1;
       const def = lang === 'ar' ? `\u0645\u062d\u0627\u062f\u062b\u0629 ${n}` : `Chat ${n}`;
+      try {
+        const data = await chatsApi.create(user.user_id, def);
+        chatId = data.id;
+        setChatList((prev) => [{ id: data.id, title: def, message_count: 0 }, ...prev]);
+        setActiveId(data.id);
+      } catch { return; }
+    }
