@@ -104,3 +104,12 @@ export default function Chats() {
     try {
       const data = await chatsApi.sendMessage(chatId, content);
       const botMsg = { sender: 'bot', content: data.content || t('advisor.noMessages'), timestamp: new Date().toISOString() };
+      setMessages((prev) => [...prev, botMsg]);
+      setChatList((prev) => prev.map((c) => (c.id === chatId ? { ...c, message_count: c.message_count + 2 } : c)));
+    } catch {
+      setMessages((prev) => [...prev, { sender: 'bot', content: t('advisor.errorConnection'), timestamp: new Date().toISOString() }]);
+    } finally {
+      setTyping(false);
+      requestAnimationFrame(scrollToBottom);
+    }
+  };
