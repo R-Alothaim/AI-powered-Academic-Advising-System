@@ -113,3 +113,12 @@ export default function Chats() {
       requestAnimationFrame(scrollToBottom);
     }
   };
+
+  const handleExport = async () => {
+    if (!activeId || !activeChat) return;
+    try {
+      let text = `${activeChat.title}\n${'='.repeat(activeChat.title.length)}\n\n`;
+      messages.forEach((m) => {
+        const role = (m.sender || m.role) === 'user' ? t('advisor.student') : t('advisor.advisor');
+        text += `${role}:\n${m.content}\n\n`;
+      });
