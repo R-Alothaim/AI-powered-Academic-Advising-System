@@ -122,3 +122,14 @@ export default function Chats() {
         const role = (m.sender || m.role) === 'user' ? t('advisor.student') : t('advisor.advisor');
         text += `${role}:\n${m.content}\n\n`;
       });
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${activeChat.title.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(a.href);
+    } catch {
+      await ui.alert(t('advisor.exportFailed'));
+    }
