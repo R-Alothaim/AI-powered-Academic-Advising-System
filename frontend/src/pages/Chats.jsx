@@ -133,3 +133,11 @@ export default function Chats() {
     } catch {
       await ui.alert(t('advisor.exportFailed'));
     }
+  };
+
+  return (
+    <div className="card">
+      <div className={`chat-grid${sidebarHidden ? ' sidebar-hidden' : ''}`}>
+        <ChatSidebar
+          chats={chatList}
+          activeId={activeId}
