@@ -141,3 +141,11 @@ export default function Chats() {
         <ChatSidebar
           chats={chatList}
           activeId={activeId}
+          search={search}
+          onSearch={setSearch}
+          onSelect={setActiveId}
+          onDelete={handleDelete}
+          onCreate={handleCreate}
+        />
+
+        <section className="chat-main" aria-label="Conversation">
