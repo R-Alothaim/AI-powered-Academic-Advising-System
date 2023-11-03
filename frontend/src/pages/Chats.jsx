@@ -149,3 +149,14 @@ export default function Chats() {
         />
 
         <section className="chat-main" aria-label="Conversation">
+          <header>
+            <h3 className="chat-title">{activeChat?.title || t('advisor.title')}</h3>
+            <div className="chat-toolbar">
+              <button className="icon-btn" onClick={() => setSidebarHidden((v) => !v)} title={t('advisor.toggleSidebar')} aria-label={t('advisor.toggleSidebar')}>
+                ☰
+              </button>
+              <button className="icon-btn" onClick={handleExport} title={t('advisor.export')} aria-label={t('advisor.export')}>
+                📥
+              </button>
+            </div>
+          </header>
