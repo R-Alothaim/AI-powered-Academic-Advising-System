@@ -160,3 +160,12 @@ export default function Chats() {
               </button>
             </div>
           </header>
+
+          <div className="chat-container" ref={containerRef}>
+            {messages.length === 0 && (
+              <div className="message bot">
+                <div>{t('advisor.greetingShort')}</div>
+                <div className="meta"><span>AI</span> &bull; <time>&mdash;</time></div>
+              </div>
+            )}
+            {messages.map((m, i) => (
