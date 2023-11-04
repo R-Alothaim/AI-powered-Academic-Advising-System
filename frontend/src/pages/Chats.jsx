@@ -169,3 +169,11 @@ export default function Chats() {
               </div>
             )}
             {messages.map((m, i) => (
+              <ChatMessage key={m.id || i} message={m} userName={user?.name} lang={lang} />
+            ))}
+            {typing && (
+              <div className="typing" aria-label={t('advisor.typing')}>
+                <i /><i /><i />
+              </div>
+            )}
+          </div>
