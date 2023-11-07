@@ -177,3 +177,10 @@ export default function Chats() {
               </div>
             )}
           </div>
+
+          <ChatInput onSend={handleSend} disabled={typing} />
+        </section>
+      </div>
+    </div>
+  );
+}
