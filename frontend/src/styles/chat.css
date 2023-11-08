@@ -10,3 +10,11 @@
   --glass: rgba(255,255,255,0.06);
   --glass-border: rgba(255,255,255,0.12);
 }
+.chat-grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start}
+.chat-side{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:14px;display:flex;flex-direction:column;min-height:600px;max-height:calc(100vh - 180px)}
+.side-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.side-head h3{margin:0;font-weight:800;font-family:'Playfair Display',Georgia,serif;color:var(--gold);letter-spacing:.3px;font-size:15px}
+.search-row{display:flex;gap:8px;margin-bottom:10px}
+.chat-input{flex:1;background:rgba(255,255,255,0.06);border:1px solid var(--glass-border);border-radius:10px;padding:10px 12px;outline:none;font-size:14px;color:rgba(220,230,255,0.9);font-family:inherit}
+.chat-input::placeholder{color:rgba(160,180,255,0.3)}
+.chat-input:focus{border-color:rgba(100,150,255,0.5)}
