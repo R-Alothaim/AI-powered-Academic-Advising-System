@@ -1,0 +1,12 @@
+:root{
+  --radius: 14px;
+  --shadow: 0 10px 40px rgba(0,0,0,.3);
+  --border: rgba(255,255,255,0.1);
+  --muted: rgba(160,190,255,0.5);
+  --accent1: #2458D4;
+  --accent2: #4A7AFF;
+  --gold: #EAD27A;
+  --success: #22c55e;
+  --glass: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
+}
