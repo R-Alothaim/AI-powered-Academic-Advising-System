@@ -50,3 +50,11 @@
 .chat-container::-webkit-scrollbar{width:8px}
 .chat-container::-webkit-scrollbar-track{background:transparent}
 .chat-container::-webkit-scrollbar-thumb{background:rgba(100,150,255,0.2);border-radius:4px}
+.message{max-width:85%;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,0.06);color:rgba(220,230,255,0.9);line-height:1.7;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.15);font-size:14px;word-wrap:break-word}
+.message.bot,.message.assistant{align-self:flex-start;background:rgba(36,88,212,0.12);border:1px solid rgba(74,122,255,0.2)}
+.message.user{align-self:flex-end;background:rgba(234,210,122,0.08);border:1px solid rgba(234,210,122,0.2)}
+.message .meta{margin-top:8px;font-size:11px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.message ul,.message ol{margin:8px 0;padding-inline-start:20px}
+.message li{margin:4px 0}
+.message p{margin:8px 0}
+.message p:first-child{margin-top:0}
