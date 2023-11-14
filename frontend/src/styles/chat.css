@@ -58,3 +58,11 @@
 .message li{margin:4px 0}
 .message p{margin:8px 0}
 .message p:first-child{margin-top:0}
+.message p:last-child{margin-bottom:0}
+.message strong{font-weight:700;color:var(--gold)}
+.message code{background:rgba(74,122,255,.15);padding:2px 6px;border-radius:4px;font-family:monospace;font-size:13px}
+.message table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.message th,.message td{border:1px solid var(--border);padding:8px;text-align:right}
+.message th{background:rgba(255,255,255,0.04);font-weight:700;color:var(--gold)}
+.typing{align-self:flex-start;display:inline-flex;gap:4px;background:rgba(36,88,212,0.12);border:1px solid rgba(74,122,255,0.2);padding:14px 16px;border-radius:14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--accent2);opacity:.5;animation:blink 1s infinite ease-in-out;display:block;font-style:normal}
