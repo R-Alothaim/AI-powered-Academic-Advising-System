@@ -74,3 +74,7 @@
 .textbox::placeholder{color:rgba(160,180,255,0.3)}
 .textbox:focus{border-color:rgba(100,150,255,0.5)}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.empty .emoji{font-size:48px;display:block;margin-bottom:12px}
+@media(max-width:1024px){.chat-grid{grid-template-columns:1fr}.chat-side{max-height:400px}.chat-side.hidden{display:none}}
+@media(min-width:1025px){.chat-grid.sidebar-hidden{grid-template-columns:1fr}.chat-grid.sidebar-hidden .chat-side{display:none}}
+@media(max-width:600px){.message{max-width:92%}.chat-btn{padding:8px 12px;font-size:12px}}
