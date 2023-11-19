@@ -23,3 +23,11 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
           type="search"
           placeholder={t('advisor.search')}
           value={search}
+          onChange={(e) => onSearch(e.target.value)}
+          aria-label={t('advisor.search')}
+        />
+      </div>
+      <ul className="chat-list" role="listbox" aria-label={t('advisor.myChats')}>
+        {filtered.length === 0 ? (
+          <li style={{ padding: 20, textAlign: 'center', color: '#9ca3af', border: 'none', display: 'block' }}>
+            {t('advisor.noChats')}
