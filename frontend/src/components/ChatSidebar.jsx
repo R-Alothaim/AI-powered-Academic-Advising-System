@@ -15,3 +15,11 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
         <button className="chat-btn icon-only" onClick={onCreate} title={t('advisor.newChat')}>
           <span className="glow" />
           <span>+</span>
+        </button>
+      </div>
+      <div className="search-row">
+        <input
+          className="chat-input"
+          type="search"
+          placeholder={t('advisor.search')}
+          value={search}
