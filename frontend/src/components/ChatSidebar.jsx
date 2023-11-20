@@ -31,3 +31,11 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
         {filtered.length === 0 ? (
           <li style={{ padding: 20, textAlign: 'center', color: '#9ca3af', border: 'none', display: 'block' }}>
             {t('advisor.noChats')}
+          </li>
+        ) : (
+          filtered.map((c) => (
+            <li
+              key={c.id}
+              className={c.id === activeId ? 'active' : ''}
+              onClick={() => onSelect(c.id)}
+              role="option"
