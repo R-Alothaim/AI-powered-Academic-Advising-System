@@ -39,3 +39,11 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
               className={c.id === activeId ? 'active' : ''}
               onClick={() => onSelect(c.id)}
               role="option"
+              aria-selected={c.id === activeId}
+            >
+              <div>
+                <div className="title">{c.title}</div>
+                <div className="meta">
+                  <span className="msg-badge">
+                    {c.message_count}{' '}
+                    {lang === 'ar' ? '\u0631\u0633\u0627\u0644\u0629' : c.message_count === 1 ? 'message' : 'messages'}
