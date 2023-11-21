@@ -55,3 +55,12 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
                 onClick={(e) => { e.stopPropagation(); onDelete(c.id); }}
                 title={t('actions.delete')}
                 aria-label={`${t('actions.delete')} ${c.title}`}
+              >
+                ×
+              </button>
+            </li>
+          ))
+        )}
+      </ul>
+    </aside>
+  );
