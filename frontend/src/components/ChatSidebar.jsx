@@ -64,3 +64,6 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
       </ul>
     </aside>
   );
+}
+
+export default memo(ChatSidebar);
