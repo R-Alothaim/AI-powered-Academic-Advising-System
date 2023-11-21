@@ -47,3 +47,11 @@ function ChatSidebar({ chats, activeId, search, onSearch, onSelect, onDelete, on
                   <span className="msg-badge">
                     {c.message_count}{' '}
                     {lang === 'ar' ? '\u0631\u0633\u0627\u0644\u0629' : c.message_count === 1 ? 'message' : 'messages'}
+                  </span>
+                </div>
+              </div>
+              <button
+                className="delete-chat"
+                onClick={(e) => { e.stopPropagation(); onDelete(c.id); }}
+                title={t('actions.delete')}
+                aria-label={`${t('actions.delete')} ${c.title}`}
