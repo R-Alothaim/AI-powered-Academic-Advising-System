@@ -6,3 +6,11 @@ function ChatMessage({ message, userName, lang }) {
   const role = sender === 'user' ? 'user' : 'bot';
   const time = message.timestamp
     ? new Date(message.timestamp).toLocaleTimeString(lang === 'ar' ? 'ar-SA' : 'en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+    : '\u2014';
+
+  return (
+    <div className={`message ${role}`}>
+      <div dangerouslySetInnerHTML={{ __html: formatMessage(message.content || '') }} />
