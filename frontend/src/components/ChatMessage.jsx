@@ -14,3 +14,11 @@ function ChatMessage({ message, userName, lang }) {
   return (
     <div className={`message ${role}`}>
       <div dangerouslySetInnerHTML={{ __html: formatMessage(message.content || '') }} />
+      <div className="meta">
+        <span>{role === 'user' ? userName : 'AI'}</span> &bull; <time>{time}</time>
+      </div>
+    </div>
+  );
+}
+
+export default memo(ChatMessage);
