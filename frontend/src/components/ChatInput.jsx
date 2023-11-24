@@ -9,3 +9,11 @@ export default function ChatInput({ onSend, disabled }) {
     el.style.height = 'auto';
     el.style.height = Math.min(el.scrollHeight, 160) + 'px';
   };
+
+  const handleSend = () => {
+    const val = textareaRef.current?.value.trim();
+    if (!val) return;
+    onSend(val);
+    textareaRef.current.value = '';
+    autosize(textareaRef.current);
+  };
