@@ -17,3 +17,12 @@ export default function ChatInput({ onSend, disabled }) {
     textareaRef.current.value = '';
     autosize(textareaRef.current);
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  return (
