@@ -34,3 +34,12 @@ export default function ChatInput({ onSend, disabled }) {
         placeholder={t('advisor.placeholder')}
         onChange={(e) => autosize(e.target)}
         onKeyDown={handleKeyDown}
+        aria-label={t('advisor.placeholder')}
+      />
+      <button className="chat-btn" disabled={disabled} onClick={handleSend}>
+        <span className="glow" />
+        <span>{t('chat.send')}</span>
+      </button>
+    </div>
+  );
+}
