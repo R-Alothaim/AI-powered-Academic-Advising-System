@@ -26,3 +26,11 @@ export default function ChatInput({ onSend, disabled }) {
   };
 
   return (
+    <div className="input-area">
+      <textarea
+        ref={textareaRef}
+        className="textbox"
+        rows={2}
+        placeholder={t('advisor.placeholder')}
+        onChange={(e) => autosize(e.target)}
+        onKeyDown={handleKeyDown}
