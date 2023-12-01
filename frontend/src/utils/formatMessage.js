@@ -15,3 +15,14 @@ export default function formatMessage(text) {
 
   text = text.replace(/^\* (.+)$/gm, '<li>$1</li>').replace(/^- (.+)$/gm, '<li>$1</li>');
   text = text.replace(/(<li>.*<\/li>\s*)+/gs, (m) => '<ul>' + m + '</ul>');
+
+  text = text.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+  text = text.replace(/(<li>.*<\/li>\s*)+/gs, (m) => (m.includes('<ul>') ? m : '<ol>' + m + '</ol>'));
+
+  text = text.replace(/^([^:\n]+):$/gm, '<strong>$1:</strong>');
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
+
+  text = text.replace(/\n/g, '<br>').replace(/<br>\s*<br>/g, '</p><p>');
+  text = '<p>' + text + '</p>';
+  text = text.replace(/<p>\s*<\/p>/g, '');
