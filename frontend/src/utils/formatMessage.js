@@ -26,3 +26,6 @@ export default function formatMessage(text) {
   text = text.replace(/\n/g, '<br>').replace(/<br>\s*<br>/g, '</p><p>');
   text = '<p>' + text + '</p>';
   text = text.replace(/<p>\s*<\/p>/g, '');
+
+  return DOMPurify.sanitize(text);
+}
