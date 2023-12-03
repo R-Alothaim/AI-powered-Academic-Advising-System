@@ -22,3 +22,13 @@ from auth_router import (
     _get_current_user,
 )
 from calendar_router import router as calendar_router
+
+load_dotenv()
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+_socket = os.getenv("MYSQL_UNIX_SOCKET", "")
+_user = os.getenv("MYSQL_USER", "root")
+_password = os.getenv("MYSQL_PASSWORD", "")
+_host = os.getenv("MYSQL_HOST", "localhost")
+_db = os.getenv("MYSQL_DB", "university_reviews")
