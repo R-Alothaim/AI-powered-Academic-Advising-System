@@ -14,3 +14,11 @@ from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from pydantic import BaseModel
 
 from ultimate_rag_system import UltimateRAGSystem
+from auth_router import (
+    router as auth_router,
+    user_router,
+    setup as auth_setup,
+    _decode_jwt,
+    _get_current_user,
+)
+from calendar_router import router as calendar_router
