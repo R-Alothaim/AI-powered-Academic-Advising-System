@@ -32,3 +32,12 @@ _user = os.getenv("MYSQL_USER", "root")
 _password = os.getenv("MYSQL_PASSWORD", "")
 _host = os.getenv("MYSQL_HOST", "localhost")
 _db = os.getenv("MYSQL_DB", "university_reviews")
+
+if _socket:
+    DATABASE_URL = f"mysql+pymysql://{_user}:{_password}@localhost/{_db}?unix_socket={_socket}"
+else:
+    DATABASE_URL = f"mysql+pymysql://{_user}:{_password}@{_host}/{_db}"
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
