@@ -51,3 +51,13 @@ class Chat(Base):
     title = Column(String(100), default="New Chat")
     message_count = Column(Integer, default=0, nullable=False)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class Message(Base):
+    __tablename__ = "messages"
+    id = Column(Integer, primary_key=True, index=True)
+    chat_id = Column(Integer, nullable=False)
+    user_id = Column(Integer, nullable=False)
+    sender = Column(String(10), nullable=False)
+    content = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
