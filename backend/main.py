@@ -71,3 +71,12 @@ class MessageOut(BaseModel):
     role: str
     content: str
     timestamp: datetime
+
+class ChatOut(BaseModel):
+    id: int
+    title: str
+    message_count: int = 0
+    created_at: datetime
+
+
+@asynccontextmanager
