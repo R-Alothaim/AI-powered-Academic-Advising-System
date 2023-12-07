@@ -61,3 +61,13 @@ class Message(Base):
     sender = Column(String(10), nullable=False)
     content = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class MessageCreate(BaseModel):
+    content: str
+
+class MessageOut(BaseModel):
+    id: int
+    role: str
+    content: str
+    timestamp: datetime
