@@ -80,3 +80,11 @@ class ChatOut(BaseModel):
 
 
 @asynccontextmanager
+async def lifespan(app: FastAPI):
+    global rag_system
+    logger.info("Initializing RAG System...")
+    workspace_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    rag_system = UltimateRAGSystem(workspace_path)
+    logger.info("RAG System initialized")
+
+    Base.metadata.create_all(bind=engine)
