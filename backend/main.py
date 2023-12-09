@@ -96,3 +96,11 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="University Academic Advising System",
+    description="AI-powered academic advisor with RAG-based context grounding",
+    version="3.0.0",
+    lifespan=lifespan,
+)
+
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173").split(",")
+app.add_middleware(
+    CORSMiddleware,
