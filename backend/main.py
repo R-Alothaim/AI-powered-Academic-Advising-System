@@ -88,3 +88,11 @@ async def lifespan(app: FastAPI):
     logger.info("RAG System initialized")
 
     Base.metadata.create_all(bind=engine)
+    auth_setup(get_db, Base, engine)
+    logger.info("Database and auth initialized")
+    yield
+    logger.info("Shutting down...")
+
+
+app = FastAPI(
+    title="University Academic Advising System",
