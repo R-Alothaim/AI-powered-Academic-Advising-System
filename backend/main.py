@@ -122,3 +122,12 @@ def get_db():
     finally:
         db.close()
 
+
+@app.get("/auth/me")
+async def auth_me(request: Request):
+    auth_header = request.headers.get("Authorization", "")
+    if not auth_header.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        data = _decode_jwt(auth_header[7:])
+        return {
