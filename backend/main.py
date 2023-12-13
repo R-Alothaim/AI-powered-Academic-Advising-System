@@ -131,3 +131,11 @@ async def auth_me(request: Request):
     try:
         data = _decode_jwt(auth_header[7:])
         return {
+            "user_id": data["user_id"],
+            "name": data["name"],
+            "email": data["email"],
+            "created_at": data.get("created_at"),
+        }
+    except Exception:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+
