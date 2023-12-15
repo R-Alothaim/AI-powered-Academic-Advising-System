@@ -139,3 +139,12 @@ async def auth_me(request: Request):
     except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
+
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://localhost:11434")
+LLM_MODEL = os.getenv("LLM_MODEL", "llama3.1:8b")
+
+
+class LLMClient:
+    def __init__(self):
+        self.base_url = LLM_BASE_URL
+        self.model = LLM_MODEL
