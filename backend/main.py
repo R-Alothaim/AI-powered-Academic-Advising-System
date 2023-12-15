@@ -148,3 +148,13 @@ class LLMClient:
     def __init__(self):
         self.base_url = LLM_BASE_URL
         self.model = LLM_MODEL
+
+    async def generate_response(self, messages: List[Dict[str, str]], context_info: Dict[str, Any] = None) -> str:
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            try:
+                payload = {
+                    "model": self.model,
+                    "messages": messages,
+                    "stream": False,
+                    "options": {"temperature": 0.3, "top_p": 0.85, "top_k": 40, "repeat_penalty": 1.1},
+                }
