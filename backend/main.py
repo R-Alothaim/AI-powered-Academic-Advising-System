@@ -158,3 +158,11 @@ class LLMClient:
                     "stream": False,
                     "options": {"temperature": 0.3, "top_p": 0.85, "top_k": 40, "repeat_penalty": 1.1},
                 }
+                response = await client.post(
+                    f"{self.base_url}/api/chat",
+                    json=payload,
+                    headers={"Content-Type": "application/json"},
+                )
+                if response.status_code == 200:
+                    return response.json().get("message", {}).get("content", "No response generated")
+                logger.error(f"LLM API error: {response.status_code}")
