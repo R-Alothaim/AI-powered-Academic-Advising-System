@@ -166,3 +166,11 @@ class LLMClient:
                 if response.status_code == 200:
                     return response.json().get("message", {}).get("content", "No response generated")
                 logger.error(f"LLM API error: {response.status_code}")
+                return "Sorry, I'm experiencing technical difficulties. Please try again."
+            except Exception as e:
+                logger.error(f"LLM connection error: {e}")
+                return "Sorry, I'm currently unavailable. Please try again later."
+
+
+llm_client = LLMClient()
+
