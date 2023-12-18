@@ -174,3 +174,12 @@ class LLMClient:
 
 llm_client = LLMClient()
 
+
+def detect_language(text: str) -> str:
+    arabic_chars = sum(1 for c in text if "\u0600" <= c <= "\u06FF")
+    return "ar" if arabic_chars > len(text) * 0.3 else "en"
+
+
+def is_academic_question(text: str) -> bool:
+    keywords = {
+        "en": [
