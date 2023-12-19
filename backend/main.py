@@ -183,3 +183,11 @@ def detect_language(text: str) -> str:
 def is_academic_question(text: str) -> bool:
     keywords = {
         "en": [
+            "course", "prerequisite", "credit", "gpa", "grade", "exam", "test",
+            "registration", "enrollment", "withdraw", "drop", "semester", "academic",
+            "degree", "major", "graduation", "transcript", "schedule", "calendar",
+            "university", "college", "student", "advisor", "plan", "level",
+            "project", "senior", "lecture", "attend", "absence", "excuse", "class",
+            "program", "duration", "computer", "science", "deadline", "fee",
+            "tuition", "scholarship", "instructor", "professor", "office",
+            "cs", "math", "lab", "midterm", "final", "quiz", "assignment", "study",
