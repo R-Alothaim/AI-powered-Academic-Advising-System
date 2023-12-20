@@ -211,3 +211,12 @@ def is_academic_question(text: str) -> bool:
         return True
     follow_ups = [r"what else", r"tell me more", r"more info", r"what about", r"ماذا أيضا", r"المزيد", r"أخبرني المزيد"]
     return any(re.search(p, text_lower) for p in follow_ups)
+
+
+@app.get("/")
+async def root():
+    return {
+        "message": "University Academic Advising System API v3.0",
+        "status": "active",
+        "rag_system": "enabled" if rag_system else "disabled",
+    }
