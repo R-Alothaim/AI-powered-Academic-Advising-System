@@ -201,3 +201,13 @@ def is_academic_question(text: str) -> bool:
             "واجب", "معمل", "نصفي", "نهائي", "دراسة", "مذاكرة",
         ],
     }
+    text_lower = text.lower()
+    if re.search(r"cs\s*\d{3}", text_lower):
+        return True
+    lang = detect_language(text)
+    if any(kw in text_lower for kw in keywords.get(lang, keywords["en"])):
+        return True
+    if re.search(r"\d+%", text):
+        return True
+    follow_ups = [r"what else", r"tell me more", r"more info", r"what about", r"ماذا أيضا", r"المزيد", r"أخبرني المزيد"]
+    return any(re.search(p, text_lower) for p in follow_ups)
