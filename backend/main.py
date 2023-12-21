@@ -229,3 +229,15 @@ async def health_check():
         async with httpx.AsyncClient(timeout=5.0) as client:
             r = await client.get(f"{LLM_BASE_URL}/api/tags")
             llm_status = "healthy" if r.status_code == 200 else "unhealthy"
+    except Exception:
+        llm_status = "unreachable"
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "components": {
+            "database": "healthy",
+            "rag_system": rag_status,
+            "llm": llm_status,
+            "vector_index": f"{len(rag_system.chunks) if rag_system else 0} chunks indexed",
+        },
+    }
