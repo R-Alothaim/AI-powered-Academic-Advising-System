@@ -220,3 +220,12 @@ async def root():
         "status": "active",
         "rag_system": "enabled" if rag_system else "disabled",
     }
+
+
+@app.get("/health")
+async def health_check():
+    rag_status = "healthy" if rag_system and rag_system.embeddings_matrix is not None else "unavailable"
+    try:
+        async with httpx.AsyncClient(timeout=5.0) as client:
+            r = await client.get(f"{LLM_BASE_URL}/api/tags")
+            llm_status = "healthy" if r.status_code == 200 else "unhealthy"
