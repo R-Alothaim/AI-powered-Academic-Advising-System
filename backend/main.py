@@ -260,3 +260,11 @@ async def get_user_chats(user_id: int, db: Session = Depends(get_db)):
         ChatOut(id=c.id, title=c.title, message_count=c.message_count or 0, created_at=c.created_at)
         for c in chats
     ]
+
+
+@app.post("/chats")
+async def create_chat(chat_in: Dict[str, Any], db: Session = Depends(get_db)):
+    user_id = chat_in.get("user_id", 1)
+    title = chat_in.get("title", "New Chat")
+    try:
+        chat = Chat(user_id=user_id, title=title)
