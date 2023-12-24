@@ -251,3 +251,12 @@ async def get_stats(db: Session = Depends(get_db)):
         "rag_chunks": len(rag_system.chunks) if rag_system else 0,
         "supported_languages": ["en", "ar"],
     }
+
+
+@app.get("/users/{user_id}/chats", response_model=List[ChatOut])
+async def get_user_chats(user_id: int, db: Session = Depends(get_db)):
+    chats = db.query(Chat).filter(Chat.user_id == user_id).order_by(Chat.created_at.desc()).all()
+    return [
+        ChatOut(id=c.id, title=c.title, message_count=c.message_count or 0, created_at=c.created_at)
+        for c in chats
+    ]
