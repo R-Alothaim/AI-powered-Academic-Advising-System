@@ -241,3 +241,13 @@ async def health_check():
             "vector_index": f"{len(rag_system.chunks) if rag_system else 0} chunks indexed",
         },
     }
+
+
+@app.get("/stats")
+async def get_stats(db: Session = Depends(get_db)):
+    return {
+        "chats": db.query(Chat).count(),
+        "messages": db.query(Message).count(),
+        "rag_chunks": len(rag_system.chunks) if rag_system else 0,
+        "supported_languages": ["en", "ar"],
+    }
