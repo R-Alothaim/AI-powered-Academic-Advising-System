@@ -268,3 +268,11 @@ async def create_chat(chat_in: Dict[str, Any], db: Session = Depends(get_db)):
     title = chat_in.get("title", "New Chat")
     try:
         chat = Chat(user_id=user_id, title=title)
+        db.add(chat)
+        db.commit()
+        db.refresh(chat)
+        return {"id": chat.id, "title": chat.title, "created_at": chat.created_at}
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error creating chat: {e}")
+        raise HTTPException(status_code=400, detail="Failed to create conversation")
