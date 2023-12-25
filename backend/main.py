@@ -276,3 +276,12 @@ async def create_chat(chat_in: Dict[str, Any], db: Session = Depends(get_db)):
         db.rollback()
         logger.error(f"Error creating chat: {e}")
         raise HTTPException(status_code=400, detail="Failed to create conversation")
+
+
+@app.get("/chats/{chat_id}")
+async def get_chat_details(chat_id: int, db: Session = Depends(get_db)):
+    chat = db.query(Chat).filter(Chat.id == chat_id).first()
+    if not chat:
+        raise HTTPException(status_code=404, detail="Conversation not found")
+    messages = db.query(Message).filter(Message.chat_id == chat_id).order_by(Message.timestamp).all()
+    return {
