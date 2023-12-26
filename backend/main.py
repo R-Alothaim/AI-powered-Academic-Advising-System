@@ -285,3 +285,10 @@ async def get_chat_details(chat_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Conversation not found")
     messages = db.query(Message).filter(Message.chat_id == chat_id).order_by(Message.timestamp).all()
     return {
+        "title": chat.title,
+        "messages": [
+            MessageOut(id=m.id, role="user" if m.sender == "user" else "bot", content=m.content, timestamp=m.timestamp)
+            for m in messages
+        ],
+    }
+
