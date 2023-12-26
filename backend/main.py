@@ -292,3 +292,12 @@ async def get_chat_details(chat_id: int, db: Session = Depends(get_db)):
         ],
     }
 
+
+@app.get("/chats/{chat_id}/messages", response_model=List[MessageOut])
+async def get_messages(chat_id: int, db: Session = Depends(get_db)):
+    result = await get_chat_details(chat_id, db)
+    return result["messages"]
+
+
+@app.post("/chats/{chat_id}/message", response_model=MessageOut)
+async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(get_db)):
