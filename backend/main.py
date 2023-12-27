@@ -321,3 +321,11 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
             "en": "Sorry, this is outside my current scope. I can help with academic advising questions about courses, prerequisites, registration, GPA, and other university-related topics.",
             "ar": "عذرًا، هذا خارج نطاق معرفتي الحالية. يمكنني المساعدة في الأسئلة الأكاديمية حول المقررات والمتطلبات السابقة والتسجيل والمعدل التراكمي والموضوعات الجامعية الأخرى.",
         }
+        bot_msg = Message(chat_id=chat_id, user_id=chat.user_id, sender="bot", content=fallback.get(lang, fallback["en"]))
+        db.add(bot_msg)
+        db.commit()
+        return MessageOut(id=bot_msg.id, role="bot", content=bot_msg.content, timestamp=bot_msg.timestamp)
+
+    try:
+        recent = db.query(Message).filter(Message.chat_id == chat_id).order_by(Message.timestamp.desc()).limit(5).all()
+        history = [{"role": m.sender, "content": m.content} for m in reversed(recent)]
