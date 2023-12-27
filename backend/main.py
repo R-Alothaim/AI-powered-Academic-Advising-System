@@ -301,3 +301,11 @@ async def get_messages(chat_id: int, db: Session = Depends(get_db)):
 
 @app.post("/chats/{chat_id}/message", response_model=MessageOut)
 async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(get_db)):
+    user_content = msg.content.strip()
+    chat = db.query(Chat).filter(Chat.id == chat_id).first()
+    if not chat:
+        raise HTTPException(status_code=404, detail="Conversation not found")
+
+    try:
+        user_message = Message(chat_id=chat_id, user_id=chat.user_id, sender="user", content=user_content)
+        db.add(user_message)
