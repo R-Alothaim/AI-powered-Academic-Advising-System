@@ -329,3 +329,15 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
     try:
         recent = db.query(Message).filter(Message.chat_id == chat_id).order_by(Message.timestamp.desc()).limit(5).all()
         history = [{"role": m.sender, "content": m.content} for m in reversed(recent)]
+
+        if rag_system and rag_system.embeddings_matrix is not None:
+            instruction_block = rag_system.generate_instruction_block(user_content, history)
+            context_info = {"query_type": rag_system.classify_query(user_content)}
+        else:
+            instruction_block = "You are an academic advising assistant. Answer the student's question to the best of your ability."
+            context_info = {}
+
+        llm_messages = [
+            {"role": "system", "content": instruction_block},
+            {"role": "user", "content": user_content},
+        ]
