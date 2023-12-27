@@ -309,3 +309,15 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
     try:
         user_message = Message(chat_id=chat_id, user_id=chat.user_id, sender="user", content=user_content)
         db.add(user_message)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error saving message: {e}")
+        raise HTTPException(status_code=400, detail="Failed to save message")
+
+    if not is_academic_question(user_content):
+        lang = detect_language(user_content)
+        fallback = {
+            "en": "Sorry, this is outside my current scope. I can help with academic advising questions about courses, prerequisites, registration, GPA, and other university-related topics.",
+            "ar": "عذرًا، هذا خارج نطاق معرفتي الحالية. يمكنني المساعدة في الأسئلة الأكاديمية حول المقررات والمتطلبات السابقة والتسجيل والمعدل التراكمي والموضوعات الجامعية الأخرى.",
+        }
