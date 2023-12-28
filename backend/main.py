@@ -341,3 +341,10 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
             {"role": "system", "content": instruction_block},
             {"role": "user", "content": user_content},
         ]
+        response_content = await llm_client.generate_response(llm_messages, context_info=context_info)
+
+        bot_msg = Message(chat_id=chat_id, user_id=chat.user_id, sender="bot", content=response_content)
+        db.add(bot_msg)
+        db.commit()
+        db.refresh(bot_msg)
+        return MessageOut(id=bot_msg.id, role="bot", content=bot_msg.content, timestamp=bot_msg.timestamp)
