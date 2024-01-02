@@ -348,3 +348,15 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
         db.commit()
         db.refresh(bot_msg)
         return MessageOut(id=bot_msg.id, role="bot", content=bot_msg.content, timestamp=bot_msg.timestamp)
+
+    except Exception as e:
+        logger.error(f"Response generation error: {e}")
+        lang = detect_language(user_content)
+        error_text = {
+            "en": "I apologize, but I'm experiencing technical difficulties. Please try again.",
+            "ar": "أعتذر، ولكنني أواجه صعوبات تقنية. يرجى المحاولة مرة أخرى.",
+        }
+        bot_msg = Message(chat_id=chat_id, user_id=chat.user_id, sender="bot", content=error_text.get(lang, error_text["en"]))
+        db.add(bot_msg)
+        db.commit()
+        return MessageOut(id=bot_msg.id, role="bot", content=bot_msg.content, timestamp=bot_msg.timestamp)
