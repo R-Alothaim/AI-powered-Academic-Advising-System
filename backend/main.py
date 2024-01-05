@@ -360,3 +360,12 @@ async def send_message(chat_id: int, msg: MessageCreate, db: Session = Depends(g
         db.add(bot_msg)
         db.commit()
         return MessageOut(id=bot_msg.id, role="bot", content=bot_msg.content, timestamp=bot_msg.timestamp)
+
+
+@app.post("/chats/delete")
+async def delete_chat_post(chat_data: Dict[str, Any], db: Session = Depends(get_db)):
+    chat_id = chat_data.get("chat_id")
+    if not chat_id:
+        raise HTTPException(status_code=400, detail="chat_id required")
+    return await delete_chat(chat_id, db)
+
