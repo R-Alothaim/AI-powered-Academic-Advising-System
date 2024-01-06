@@ -369,3 +369,13 @@ async def delete_chat_post(chat_data: Dict[str, Any], db: Session = Depends(get_
         raise HTTPException(status_code=400, detail="chat_id required")
     return await delete_chat(chat_id, db)
 
+
+@app.delete("/chats/{chat_id}")
+async def delete_chat(chat_id: int, db: Session = Depends(get_db)):
+    db.query(Message).filter(Message.chat_id == chat_id).delete()
+    chat = db.query(Chat).filter(Chat.id == chat_id).first()
+    if not chat:
+        raise HTTPException(status_code=404, detail="Conversation not found")
+    db.delete(chat)
+    db.commit()
+    return {"message": "Conversation deleted"}
