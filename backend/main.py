@@ -379,3 +379,15 @@ async def delete_chat(chat_id: int, db: Session = Depends(get_db)):
     db.delete(chat)
     db.commit()
     return {"message": "Conversation deleted"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(
+        "main:app",
+        host=os.getenv("HOST", "0.0.0.0"),
+        port=int(os.getenv("PORT", 8000)),
+        reload=os.getenv("RELOAD", "true").lower() == "true",
+        log_level="info",
+    )
