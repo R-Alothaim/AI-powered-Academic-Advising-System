@@ -14,3 +14,12 @@ from enum import Enum
 import hashlib
 import logging
 import numpy as np
+# Try to import machine learning libraries
+try:
+    from sentence_transformers import SentenceTransformer
+    # Import FAISS for vector search - REMOVED due to dependency issues
+    # import faiss
+    ML_AVAILABLE = True
+except ImportError:
+    ML_AVAILABLE = False
+    logging.warning("ML libraries (sentence-transformers) not found. RAG features will be disabled.")
