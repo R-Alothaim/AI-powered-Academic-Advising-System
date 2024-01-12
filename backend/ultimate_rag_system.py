@@ -23,3 +23,12 @@ try:
 except ImportError:
     ML_AVAILABLE = False
     logging.warning("ML libraries (sentence-transformers) not found. RAG features will be disabled.")
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class QueryType(Enum):
+    # Enum member for course prerequisite queries
+    COURSE_PREREQUISITE = "course_prerequisite"
+    # Enum member for academic calendar queries
+    ACADEMIC_CALENDAR = "academic_calendar"
