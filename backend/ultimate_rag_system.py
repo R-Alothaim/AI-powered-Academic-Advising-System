@@ -32,3 +32,11 @@ class QueryType(Enum):
     COURSE_PREREQUISITE = "course_prerequisite"
     # Enum member for academic calendar queries
     ACADEMIC_CALENDAR = "academic_calendar"
+    # Enum member for registration queries
+    REGISTRATION = "registration"
+    # Enum member for GPA and grades queries
+    GPA_GRADES = "gpa_grades"
+    # Enum member for course withdrawal queries
+    WITHDRAWAL = "withdrawal"
+    # Enum member for academic policy queries
+    ACADEMIC_POLICY = "academic_policy"
