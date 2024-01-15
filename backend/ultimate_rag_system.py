@@ -40,3 +40,11 @@ class QueryType(Enum):
     WITHDRAWAL = "withdrawal"
     # Enum member for academic policy queries
     ACADEMIC_POLICY = "academic_policy"
+    # Enum member for general advice queries
+    GENERAL_ADVICE = "general_advice"
+    # Enum member for specific course information queries
+    COURSE_INFO = "course_info"
+
+@dataclass
+# Apply the dataclass decorator to automatically generate methods like __init__ and __repr__
+@dataclass
