@@ -48,3 +48,11 @@ class QueryType(Enum):
 @dataclass
 # Apply the dataclass decorator to automatically generate methods like __init__ and __repr__
 @dataclass
+class ContextChunk:
+    content: str
+    source: str
+    chunk_type: str
+    # Dictionary containing additional metadata about the chunk
+    metadata: Dict[str, Any]
+    embedding: Optional[np.ndarray] = None
+    relevance_score: float = 0.0
