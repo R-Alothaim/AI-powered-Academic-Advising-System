@@ -65,3 +65,14 @@ class UltimateRAGSystem:
     
     def __init__(self, workspace_path: str):
         self.workspace_path = Path(workspace_path)
+        self.db_path = self.workspace_path / "rag_knowledge.db"
+        self.embeddings_model = None
+        # Initialize the embeddings matrix to None (Replaces FAISS index)
+        self.embeddings_matrix = None
+        
+        # Check if machine learning libraries are available
+        if ML_AVAILABLE:
+            try:
+                self.embeddings_model = SentenceTransformer('all-MiniLM-L6-v2')
+            except Exception as e:
+                logger.error(f"Failed to load embedding model: {e}")
