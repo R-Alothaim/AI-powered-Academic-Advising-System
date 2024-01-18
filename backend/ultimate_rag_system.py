@@ -76,3 +76,15 @@ class UltimateRAGSystem:
                 self.embeddings_model = SentenceTransformer('all-MiniLM-L6-v2')
             except Exception as e:
                 logger.error(f"Failed to load embedding model: {e}")
+
+        
+        self.chunks = []
+        
+        # Ensure the cache directory exists
+        self._ensure_cache_dir()
+        # Initialize the SQLite database schema
+        self._init_database()
+        
+        self.course_mapping = {}
+        self._load_course_mapping()
+        
