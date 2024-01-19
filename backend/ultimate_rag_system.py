@@ -88,3 +88,12 @@ class UltimateRAGSystem:
         self.course_mapping = {}
         self._load_course_mapping()
         
+        # Try to load the existing index from disk
+        if not self.load_index():
+            # If load fails, load all documents from source
+            self._load_all_documents()
+            # If ML libraries and model are available
+            if ML_AVAILABLE and self.embeddings_model:
+                self._build_vector_index()
+                self.save_index()
+        
