@@ -97,3 +97,15 @@ class UltimateRAGSystem:
                 self._build_vector_index()
                 self.save_index()
         
+    def save_index(self):
+        """Save vector index and chunks to disk."""
+        # Check if the index or chunks are missing
+        if self.embeddings_matrix is None or not self.chunks:
+            # If so, return immediately without saving
+            return
+            
+        try:
+            import pickle
+            embeddings_path = self.workspace_path / "cache/embeddings.npy"
+            np.save(embeddings_path, self.embeddings_matrix)
+            
