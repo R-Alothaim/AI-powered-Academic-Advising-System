@@ -109,3 +109,10 @@ class UltimateRAGSystem:
             embeddings_path = self.workspace_path / "cache/embeddings.npy"
             np.save(embeddings_path, self.embeddings_matrix)
             
+            chunks_path = self.workspace_path / "cache/chunks.pkl"
+            with open(chunks_path, 'wb') as f:
+                # Dump the chunks list to the file using pickle
+                pickle.dump(self.chunks, f)
+            logger.info("Saved vector embeddings and chunks to disk")
+        except Exception as e:
+            logger.error(f"Failed to save index: {e}")
