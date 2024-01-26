@@ -129,3 +129,12 @@ class UltimateRAGSystem:
             embeddings_path = self.workspace_path / "cache/embeddings.npy"
             chunks_path = self.workspace_path / "cache/chunks.pkl"
             
+            if not embeddings_path.exists() or not chunks_path.exists():
+                # If either is missing, return False
+                return False
+                
+            self.embeddings_matrix = np.load(embeddings_path)
+            
+            with open(chunks_path, 'rb') as f:
+                self.chunks = pickle.load(f)
+                
