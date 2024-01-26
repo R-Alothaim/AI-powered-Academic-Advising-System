@@ -116,3 +116,16 @@ class UltimateRAGSystem:
             logger.info("Saved vector embeddings and chunks to disk")
         except Exception as e:
             logger.error(f"Failed to save index: {e}")
+
+    def load_index(self) -> bool:
+        """Load vector index and chunks from disk."""
+        # Check if machine learning libraries are available
+        if not ML_AVAILABLE:
+            # If not, return False indicating failure to load
+            return False
+            
+        try:
+            import pickle
+            embeddings_path = self.workspace_path / "cache/embeddings.npy"
+            chunks_path = self.workspace_path / "cache/chunks.pkl"
+            
