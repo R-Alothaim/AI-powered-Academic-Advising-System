@@ -138,3 +138,11 @@ class UltimateRAGSystem:
             with open(chunks_path, 'rb') as f:
                 self.chunks = pickle.load(f)
                 
+            logger.info(f"Loaded vector index with {len(self.chunks)} chunks")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to load index: {e}")
+            return False
+        
+    # Define the helper method to ensure the cache directory exists
+    def _ensure_cache_dir(self):
