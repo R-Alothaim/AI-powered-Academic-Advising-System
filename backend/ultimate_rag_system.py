@@ -146,3 +146,13 @@ class UltimateRAGSystem:
         
     # Define the helper method to ensure the cache directory exists
     def _ensure_cache_dir(self):
+        """Ensure the cache directory exists."""
+        cache_dir = self.workspace_path / "cache"
+        cache_dir.mkdir(exist_ok=True)
+        self.db_path = cache_dir / "rag_knowledge.db"
+        
+    def _init_database(self):
+        """Initialize SQLite database for structured knowledge storage."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
