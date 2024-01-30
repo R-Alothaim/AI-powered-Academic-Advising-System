@@ -176,3 +176,11 @@ class UltimateRAGSystem:
                 hijri_start TEXT,
                 hijri_end TEXT,
                 gregorian_start TEXT,
+                gregorian_end TEXT,
+                status TEXT,
+                category TEXT,
+                level TEXT
+            )
+        """)
+        
+        cursor.execute("""
