@@ -168,3 +168,11 @@ class UltimateRAGSystem:
             )
         """)
         
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS academic_calendar (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_en TEXT,
+                event_ar TEXT,
+                hijri_start TEXT,
+                hijri_end TEXT,
+                gregorian_start TEXT,
