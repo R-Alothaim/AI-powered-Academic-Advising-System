@@ -156,3 +156,15 @@ class UltimateRAGSystem:
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS course_prerequisites (
+                course_code TEXT PRIMARY KEY,
+                course_name_en TEXT,
+                course_name_ar TEXT,
+                credits INTEGER,
+                prerequisites TEXT,
+                description TEXT,
+                program TEXT
+            )
+        """)
+        
