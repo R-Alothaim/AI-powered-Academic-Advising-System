@@ -184,3 +184,14 @@ class UltimateRAGSystem:
         """)
         
         cursor.execute("""
+            CREATE TABLE IF NOT EXISTS academic_policies (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                policy_name_en TEXT,
+                policy_name_ar TEXT,
+                content_en TEXT,
+                content_ar TEXT,
+                category TEXT,
+                source_document TEXT
+            )
+        """)
+        
