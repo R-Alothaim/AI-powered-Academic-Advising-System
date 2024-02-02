@@ -195,3 +195,15 @@ class UltimateRAGSystem:
             )
         """)
         
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS document_chunks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                content TEXT,
+                source_file TEXT,
+                chunk_type TEXT,
+                language TEXT,
+                metadata TEXT,
+                embedding_vector BLOB
+            )
+        """)
+        
