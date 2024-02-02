@@ -207,3 +207,12 @@ class UltimateRAGSystem:
             )
         """)
         
+        conn.commit()
+        conn.close()
+        
+    def _load_all_documents(self):
+        """Load and process all available documents."""
+        logger.info("Loading all University documents...")
+        
+        self._load_cs_courses()
+        
