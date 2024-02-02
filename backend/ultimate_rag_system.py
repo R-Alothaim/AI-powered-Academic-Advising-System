@@ -216,3 +216,13 @@ class UltimateRAGSystem:
         
         self._load_cs_courses()
         
+        self._load_manual_course_details()
+        
+        self._load_academic_calendar()
+        
+        self._load_general_info()
+        
+        self._load_document_chunks()
+        
+        logger.info(f"Loaded {len(self.chunks)} knowledge chunks")
+        
