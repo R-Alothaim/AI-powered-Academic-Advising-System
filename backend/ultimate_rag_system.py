@@ -226,3 +226,12 @@ class UltimateRAGSystem:
         
         logger.info(f"Loaded {len(self.chunks)} knowledge chunks")
         
+    def _load_cs_courses(self):
+        """Load CS course prerequisites from the official list."""
+        cs_courses_file = self.workspace_path / "data/project-pdfs/CS_Courses_List.txt"
+        
+        if not cs_courses_file.exists():
+            # Log a warning if the file is missing
+            logger.warning(f"CS Courses List file not found at {cs_courses_file}")
+            return
+            
