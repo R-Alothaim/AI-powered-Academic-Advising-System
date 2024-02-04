@@ -244,3 +244,13 @@ class UltimateRAGSystem:
         course_pattern = r'(\d+)\s*\|\s*(CS\d+)\s*\|\s*([^|]+)\s*\|\s*(\d+)\s*\|\s*([^|\n]*)'
         matches = re.findall(course_pattern, content)
         
+        for match in matches:
+            order, code, name, credits, prereqs = match
+            prereqs = prereqs.strip() if prereqs.strip() != '-' else ''
+            
+            cursor.execute("""
+                INSERT OR REPLACE INTO course_prerequisites 
+                (course_code, course_name_en, credits, prerequisites, program)
+                VALUES (?, ?, ?, ?, ?)
+            """, (code, name.strip(), int(credits), prereqs, 'Computer Science'))
+            
