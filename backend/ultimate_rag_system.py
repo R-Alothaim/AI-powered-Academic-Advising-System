@@ -235,3 +235,12 @@ class UltimateRAGSystem:
             logger.warning(f"CS Courses List file not found at {cs_courses_file}")
             return
             
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        with open(cs_courses_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        course_pattern = r'(\d+)\s*\|\s*(CS\d+)\s*\|\s*([^|]+)\s*\|\s*(\d+)\s*\|\s*([^|\n]*)'
+        matches = re.findall(course_pattern, content)
+        
