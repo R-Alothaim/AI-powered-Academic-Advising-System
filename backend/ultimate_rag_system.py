@@ -254,3 +254,15 @@ class UltimateRAGSystem:
                 VALUES (?, ?, ?, ?, ?)
             """, (code, name.strip(), int(credits), prereqs, 'Computer Science'))
             
+            chunk_content = f"Course {code}: {name.strip()}. Credits: {credits}. Prerequisites: {prereqs or 'None'}"
+            chunk = ContextChunk(
+                content=chunk_content,
+                source="CS_Courses_List.txt",
+                chunk_type="course_info",
+                metadata={
+                    "course_code": code,
+                    "course_name": name.strip(),
+                    "credits": credits,
+                    "prerequisites": prereqs,
+                    "language": "en"
+                }
