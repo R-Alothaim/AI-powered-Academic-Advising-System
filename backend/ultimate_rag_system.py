@@ -266,3 +266,11 @@ class UltimateRAGSystem:
                     "prerequisites": prereqs,
                     "language": "en"
                 }
+            )
+            self.chunks.append(chunk)
+            
+        conn.commit()
+        conn.close()
+        logger.info(f"Loaded {len(matches)} CS courses")
+        
+    def _load_academic_calendar(self):
