@@ -274,3 +274,12 @@ class UltimateRAGSystem:
         logger.info(f"Loaded {len(matches)} CS courses")
         
     def _load_academic_calendar(self):
+        """Load academic calendar from JSON files."""
+        calendar_files = [
+            self.workspace_path / "cache/calendar_1447_en.json",
+            self.workspace_path / "cache/calendar_1447_ar.json"
+        ]
+        
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
