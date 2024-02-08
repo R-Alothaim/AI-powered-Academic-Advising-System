@@ -283,3 +283,14 @@ class UltimateRAGSystem:
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
+        for calendar_file in calendar_files:
+            if not calendar_file.exists():
+                # Skip if file is missing
+                continue
+                
+            # Determine the language based on the filename
+            lang = 'ar' if '_ar.json' in str(calendar_file) else 'en'
+            
+            with open(calendar_file, 'r', encoding='utf-8') as f:
+                calendar_data = json.load(f)
+                
