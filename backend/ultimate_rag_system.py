@@ -294,3 +294,12 @@ class UltimateRAGSystem:
             with open(calendar_file, 'r', encoding='utf-8') as f:
                 calendar_data = json.load(f)
                 
+            for level, events in calendar_data.items():
+                for event in events:
+                    event_name = event.get('event', '')
+                    hijri_start = event.get('hijri_start', '')
+                    hijri_end = event.get('hijri_end', '')
+                    gregorian_start = event.get('gregorian_start', '')
+                    gregorian_end = event.get('gregorian_end', '')
+                    status = event.get('status', '')
+                    
