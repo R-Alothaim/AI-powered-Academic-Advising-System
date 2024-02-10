@@ -303,3 +303,11 @@ class UltimateRAGSystem:
                     gregorian_end = event.get('gregorian_end', '')
                     status = event.get('status', '')
                     
+                    if lang == 'en':
+                        cursor.execute("""
+                            INSERT OR REPLACE INTO academic_calendar 
+                            (event_en, hijri_start, hijri_end, gregorian_start, gregorian_end, status, category, level)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                        """, (event_name, hijri_start, hijri_end, gregorian_start, gregorian_end, status, 'calendar', level))
+                    else:
+                        # Update existing record with Arabic event name
