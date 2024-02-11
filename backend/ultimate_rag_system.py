@@ -331,3 +331,11 @@ class UltimateRAGSystem:
                             "level": level,
                             "language": lang
                         }
+                    )
+                    self.chunks.append(chunk)
+                    
+        conn.commit()
+        conn.close()
+        logger.info("Loaded academic calendar data")
+        
+    def _load_document_chunks(self):
