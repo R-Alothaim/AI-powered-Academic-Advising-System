@@ -311,3 +311,11 @@ class UltimateRAGSystem:
                         """, (event_name, hijri_start, hijri_end, gregorian_start, gregorian_end, status, 'calendar', level))
                     else:
                         # Update existing record with Arabic event name
+                        cursor.execute("""
+                            UPDATE academic_calendar SET event_ar = ? 
+                            WHERE event_en = ? OR (hijri_start = ? AND gregorian_start = ?)
+                        """, (event_name, '', hijri_start, gregorian_start))
+                    
+                    chunk_content = f"Event: {event_name}. Dates: {gregorian_start} to {gregorian_end}. Status: {status}"
+                    chunk = ContextChunk(
+                        content=chunk_content,
