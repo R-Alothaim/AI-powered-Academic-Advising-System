@@ -319,3 +319,15 @@ class UltimateRAGSystem:
                     chunk_content = f"Event: {event_name}. Dates: {gregorian_start} to {gregorian_end}. Status: {status}"
                     chunk = ContextChunk(
                         content=chunk_content,
+                        source=f"calendar_1447_{lang}.json",
+                        chunk_type="calendar_event",
+                        metadata={
+                            "event": event_name,
+                            "hijri_start": hijri_start,
+                            "hijri_end": hijri_end,
+                            "gregorian_start": gregorian_start,
+                            "gregorian_end": gregorian_end,
+                            "status": status,
+                            "level": level,
+                            "language": lang
+                        }
