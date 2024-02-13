@@ -347,3 +347,11 @@ class UltimateRAGSystem:
                 "chunk_type": "policy",
                 "metadata": {"category": "gpa", "language": "en"}
             },
+            {
+                "content": "الوضع الأكاديمي يحدد بناءً على المعدل التراكمي. الطلاب الذين معدلهم أقل من 2.0 قد يوضعون تحت الإنذار الأكاديمي.",
+                "source": "academic_policies",
+                "chunk_type": "policy", 
+                "metadata": {"category": "gpa", "language": "ar"}
+            },
+            {
+                "content": "Course withdrawal deadlines: With refund by September 4, 2025. Without refund by December 6, 2025.",
