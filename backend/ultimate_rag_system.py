@@ -339,3 +339,11 @@ class UltimateRAGSystem:
         logger.info("Loaded academic calendar data")
         
     def _load_document_chunks(self):
+        """Load additional document chunks for comprehensive coverage."""
+        policy_chunks = [
+            {
+                "content": "Academic standing is determined by cumulative GPA. Students with GPA below 2.0 may be placed on academic probation.",
+                "source": "academic_policies",
+                "chunk_type": "policy",
+                "metadata": {"category": "gpa", "language": "en"}
+            },
