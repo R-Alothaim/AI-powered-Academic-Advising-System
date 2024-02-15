@@ -355,3 +355,11 @@ class UltimateRAGSystem:
             },
             {
                 "content": "Course withdrawal deadlines: With refund by September 4, 2025. Without refund by December 6, 2025.",
+                "source": "academic_calendar",
+                "chunk_type": "deadline",
+                "metadata": {"category": "withdrawal", "language": "en"}
+            },
+            {
+                "content": "مواعيد انسحاب المقررات: مع الاسترداد حتى 4 سبتمبر 2025. بدون استرداد حتى 6 ديسمبر 2025.",
+                "source": "academic_calendar",
+                "chunk_type": "deadline",
