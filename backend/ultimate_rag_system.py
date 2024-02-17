@@ -363,3 +363,11 @@ class UltimateRAGSystem:
                 "content": "مواعيد انسحاب المقررات: مع الاسترداد حتى 4 سبتمبر 2025. بدون استرداد حتى 6 ديسمبر 2025.",
                 "source": "academic_calendar",
                 "chunk_type": "deadline",
+                "metadata": {"category": "withdrawal", "language": "ar"}
+            },
+            {
+                "content": "Attendance Policy: Students are expected to attend all lectures. Missing more than 25% of lectures without a valid excuse will result in a DN (Denial) grade, which disqualifies the student from the course.",
+                "source": "academic_policies",
+                "chunk_type": "policy",
+                "metadata": {"category": "attendance", "language": "en"}
+            },
