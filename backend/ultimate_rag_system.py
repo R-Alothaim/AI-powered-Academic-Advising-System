@@ -371,3 +371,11 @@ class UltimateRAGSystem:
                 "chunk_type": "policy",
                 "metadata": {"category": "attendance", "language": "en"}
             },
+            {
+                "content": "سياسة الحضور: يتوقع من الطلاب حضور جميع المحاضرات. غياب أكثر من 25% من المحاضرات بدون عذر مقبول سيؤدي إلى الحرمان (DN)، مما يعني استبعاد الطالب من المقرر.",
+                "source": "academic_policies",
+                "chunk_type": "policy",
+                "metadata": {"category": "attendance", "language": "ar"}
+            },
+            {
+                "content": "Grade Appeal Policy: Students have the right to object to their final grade. The appeal must be submitted via the electronic portal within 15 days of the result announcement. The appeal is reviewed by the department council.",
