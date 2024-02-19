@@ -379,3 +379,11 @@ class UltimateRAGSystem:
             },
             {
                 "content": "Grade Appeal Policy: Students have the right to object to their final grade. The appeal must be submitted via the electronic portal within 15 days of the result announcement. The appeal is reviewed by the department council.",
+                "source": "academic_policies",
+                "chunk_type": "policy",
+                "metadata": {"category": "grades", "language": "en"}
+            },
+            {
+                "content": "سياسة الاعتراض على الدرجات: يحق للطالب الاعتراض على النتيجة النهائية. يجب تقديم الاعتراض عبر البوابة الإلكترونية خلال 15 يوماً من إعلان النتيجة. يتم النظر في الاعتراض من قبل مجلس القسم.",
+                "source": "academic_policies",
+                "chunk_type": "policy",
