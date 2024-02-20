@@ -395,3 +395,11 @@ class UltimateRAGSystem:
                 "chunk_type": "policy",
                 "metadata": {"category": "complaints", "language": "en"}
             },
+            {
+                "content": "حقوق الطالب - الشكاوى: يحق للطالب تقديم شكوى ضد أي عضو هيئة تدريس أو موظف في حال سوء السلوك (مثل الإهانة أو التحرش). تقدم الشكاوى لرئيس القسم أو عبر وحدة حقوق الطلاب.",
+                "source": "student_rights",
+                "chunk_type": "policy",
+                "metadata": {"category": "complaints", "language": "ar"}
+            }
+        ]
+        
