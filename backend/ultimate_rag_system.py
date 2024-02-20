@@ -387,3 +387,11 @@ class UltimateRAGSystem:
                 "content": "سياسة الاعتراض على الدرجات: يحق للطالب الاعتراض على النتيجة النهائية. يجب تقديم الاعتراض عبر البوابة الإلكترونية خلال 15 يوماً من إعلان النتيجة. يتم النظر في الاعتراض من قبل مجلس القسم.",
                 "source": "academic_policies",
                 "chunk_type": "policy",
+                "metadata": {"category": "grades", "language": "ar"}
+            },
+            {
+                "content": "Student Rights - Complaints: Students have the right to file a complaint against any faculty member or staff for misconduct (e.g., insults, harassment). Complaints should be submitted to the Head of Department or via the Student Rights Unit.",
+                "source": "student_rights",
+                "chunk_type": "policy",
+                "metadata": {"category": "complaints", "language": "en"}
+            },
