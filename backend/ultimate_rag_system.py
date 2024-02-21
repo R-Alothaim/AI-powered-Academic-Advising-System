@@ -403,3 +403,12 @@ class UltimateRAGSystem:
             }
         ]
         
+        for chunk_data in policy_chunks:
+            chunk = ContextChunk(
+                content=chunk_data["content"],
+                source=chunk_data["source"],
+                chunk_type=chunk_data["chunk_type"],
+                metadata=chunk_data["metadata"]
+            )
+            self.chunks.append(chunk)
+            
