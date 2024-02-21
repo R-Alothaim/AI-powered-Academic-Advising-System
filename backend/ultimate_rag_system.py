@@ -412,3 +412,15 @@ class UltimateRAGSystem:
             )
             self.chunks.append(chunk)
             
+    def _build_vector_index(self):
+        """Build Numpy vector index for semantic search."""
+        if not ML_AVAILABLE or not self.chunks:
+            logger.warning("No chunks available or ML libraries missing")
+            return
+            
+        logger.info("Building vector index...")
+        
+        texts = [chunk.content for chunk in self.chunks]
+        # Encode texts using the sentence transformer model
+        embeddings = self.embeddings_model.encode(texts)
+        
