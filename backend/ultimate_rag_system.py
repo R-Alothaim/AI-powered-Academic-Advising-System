@@ -424,3 +424,13 @@ class UltimateRAGSystem:
         # Encode texts using the sentence transformer model
         embeddings = self.embeddings_model.encode(texts)
         
+        # Normalize embeddings for cosine similarity
+        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+        # Avoid division by zero
+        norms[norms == 0] = 1
+        # Normalize
+        embeddings = embeddings / norms
+        
+        for i, chunk in enumerate(self.chunks):
+            chunk.embedding = embeddings[i]
+            
