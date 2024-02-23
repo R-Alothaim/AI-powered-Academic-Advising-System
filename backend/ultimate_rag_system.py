@@ -434,3 +434,11 @@ class UltimateRAGSystem:
         for i, chunk in enumerate(self.chunks):
             chunk.embedding = embeddings[i]
             
+        self.embeddings_matrix = embeddings.astype(np.float32)
+        
+        logger.info(f"Built vector index with {len(self.chunks)} embeddings")
+
+    def _load_manual_course_details(self):
+        """Load manual course details for Senior Projects."""
+        courses = [
+            {
