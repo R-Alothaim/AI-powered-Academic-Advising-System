@@ -442,3 +442,14 @@ class UltimateRAGSystem:
         """Load manual course details for Senior Projects."""
         courses = [
             {
+                "content": "Course: CS479 Senior Project 1\\nCredits: 3\\nPrerequisites: CS350, CS352\\nDescription:\\nThis is the first part of a two-semester senior project sequence. Students work in teams to design and implement a significant software system. The course focuses on project proposal, requirements analysis, system design, and initial implementation. Students learn to apply software engineering principles, project management techniques, and effective communication skills.\\nObjectives:\\n1. Apply software engineering lifecycle models.\\n2. Conduct feasibility studies and requirements elicitation.\\n3. Design software architecture and user interfaces.\\n4. Develop a project plan and schedule.\\n5. Present technical proposals and progress reports.",
+                "source": "manual_course_details",
+                "chunk_type": "course_details",
+                "metadata": {"course_code": "CS479", "type": "course_details"}
+            },
+            {
+                "content": "Course: CS489 Senior Project 2\\nCredits: 3\\nPrerequisites: CS479\\nDescription:\\nThis is the second part of the senior project sequence. Students continue the work started in CS479, focusing on implementation, testing, deployment, and evaluation of the software system. The course culminates in a final presentation and demonstration of the completed project.\\nObjectives:\\n1. Implement the software system based on the design from CS479.\\n2. Perform unit, integration, and system testing.\\n3. Deploy and maintain the software application.\\n4. Evaluate the system against initial requirements.\\n5. Write a comprehensive final report and user manual.\\n6. Demonstrate the final product to faculty and peers.",
+                "source": "manual_course_details",
+                "chunk_type": "course_details",
+                "metadata": {"course_code": "CS489", "type": "course_details"}
+            }
