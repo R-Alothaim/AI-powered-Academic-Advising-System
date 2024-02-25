@@ -453,3 +453,13 @@ class UltimateRAGSystem:
                 "chunk_type": "course_details",
                 "metadata": {"course_code": "CS489", "type": "course_details"}
             }
+        ]
+        
+        for chunk_data in courses:
+            chunk = ContextChunk(
+                content=chunk_data["content"],
+                source=chunk_data["source"],
+                chunk_type=chunk_data["chunk_type"],
+                metadata=chunk_data["metadata"]
+            )
+            self.chunks.append(chunk)
