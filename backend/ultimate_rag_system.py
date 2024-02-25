@@ -463,3 +463,12 @@ class UltimateRAGSystem:
                 metadata=chunk_data["metadata"]
             )
             self.chunks.append(chunk)
+
+    def _load_general_info(self):
+        """Load general information about the program."""
+        general_info = [
+            {
+                "content": "The Computer Science (CS) program duration is typically 4 years, consisting of 8 semesters. The program is divided into 8 levels, with each level corresponding to one semester.",
+                "source": "general_info",
+                "chunk_type": "program_info",
+                "metadata": {"category": "duration", "language": "en"}
