@@ -472,3 +472,12 @@ class UltimateRAGSystem:
                 "source": "general_info",
                 "chunk_type": "program_info",
                 "metadata": {"category": "duration", "language": "en"}
+            },
+            {
+                "content": "مدة برنامج علوم الحاسب (CS) هي عادة 4 سنوات، وتتكون من 8 فصول دراسية. ينقسم البرنامج إلى 8 مستويات، حيث يمثل كل مستوى فصلاً دراسياً واحداً.",
+                "source": "general_info",
+                "chunk_type": "program_info",
+                "metadata": {"category": "duration", "language": "ar"}
+            }
+        ]
+        
