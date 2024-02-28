@@ -481,3 +481,12 @@ class UltimateRAGSystem:
             }
         ]
         
+        for info in general_info:
+            chunk = ContextChunk(
+                content=info["content"],
+                source=info["source"],
+                chunk_type=info["chunk_type"],
+                metadata=info["metadata"]
+            )
+            self.chunks.append(chunk)
+        
