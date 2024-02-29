@@ -490,3 +490,15 @@ class UltimateRAGSystem:
             )
             self.chunks.append(chunk)
         
+    def classify_query(self, query: str) -> QueryType:
+        """Classify the type of query to optimize retrieval."""
+        query_lower = query.lower()
+        
+        # Course prerequisite patterns
+        if any(word in query_lower for word in ['prerequisite', 'متطلب', 'requires', 'يتطلب', 'before taking']):
+            return QueryType.COURSE_PREREQUISITE
+            
+        # Academic calendar patterns  
+        if any(word in query_lower for word in ['deadline', 'date', 'when', 'registration', 'exam', 'تسجيل', 'موعد', 'تاريخ']):
+            return QueryType.ACADEMIC_CALENDAR
+            
