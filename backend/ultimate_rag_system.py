@@ -510,3 +510,11 @@ class UltimateRAGSystem:
         if any(word in query_lower for word in ['withdraw', 'drop', 'انسحاب', 'حذف', 'اعتذار']):
             return QueryType.WITHDRAWAL
             
+        # Course info patterns
+        # Check if any specific course codes exist in the query
+        if any(word in query_lower.split() for word in ['cs001', 'cs230', 'cs231', 'cs240', 'cs241', 'cs242', 'cs243', 'cs350', 'cs351', 'cs352', 'cs353', 'cs360', 'cs361', 'cs362', 'cs363', 'cs364']):
+            return QueryType.COURSE_INFO
+            
+        # Default to GENERAL_ADVICE if no other type matches
+        return QueryType.GENERAL_ADVICE
+        
