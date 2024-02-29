@@ -502,3 +502,11 @@ class UltimateRAGSystem:
         if any(word in query_lower for word in ['deadline', 'date', 'when', 'registration', 'exam', 'تسجيل', 'موعد', 'تاريخ']):
             return QueryType.ACADEMIC_CALENDAR
             
+        # GPA/grades patterns
+        if any(word in query_lower for word in ['gpa', 'grade', 'معدل', 'درجة', 'probation', 'إنذار', 'appeal', 'object', 'اعتراض']):
+            return QueryType.GPA_GRADES
+            
+        # Withdrawal patterns
+        if any(word in query_lower for word in ['withdraw', 'drop', 'انسحاب', 'حذف', 'اعتذار']):
+            return QueryType.WITHDRAWAL
+            
