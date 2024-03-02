@@ -518,3 +518,15 @@ class UltimateRAGSystem:
         # Default to GENERAL_ADVICE if no other type matches
         return QueryType.GENERAL_ADVICE
         
+    def retrieve_context(self, query: str, max_chunks: int = 10, filter_metadata: Dict[str, Any] = None) -> List[ContextChunk]:
+        """Retrieve most relevant context chunks for the query."""
+        # Check if index or embedding model is missing
+        if self.embeddings_matrix is None or not self.embeddings_model:
+            # Log warning if components are missing
+            logger.warning("Vector index or embedding model not available")
+            return []
+            
+        # Classify query type
+        # Determine the type of the query
+        query_type = self.classify_query(query)
+        
