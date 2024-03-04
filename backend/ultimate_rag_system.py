@@ -530,3 +530,11 @@ class UltimateRAGSystem:
         # Determine the type of the query
         query_type = self.classify_query(query)
         
+        # Encode the query string into a vector
+        query_embedding = self.embeddings_model.encode([query])
+        
+        # Normalize query embedding
+        query_norm = np.linalg.norm(query_embedding, axis=1, keepdims=True)
+        query_norm[query_norm == 0] = 1
+        query_embedding = query_embedding / query_norm
+        
