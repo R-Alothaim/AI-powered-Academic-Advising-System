@@ -548,3 +548,13 @@ class UltimateRAGSystem:
         if k == 0:
             return []
             
+        top_indices = np.argpartition(scores, -k)[-k:]
+        top_indices = top_indices[np.argsort(scores[top_indices])[::-1]]
+        
+        relevant_chunks = []
+        for idx in top_indices:
+            score = scores[idx]
+            if idx < len(self.chunks):
+                chunk = self.chunks[idx]
+                chunk.relevance_score = float(score)
+                
