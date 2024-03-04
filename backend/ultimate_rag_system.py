@@ -538,3 +538,13 @@ class UltimateRAGSystem:
         query_norm[query_norm == 0] = 1
         query_embedding = query_embedding / query_norm
         
+        # Search vector index (Cosine Similarity via Dot Product)
+        # Calculate dot product between query and all embeddings
+        # shape: (1, dim) @ (dim, num_chunks) -> (1, num_chunks)
+        scores = np.dot(query_embedding, self.embeddings_matrix.T)[0]
+        
+        # Argpartition to get top k indices (unsorted)
+        k = min(max_chunks * 2, len(scores))
+        if k == 0:
+            return []
+            
