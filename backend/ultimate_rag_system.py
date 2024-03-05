@@ -558,3 +558,11 @@ class UltimateRAGSystem:
                 chunk = self.chunks[idx]
                 chunk.relevance_score = float(score)
                 
+                # Apply type-specific filtering
+                if self._is_chunk_relevant(chunk, query_type, query):
+                    # STRICT METADATA FILTERING
+                    if filter_metadata:
+                        match = True
+                        for key, value in filter_metadata.items():
+                            if chunk.metadata.get(key) != value:
+                                # If mismatch, set match to False
