@@ -566,3 +566,12 @@ class UltimateRAGSystem:
                         for key, value in filter_metadata.items():
                             if chunk.metadata.get(key) != value:
                                 # If mismatch, set match to False
+                                match = False
+                                # Break the loop
+                                break
+                        # If no match, skip this chunk
+                        if not match:
+                            continue
+                            
+                    relevant_chunks.append(chunk)
+                    
