@@ -575,3 +575,12 @@ class UltimateRAGSystem:
                             
                     relevant_chunks.append(chunk)
                     
+        relevant_chunks.sort(key=lambda x: x.relevance_score, reverse=True)
+        return relevant_chunks[:max_chunks]
+        
+    def _is_chunk_relevant(self, chunk: ContextChunk, query_type: QueryType, query: str) -> bool:
+        """Check if chunk is relevant for the query type."""
+        # Course prerequisite queries
+        if query_type == QueryType.COURSE_PREREQUISITE:
+            return chunk.chunk_type in ['course_info'] or 'prerequisite' in chunk.content.lower()
+            
