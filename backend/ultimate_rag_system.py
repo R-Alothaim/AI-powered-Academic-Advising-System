@@ -584,3 +584,11 @@ class UltimateRAGSystem:
         if query_type == QueryType.COURSE_PREREQUISITE:
             return chunk.chunk_type in ['course_info'] or 'prerequisite' in chunk.content.lower()
             
+        # Calendar queries
+        if query_type == QueryType.ACADEMIC_CALENDAR:
+            return chunk.chunk_type in ['calendar_event', 'deadline']
+            
+        # Always include high-relevance chunks
+        # Return true if score is above threshold regardless of type
+        return chunk.relevance_score > 0.3
+        
