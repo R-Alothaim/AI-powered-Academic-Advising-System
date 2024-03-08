@@ -603,3 +603,13 @@ class UltimateRAGSystem:
             WHERE course_code = ?
         """, (course_code,))
         
+        result = cursor.fetchone()
+        conn.close()
+        
+        if result:
+            return {
+                'course_code': result[0],
+                'course_name': result[1],
+                'credits': result[2],
+                'prerequisites': result[3] or 'None'
+            }
