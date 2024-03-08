@@ -592,3 +592,14 @@ class UltimateRAGSystem:
         # Return true if score is above threshold regardless of type
         return chunk.relevance_score > 0.3
         
+    def get_course_prerequisites(self, course_code: str) -> Optional[Dict[str, Any]]:
+        """Get specific course prerequisite information from database."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT course_code, course_name_en, credits, prerequisites 
+            FROM course_prerequisites 
+            WHERE course_code = ?
+        """, (course_code,))
+        
