@@ -613,3 +613,12 @@ class UltimateRAGSystem:
                 'credits': result[2],
                 'prerequisites': result[3] or 'None'
             }
+        return None
+        
+    def build_response_context(self, query: str, filter_metadata: Dict[str, Any] = None) -> str:
+        """Build comprehensive context for response generation."""
+        relevant_chunks = self.retrieve_context(query, filter_metadata=filter_metadata)
+        
+        if not relevant_chunks:
+            return "No relevant information found in University knowledge base."
+            
