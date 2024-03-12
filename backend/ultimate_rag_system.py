@@ -622,3 +622,11 @@ class UltimateRAGSystem:
         if not relevant_chunks:
             return "No relevant information found in University knowledge base."
             
+        context_parts = []
+        context_parts.append("RELEVANT UNIVERSITY INFORMATION:")
+        context_parts.append("=" * 50)
+        
+        for i, chunk in enumerate(relevant_chunks[:5], 1):
+            context_parts.append(f"\n{i}. Source: {chunk.source}")
+            context_parts.append(f"   Content: {chunk.content}")
+            if chunk.metadata:
