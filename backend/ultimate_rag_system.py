@@ -630,3 +630,11 @@ class UltimateRAGSystem:
             context_parts.append(f"\n{i}. Source: {chunk.source}")
             context_parts.append(f"   Content: {chunk.content}")
             if chunk.metadata:
+                relevant_metadata = {k: v for k, v in chunk.metadata.items() 
+                                   if k in ['course_code', 'event', 'category', 'status']}
+                # If relevant metadata exists, add it to context
+                if relevant_metadata:
+                    context_parts.append(f"   Metadata: {relevant_metadata}")
+            context_parts.append(f"   Relevance: {chunk.relevance_score:.3f}")
+            
+        # Add specific course info if query mentions course codes
