@@ -638,3 +638,15 @@ class UltimateRAGSystem:
             context_parts.append(f"   Relevance: {chunk.relevance_score:.3f}")
             
         # Add specific course info if query mentions course codes
+        # Find all course codes in the query
+        course_codes = re.findall(r'CS\d+', query.upper())
+        # Iterate over found course codes
+        for code in course_codes:
+            course_info = self.get_course_prerequisites(code)
+            # If course info exists
+            if course_info:
+                context_parts.append(f"\nSPECIFIC INFO for {code}:")
+                context_parts.append(f"Name: {course_info['course_name']}")
+                context_parts.append(f"Credits: {course_info['credits']}")
+                context_parts.append(f"Prerequisites: {course_info['prerequisites']}")
+                
