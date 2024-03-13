@@ -650,3 +650,15 @@ class UltimateRAGSystem:
                 context_parts.append(f"Credits: {course_info['credits']}")
                 context_parts.append(f"Prerequisites: {course_info['prerequisites']}")
                 
+        return "\n".join(context_parts)
+        
+    def _load_course_mapping(self):
+        """Load course name to code mapping from database."""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            # Execute SQL to select course codes and names
+            cursor.execute("SELECT course_code, course_name_en, course_name_ar FROM course_prerequisites")
+            rows = cursor.fetchall()
+            conn.close()
+            
