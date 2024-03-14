@@ -662,3 +662,11 @@ class UltimateRAGSystem:
             rows = cursor.fetchall()
             conn.close()
             
+            for code, name_en, name_ar in rows:
+                # Map full English name
+                if name_en:
+                    # Map lowercase English name to code
+                    self.course_mapping[name_en.lower()] = code
+                    # Map "Senior Project 1" from "Senior Project 1 in Computer Science"
+                    if "senior project" in name_en.lower():
+                        match = re.search(r'(senior project \d+|senior project [iv]+)', name_en.lower())
