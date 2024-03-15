@@ -670,3 +670,14 @@ class UltimateRAGSystem:
                     # Map "Senior Project 1" from "Senior Project 1 in Computer Science"
                     if "senior project" in name_en.lower():
                         match = re.search(r'(senior project \d+|senior project [iv]+)', name_en.lower())
+                        # If a match is found
+                        if match:
+                            # Map the matched string to the code
+                            self.course_mapping[match.group(1)] = code
+                
+                # Map Arabic name
+                # Check if Arabic name exists
+                if name_ar:
+                    # Map lowercase Arabic name to code
+                    self.course_mapping[name_ar.lower()] = code
+                    
