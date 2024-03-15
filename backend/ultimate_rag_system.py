@@ -681,3 +681,12 @@ class UltimateRAGSystem:
                     # Map lowercase Arabic name to code
                     self.course_mapping[name_ar.lower()] = code
                     
+        except Exception as e:
+            print(f"Error loading course mapping: {e}")
+
+    def generate_instruction_block(self, query: str, history: List[Dict[str, str]] = None) -> str:
+        """Generate instruction block for the LLM with relevant context."""
+        # Enhance query with history if needed
+        enhanced_query = query
+        filter_metadata = {}
+        
