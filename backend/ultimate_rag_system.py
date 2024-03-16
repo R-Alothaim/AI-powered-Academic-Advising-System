@@ -690,3 +690,12 @@ class UltimateRAGSystem:
         enhanced_query = query
         filter_metadata = {}
         
+        # Dynamic mapping for course names (Enhance query for retrieval)
+        query_lower = query.lower()
+        for name, code in self.course_mapping.items():
+            if name in query_lower:
+                # Avoid duplicates if code is already in query
+                if code not in enhanced_query.upper():
+                    # Append the course code to the enhanced query
+                    enhanced_query += f" ({code})"
+        
