@@ -699,3 +699,11 @@ class UltimateRAGSystem:
                     # Append the course code to the enhanced query
                     enhanced_query += f" ({code})"
         
+        if history:
+            # Look for course codes in recent history if current query is vague
+            if len(query.split()) < 5 or "what else" in query.lower() or "tell me more" in query.lower():
+                for msg in reversed(history):
+                    if msg['role'] == 'user':
+                        # Check for explicit course codes using regex
+                        codes = re.findall(r'CS\d+', msg['content'].upper())
+                        
