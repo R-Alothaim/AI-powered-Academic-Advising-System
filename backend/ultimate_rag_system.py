@@ -707,3 +707,12 @@ class UltimateRAGSystem:
                         # Check for explicit course codes using regex
                         codes = re.findall(r'CS\d+', msg['content'].upper())
                         
+                        # If no codes found, check for course names
+                        if not codes:
+                            msg_lower = msg['content'].lower()
+                            for name, code in self.course_mapping.items():
+                                if name in msg_lower:
+                                    codes.append(code)
+                                    # Break after finding the first match
+                                    break
+                        
