@@ -716,3 +716,12 @@ class UltimateRAGSystem:
                                     # Break after finding the first match
                                     break
                         
+                        # If codes were found
+                        if codes:
+                            enhanced_query = f"{query} regarding {codes[0]}"
+                            # STRICT FILTERING: Only show chunks related to this course
+                            # Set filter metadata to the found course code
+                            filter_metadata = {"course_code": codes[0]}
+                            # Break the loop as we found the context
+                            break
+                            
