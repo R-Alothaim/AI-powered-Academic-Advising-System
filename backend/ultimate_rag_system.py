@@ -725,3 +725,11 @@ class UltimateRAGSystem:
                             # Break the loop as we found the context
                             break
                             
+        # Check for course codes in query (or enhanced query)
+        # Find all course codes in the enhanced query
+        course_codes = re.findall(r'CS\d+', enhanced_query.upper())
+        valid_courses = []
+        invalid_courses = []
+        
+        # Iterate over found course codes
+        for code in course_codes:
