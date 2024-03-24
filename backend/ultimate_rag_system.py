@@ -733,3 +733,11 @@ class UltimateRAGSystem:
         
         # Iterate over found course codes
         for code in course_codes:
+            if self.get_course_prerequisites(code):
+                valid_courses.append(code)
+            else:
+                invalid_courses.append(code)
+                
+        # If query is about an invalid course, force a denial response
+        if invalid_courses:
+            return f"""
