@@ -741,3 +741,13 @@ class UltimateRAGSystem:
         # If query is about an invalid course, force a denial response
         if invalid_courses:
             return f"""
+You are the Academic Advisor for the University.
+The student asked about {', '.join(invalid_courses)}, but these are NOT valid courses in the University program.
+State clearly that "{', '.join(invalid_courses)}" does not exist in the University curriculum.
+Do NOT invent information.
+Do NOT describe the course based on its name or number.
+Simply state it is not a valid course.
+"""
+
+        context = self.build_response_context(enhanced_query, filter_metadata)
+        
