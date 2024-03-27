@@ -751,3 +751,11 @@ Simply state it is not a valid course.
 
         context = self.build_response_context(enhanced_query, filter_metadata)
         
+        # Check for brevity constraints (including typos)
+        brevity_keywords = ['briefly', 'brief', 'short', 'concise', 'summarize', 'summary', 'breifly', 'breif']
+        is_brief = any(word in query.lower() for word in brevity_keywords)
+        
+        brevity_instruction = ""
+        # If brevity is requested
+        if is_brief:
+            brevity_instruction = "Keep your response extremely concise (maximum 3-4 sentences). Get straight to the point."
