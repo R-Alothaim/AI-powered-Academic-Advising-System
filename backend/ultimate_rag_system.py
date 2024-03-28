@@ -759,3 +759,12 @@ Simply state it is not a valid course.
         # If brevity is requested
         if is_brief:
             brevity_instruction = "Keep your response extremely concise (maximum 3-4 sentences). Get straight to the point."
+
+        if len(query.split()) <= 2 and is_brief and history:
+            last_real_query = None
+            for msg in reversed(history):
+                if msg['role'] == 'user' and len(msg['content'].split()) > 2:
+                    last_real_query = msg['content']
+                    # Break the loop
+                    break
+            
