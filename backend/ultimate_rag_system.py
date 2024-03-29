@@ -768,3 +768,15 @@ Simply state it is not a valid course.
                     # Break the loop
                     break
             
+            # If a previous real query was found
+            if last_real_query:
+                enhanced_query = f"{last_real_query} (Answer briefly)"
+                # Re-run context retrieval for the original query
+                # We need to re-extract course codes from the original query to ensure correct context
+                # Find course codes in the last real query
+                course_codes = re.findall(r'CS\d+', last_real_query.upper())
+                if "senior project 1" in last_real_query.lower() or "senior project i" in last_real_query.lower():
+                    course_codes.append("CS479")
+                if "senior project 2" in last_real_query.lower() or "senior project ii" in last_real_query.lower():
+                    course_codes.append("CS489")
+                    
