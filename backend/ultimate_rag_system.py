@@ -780,3 +780,11 @@ Simply state it is not a valid course.
                 if "senior project 2" in last_real_query.lower() or "senior project ii" in last_real_query.lower():
                     course_codes.append("CS489")
                     
+                # If course codes found
+                if course_codes:
+                     filter_metadata = {"course_code": course_codes[0]}
+                
+                # Re-build context with the updated query and filter
+                context = self.build_response_context(enhanced_query, filter_metadata)
+
+        # Construct the final instruction block
