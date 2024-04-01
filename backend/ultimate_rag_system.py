@@ -804,3 +804,15 @@ GUIDELINES:
 5. Context Only: If the context is missing info, say "I don't have that information in the University context."
 6. No Hallucinations: Do NOT invent information.
 7. Policies: Quote specific policies for attendance, grades, or rights.
+
+Context:
+{context}
+
+Question: {enhanced_query}
+"""
+        return instruction
+
+# Example usage and integration
+def integrate_with_fastapi(app, rag_system: UltimateRAGSystem):
+    """Integration function for FastAPI application."""
+    
