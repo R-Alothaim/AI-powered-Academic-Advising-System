@@ -816,3 +816,12 @@ Question: {enhanced_query}
 def integrate_with_fastapi(app, rag_system: UltimateRAGSystem):
     """Integration function for FastAPI application."""
     
+    @app.middleware("http")
+    async def add_rag_context(request, call_next):
+        request.state.rag = rag_system
+        response = await call_next(request)
+        return response
+        
+    def enhanced_send_message(chat_id: int, user_message: str):
+        """Enhanced message handler with RAG context."""
+        
