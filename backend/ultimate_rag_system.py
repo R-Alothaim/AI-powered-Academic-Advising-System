@@ -825,3 +825,12 @@ def integrate_with_fastapi(app, rag_system: UltimateRAGSystem):
     def enhanced_send_message(chat_id: int, user_message: str):
         """Enhanced message handler with RAG context."""
         
+        instruction_block = rag_system.generate_instruction_block(user_message)
+        
+        messages = [
+            {"role": "system", "content": instruction_block},
+            {"role": "user", "content": user_message}
+        ]
+        
+        # ... (existing LLM integration code)
+        
