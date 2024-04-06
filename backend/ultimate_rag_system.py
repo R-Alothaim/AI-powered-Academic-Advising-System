@@ -834,3 +834,11 @@ def integrate_with_fastapi(app, rag_system: UltimateRAGSystem):
         
         # ... (existing LLM integration code)
         
+        return "Enhanced response with RAG context"
+
+if __name__ == "__main__":
+    workspace_path = Path(__file__).parent.absolute()
+    rag_system = UltimateRAGSystem(workspace_path)
+    
+    # Test queries
+    test_queries = [
