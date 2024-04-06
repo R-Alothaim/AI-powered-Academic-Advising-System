@@ -842,3 +842,13 @@ if __name__ == "__main__":
     
     # Test queries
     test_queries = [
+        "What are the prerequisites for CS362?",
+        "ما هي متطلبات مقرر CS362؟",
+        "When is the registration deadline?",
+        "متى موعد التسجيل؟"
+    ]
+    
+    for query in test_queries:
+        print(f"\nQuery: {query}")
+        context = rag_system.build_response_context(query)
+        print(f"Context: {context[:200]}...")
