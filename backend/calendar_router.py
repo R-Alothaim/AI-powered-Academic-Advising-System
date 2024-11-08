@@ -13,6 +13,7 @@ router = APIRouter(tags=["calendar"])
 
 CACHE_DIR = Path(__file__).parent.parent / "cache"
 CACHE_DURATION = 3600
+MAX_RETRIES = 3
 
 def _cache_path(year: str, lang: str) -> Path:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
