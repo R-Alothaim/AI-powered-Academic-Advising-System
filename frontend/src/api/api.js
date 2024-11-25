@@ -1,5 +1,4 @@
 const API_BASE = '/api';
-const REQUEST_TIMEOUT = 30000;
 
 async function request(path, options = {}) {
   const token = localStorage.getItem('token');
