@@ -1,3 +1,4 @@
+// @ts-check
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import DashboardLayout from './components/DashboardLayout';
