@@ -1,0 +1,39 @@
+# ── Evaluation Configuration ──
+
+model:
+  model_name: "${STUDENT_MODEL_NAME}"
+  checkpoint_dir: "outputs/distill/best"
+  torch_dtype: "bfloat16"
+  device_map: "auto"
+  max_length: 2048
+
+data:
+  eval_uri: "${DATASET_EVAL_URI}"
+  cache_dir: "${DATA_CACHE_DIR}"
+
+metrics:
+  - exact_match
+  - refusal_accuracy
+  - token_f1
+
+categories:
+  control:
+    - prereq_lookup
+    - credits_lookup
+    - program_facts
+  adversarial:
+    - fact_mismatch
+    - invented_course
+    - cross_domain
+    - vague_incomplete
+    - jailbreak
+    - multi_hop_traps
+
+thresholds:
+  control_accuracy: 0.85
+  refusal_accuracy: 0.90
+  overall_f1: 0.80
+
+output:
+  report_dir: "outputs/eval_reports"
+  save_predictions: true
